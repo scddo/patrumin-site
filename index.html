@@ -11,13 +11,36 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
 
     <header class="site-header">
       <div class="topline">
         <div class="topline__inner">
-          <span>Registered investment adviser</span>
-          <a href="tel:+18447287864">844-728-7864</a>
+          <span data-i18n="registered">Registered Investment Adviser (RIA)</span>
+          <div class="topline__actions">
+            <div class="social-links" aria-label="Social media links">
+              <a href="https://www.linkedin.com/company/10127582" aria-label="Patrumin Investors on LinkedIn">
+                <span>in</span>
+              </a>
+              <a href="https://x.com/Patrumin" aria-label="Patrumin Investors on X">
+                <span>X</span>
+              </a>
+              <a href="https://www.facebook.com/patrumin" aria-label="Patrumin Investors on Facebook">
+                <span>f</span>
+              </a>
+            </div>
+            <a href="tel:+18447287864">844-728-7864</a>
+            <label class="language-switch" for="language-select">
+              <span data-i18n="languageLabel">Language</span>
+              <select id="language-select" aria-label="Select language">
+                <option value="en">English</option>
+                <option value="zh">中文</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="ja">日本語</option>
+              </select>
+            </label>
+          </div>
         </div>
       </div>
 
@@ -34,20 +57,20 @@
         </button>
 
         <div class="nav-links" id="site-menu">
-          <a href="#about">About</a>
+          <a href="#about" data-i18n="navAbout">About</a>
           <div class="nav-item nav-item--has-menu">
-            <a class="nav-trigger" href="#strategy">Strategies</a>
+            <a class="nav-trigger" href="#strategy" data-i18n="navStrategies">Strategies</a>
             <div class="nav-menu" aria-label="Investment strategies">
-              <a href="#strategy-smallcap">U.S. Smallcap Equity</a>
-              <a href="#strategy-dividends-plus">U.S. Dividends Plus+</a>
-              <a href="#strategy-multicap">U.S. Multicap Equity</a>
-              <a href="#strategy-smicrocap">SMICROcap Growth</a>
+              <a href="#strategy-smallcap" data-i18n="navSmallcap">U.S. Smallcap Equity</a>
+              <a href="#strategy-dividends-plus" data-i18n="navDividends">U.S. Dividends Plus+</a>
+              <a href="#strategy-multicap" data-i18n="navMulticap">U.S. Multicap Equity</a>
+              <a href="#strategy-smicrocap" data-i18n="navSmicrocap">SMICROCAP Growth</a>
             </div>
           </div>
-          <a href="#review">Portfolio Review</a>
-          <a href="#insights">Insights</a>
-          <a href="#contact">Contact</a>
-          <a class="nav-cta" href="#contact">Request Review</a>
+          <a href="#review" data-i18n="navReview">Portfolio Review</a>
+          <a href="#insights" data-i18n="navInsights">Insights</a>
+          <a href="#contact" data-i18n="navContact">Contact</a>
+          <a class="nav-cta" href="#contact" data-i18n="navCta">Complimentary Review</a>
         </div>
       </nav>
     </header>
@@ -61,19 +84,19 @@
         </div>
 
         <div class="hero__content section-shell">
-          <p class="eyebrow">Boutique RIA | U.S. equity portfolios</p>
-          <h1 id="hero-title">Patrumin Investors</h1>
-          <p class="hero__lede">
-            The Analysis You Need&reg; for disciplined, long-term equity portfolios.
+          <p class="eyebrow" data-i18n="heroEyebrow">Boutique RIA | U.S. equity portfolios</p>
+          <h1 id="hero-title" data-i18n="heroTitle">Patrumin Investors</h1>
+          <p class="hero__lede" data-i18n-html="heroLede">
+            The Analysis You Need<sup class="reg-mark">&reg;</sup> for disciplined, long-term equity portfolios.
           </p>
-          <p class="hero__copy">
+          <p class="hero__copy" data-i18n="heroCopy">
             Independent portfolio management focused on patient stock selection,
             free cash flow analysis, transparent fees, and risk-aware stewardship
             for high-net-worth families and institutions.
           </p>
           <div class="button-row">
-            <a class="button button--primary" href="#strategy">Explore Strategy</a>
-            <a class="button button--secondary" href="#review">Review a Portfolio</a>
+            <a class="button button--primary" href="#strategy" data-i18n="heroPrimary">Explore Strategies</a>
+            <a class="button button--secondary" href="#review" data-i18n="heroSecondary">Complimentary Portfolio Review</a>
           </div>
           <div class="hero-controls" aria-label="Hero image carousel">
             <button class="hero-dot is-active" type="button" data-slide="0" aria-label="Show hero image 1" aria-current="true"></button>
@@ -83,15 +106,15 @@
         </div>
         <div class="hero-band" aria-label="Patrumin investment focus">
           <div class="section-shell hero-band__grid">
-            <span>One company at a time</span>
-            <span>Stock selection matters</span>
-            <span>Designed for long-term investors</span>
+            <span data-i18n="heroBandOne">One company at a time</span>
+            <span data-i18n="heroBandTwo">Stock selection matters</span>
+            <span data-i18n="heroBandThree">Designed for long-term investors</span>
           </div>
         </div>
       </section>
 
       <section class="overview section-padding">
-        <div class="section-shell overview__grid">
+        <div class="section-shell overview__grid" data-i18n-html="overview">
           <div>
             <p class="eyebrow">Firm overview</p>
             <h2>Independent research with private-client discipline.</h2>
@@ -112,7 +135,7 @@
       </section>
 
       <section class="principles section-padding section-padding--topless" aria-labelledby="principles-title">
-        <div class="section-shell">
+        <div class="section-shell" data-i18n-html="principles">
           <div class="section-heading">
             <p class="eyebrow">Investment principles</p>
             <h2 id="principles-title">Patient, thoughtful, disciplined, knowledgeable.</h2>
@@ -159,7 +182,7 @@
       </section>
 
       <section class="about section-padding" id="about" aria-labelledby="about-title">
-        <div class="section-shell about__grid">
+        <div class="section-shell about__grid" data-i18n-html="about">
           <div class="about__main">
             <p class="eyebrow">About Patrumin</p>
             <h2 id="about-title">A boutique investment adviser focused on analysis before allocation.</h2>
@@ -190,7 +213,7 @@
       </section>
 
       <section class="strategy section-padding" id="strategy" aria-labelledby="strategy-title">
-        <div class="section-shell">
+        <div class="section-shell" data-i18n-html="strategy">
           <div class="section-heading section-heading--wide">
             <p class="eyebrow">Investment strategies</p>
             <h2 id="strategy-title">Research-led U.S. equity strategies.</h2>
@@ -206,7 +229,7 @@
             <a href="#strategy-smallcap">Smallcap</a>
             <a href="#strategy-dividends-plus">Dividends Plus+</a>
             <a href="#strategy-multicap">Multicap</a>
-            <a href="#strategy-smicrocap">SMICROcap Growth</a>
+            <a href="#strategy-smicrocap">SMICROCAP Growth</a>
           </div>
 
           <div class="strategy-list">
@@ -261,23 +284,38 @@
               </div>
               <div>
                 <p>
-                  A disciplined equity income strategy focused on company
-                  quality, cash generation, dividend durability, and valuation
-                  awareness. The strategy is designed for investors who value
-                  long-term ownership, transparency, and a research-led process.
-                </p>
-                <p>
-                  Patrumin seeks to build portfolios one company at a time,
-                  emphasizing businesses with understandable economics, careful
-                  capital allocation, and the potential to support income over
+                  The Patrumin U.S. Dividends Plus+ Equity Strategy is a
+                  specialty product we created due to persistent customer
+                  requests and inquiries. There are two powerful demographic
+                  trends: the aging of America's baby boomer population and the
+                  ever-increasing life expectancy of our population. Families
+                  need to find a way to generate income for longer periods of
                   time.
                 </p>
-                <ul class="strategy-points">
-                  <li>Free cash flow analysis</li>
-                  <li>Dividend discipline</li>
-                  <li>Risk-aware valuation</li>
-                  <li>Thoughtful portfolio construction</li>
-                </ul>
+                <p>
+                  This portfolio is specifically constructed to include only 25
+                  U.S.-traded stocks that pay cash dividends and is diversified
+                  with holdings across multiple economic sectors.
+                </p>
+                <p>
+                  The strategy seeks to exceed the total return of the S&amp;P
+                  500* over a market cycle, coincident with an economic cycle,
+                  of 4-to-6 years.
+                </p>
+                <p>
+                  The "Plus" in the product name signifies that we also seek to
+                  realize capital appreciation with a portion of the stock
+                  holdings to accentuate total investment returns of the
+                  strategy.
+                </p>
+                <p class="strategy-risk">
+                  *Indices are unmanaged and investors cannot invest directly in
+                  an index. The Standard &amp; Poor's 500 (S&amp;P 500) is a
+                  subjectively formed, unmanaged group of securities considered
+                  to be representative of the stock market in general. It is a
+                  market value weighted index with each stock's weight in the
+                  index proportionate to its market value.
+                </p>
               </div>
             </article>
 
@@ -286,29 +324,95 @@
                 <p class="card-kicker">Flexible U.S. equity exposure</p>
                 <h3>Patrumin U.S. Multicap Equity Strategy</h3>
               </div>
-              <p>
-                The Patrumin U.S. Multicap Equity Strategy is designed to
-                invest across market capitalizations when bottom-up research
-                identifies attractive company fundamentals, cash generating
-                potential, and valuation discipline. The approach allows
-                Patrumin to consider businesses across sectors and stages of
-                maturity while maintaining a company-by-company research focus.
-              </p>
+              <div>
+                <p>
+                  The Patrumin U.S. Multicap Equity Strategy is our portfolio
+                  of best ideas. We construct this portfolio with U.S. stock
+                  investments that meet our rigorous, analytical,
+                  fundamentally-driven research process.
+                </p>
+                <p>
+                  The strategy's goal is to be balanced across the
+                  capitalization spectrum with exposure to smallcaps, midcaps
+                  and largecaps. The weighted average capitalization for the
+                  strategy is generally over $20bb, reflecting this
+                  diversification*.
+                </p>
+                <p>
+                  The Patrumin U.S. Multicap Equity Strategy is a concentrated
+                  portfolio, between 40 to 60 stocks, offered in an SMA
+                  (separately managed account) format. The investment objective
+                  is to seek to outperform the S&amp;P 500 by 2.00% to 3.00%
+                  annually via growth in capital, over a full market cycle.
+                </p>
+                <p>
+                  The investment style is core, with elements of growth, GARP
+                  and value investing included within the portfolio in order to
+                  maximize the number of investment opportunities for our
+                  clients. We consider Patrumin U.S. Multicap a "best ideas"
+                  strategy, irrespective of market capitalization and/or
+                  investment style.
+                </p>
+                <p>
+                  We believe that our clients benefit from broad diversification
+                  in their equity investment portfolios. Therefore, in addition
+                  to including companies from multiple economic sectors, we also
+                  believe our clients benefit from investing in companies across
+                  the market cap spectrum, or a multi-cap approach.
+                </p>
+                <p>
+                  We are confident that our decades of experience investing in
+                  small and mid-sized companies, many of which have become
+                  today's global industry leaders, gives us a competitive
+                  advantage when it comes to stock selection in this asset
+                  class.
+                </p>
+                <p>
+                  We also seek out companies that we believe are undervalued
+                  relative to their earnings and cash generating potential. And,
+                  we are especially attracted to companies that have either
+                  products or services that fundamentally change the spending
+                  behavior of consumers or business customers.
+                </p>
+                <p class="strategy-risk">
+                  *Diversification does not guarantee a profit or protect
+                  against loss in a declining market; it is a method used to
+                  help mitigate investment risk.
+                </p>
+              </div>
             </article>
 
             <article class="strategy-panel" id="strategy-smicrocap">
               <div>
                 <p class="card-kicker">Emerging-company growth</p>
-                <h3>Patrumin SMICROcap Growth Strategy</h3>
+                <h3>Patrumin U.S. SMICROCAP Growth Equity Strategy</h3>
               </div>
               <div>
                 <p>
-                  The Patrumin SMICROcap Growth Strategy is focused on smaller
-                  and emerging U.S. companies where fundamental research may
-                  identify differentiated products, services, or industry
-                  changes. The strategy seeks long-term growth opportunities
-                  while recognizing that smaller companies can experience
-                  greater volatility and liquidity constraints.
+                  The Patrumin U.S. SMICROCAP Growth Equity Strategy invests in
+                  smaller companies that are often included in the Russell 2000
+                  and Russell Microcap Indices as well as new issues (IPOs).
+                  The strategy is the only "growth-style" product offered by
+                  Patrumin, and attempts to leverage additional exposure, or
+                  sector weightings, to growth-oriented sectors like technology,
+                  healthcare, industrials and consumer discretionary.
+                </p>
+                <p>
+                  The strategy will invest in volatile, smaller companies,
+                  including companies with equity market capitalizations below
+                  $100mm and occasionally companies with equity capitalizations
+                  greater than $5B. The Patrumin U.S. SMICROCAP Growth Equity
+                  Strategy is constructed with stocks from multiple sectors of
+                  the economy.
+                </p>
+                <p>
+                  However, a key investment priority will be to attempt to
+                  identify and invest in companies that may experience rapid
+                  rates of growth, irrespective of the strategy's industry or
+                  sector weightings. We are especially attracted to companies
+                  that have products or services that fundamentally change the
+                  spending behavior of consumers or that of their business
+                  customers.
                 </p>
                 <p class="strategy-risk">
                   Smaller and micro-capitalization securities may involve
@@ -319,22 +423,40 @@
             </article>
           </div>
 
-          <a class="text-link strategy-contact-link" href="#contact">Request strategy factsheet</a>
+          <div class="strategy-materials">
+            <div>
+              <p class="card-kicker">Strategy materials</p>
+              <h3>Factsheets and additional information</h3>
+            </div>
+            <p>
+              Additional information about the Patrumin U.S. Smallcap Equity
+              Strategy, Patrumin U.S. Dividends Plus+ Equity Strategy, and
+              Patrumin U.S. Multicap Equity Strategy can be found in each
+              product factsheet PDF, including performance, top ten positions,
+              sector weightings, and detailed information about the strategy.
+              To request further information about the U.S. SMICROCAP Growth
+              Equity Strategy, or any Patrumin strategy, please email us at
+              <a href="mailto:info@patrumin.com">info@patrumin.com</a>.
+            </p>
+            <a class="button button--primary" href="mailto:info@patrumin.com?subject=Patrumin%20Strategy%20Materials%20Request">
+              Email For Strategy Materials
+            </a>
+          </div>
         </div>
       </section>
 
       <section class="review section-padding" id="review" aria-labelledby="review-title">
-        <div class="section-shell review__grid">
+        <div class="section-shell review__grid" data-i18n-html="review">
           <div>
-            <p class="eyebrow">Fiduciary audit / portfolio review</p>
-            <h2 id="review-title">A clear look at fees, taxes, holdings, and fit.</h2>
+            <p class="eyebrow">Complimentary portfolio review</p>
+            <h2 id="review-title">A clear look at fees, tax efficiency, holdings, and fit.</h2>
             <p>
-              Patrumin's portfolio review is intended to help investors
+              Patrumin's complimentary portfolio review is intended to help investors
               understand what they own, what they pay, where tax considerations
               may matter, and whether legacy holdings still serve their
               objectives.
             </p>
-            <a class="button button--primary" href="#contact">Start a Conversation</a>
+            <a class="button button--primary" href="#contact">Request Complimentary Review</a>
           </div>
 
           <div class="review-list">
@@ -371,7 +493,7 @@
       </section>
 
       <section class="insights section-padding" id="insights" aria-labelledby="insights-title">
-        <div class="section-shell">
+        <div class="section-shell" data-i18n-html="insights">
           <div class="section-heading">
             <p class="eyebrow">Insights</p>
             <h2 id="insights-title">Market commentary and investor resources.</h2>
@@ -413,13 +535,14 @@
       </section>
 
       <section class="contact section-padding" id="contact" aria-labelledby="contact-title">
-        <div class="section-shell contact__grid">
+        <div class="section-shell contact__grid" data-i18n-html="contact">
           <div>
             <p class="eyebrow">Contact</p>
             <h2 id="contact-title">Start a confidential conversation.</h2>
             <p>
               For prospective clients, advisers, and families evaluating a more
-              transparent portfolio management relationship.
+              transparent portfolio management relationship or a complimentary
+              portfolio review.
             </p>
           </div>
 
@@ -437,7 +560,7 @@
               info@patrumin.com
             </a>
             <a class="button button--primary" href="mailto:info@patrumin.com?subject=Patrumin%20Portfolio%20Review%20Request">
-              Request Portfolio Review
+              Request Complimentary Review
             </a>
           </div>
         </div>
@@ -451,22 +574,33 @@
             <img class="footer-mark" src="assets/patrumin-mark.png" alt="" aria-hidden="true">
             <span>Patrumin <strong>Investors</strong></span>
           </div>
-          <p>
+          <p data-i18n="footerAdvisory">
             Investment advisory services offered through Patrumin Investors,
             LLC, a registered investment adviser.
           </p>
+          <div class="social-links footer-social" aria-label="Social media links">
+            <a href="https://www.linkedin.com/company/10127582" aria-label="Patrumin Investors on LinkedIn">
+              <span>in</span>
+            </a>
+            <a href="https://x.com/Patrumin" aria-label="Patrumin Investors on X">
+              <span>X</span>
+            </a>
+            <a href="https://www.facebook.com/patrumin" aria-label="Patrumin Investors on Facebook">
+              <span>f</span>
+            </a>
+          </div>
         </div>
 
         <nav class="footer-nav" aria-label="Footer navigation">
-          <a href="#about">About</a>
-          <a href="#strategy">Strategy</a>
-          <a href="#review">Portfolio Review</a>
-          <a href="#insights">Insights</a>
-          <a href="#contact">Contact</a>
+          <a href="#about" data-i18n="navAbout">About</a>
+          <a href="#strategy" data-i18n="footerStrategy">Strategy</a>
+          <a href="#review" data-i18n="navReview">Portfolio Review</a>
+          <a href="#insights" data-i18n="navInsights">Insights</a>
+          <a href="#contact" data-i18n="navContact">Contact</a>
         </nav>
       </div>
 
-      <div class="section-shell footer-disclosures">
+      <div class="section-shell footer-disclosures" data-i18n-html="footerDisclosures">
         <p>
           This site is published for residents of the United States only.
           Investment adviser representatives may only conduct business with
