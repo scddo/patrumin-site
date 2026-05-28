@@ -82,21 +82,23 @@ const translations = {
       registered: "Registered Investment Adviser (RIA)",
       languageLabel: "Language",
       navAbout: "About",
-      navStrategies: "Strategies",
+      navStrategies: "Equity Strategies",
       navSmallcap: "U.S. Smallcap Equity",
       navDividends: "U.S. Dividends Plus+",
-      navMulticap: "U.S. Multicap Equity",
-      navSmicrocap: "SMICROCAP Growth",
-      navReview: "Portfolio Review",
+      navAllcap: "U.S. Allcap Equity",
+      navSmicrocap: "U.S. SMICROCAP Growth",
+      navBalancedEqIncome: "Balanced Equity-Income",
+      navCustomBalanced: "Custom Balanced",
+      navGipsComposite: "GIPS Composite Reports",
+      navPerformance: "Performance",
       navInsights: "Insights",
       navContact: "Contact",
       navCta: "Complimentary Review",
-      footerStrategy: "Strategy",
-      heroEyebrow: "Boutique RIA | U.S. equity portfolios",
+      heroEyebrow: "A Boutique Registered Advisory Firm (RIA)",
       heroTitle: "Patrumin Investors",
       heroCopy: "Independent portfolio management focused on patient stock selection, free cash flow analysis, transparent fees, and risk-aware stewardship for high-net-worth families and institutions.",
       heroPrimary: "Explore Strategies",
-      heroSecondary: "Complimentary Portfolio Review",
+      heroSecondary: "GIPS Performance Records",
       heroBandOne: "One company at a time",
       heroBandTwo: "Stock selection matters",
       heroBandThree: "Designed for long-term investors",
@@ -138,15 +140,17 @@ const translations = {
           </aside>`,
       strategy: `
           <div class="section-heading section-heading--wide">
-            <p class="eyebrow">Investment strategies</p>
+            <p class="eyebrow">Equity strategies</p>
             <h2 id="strategy-title">Research-led U.S. equity strategies.</h2>
             <p>Patrumin's strategies are built around bottom-up fundamental research, company-level analysis, and disciplined portfolio construction. Each strategy is designed to express a distinct opportunity set without relying on performance promises.</p>
           </div>
           <div class="strategy-nav" aria-label="Strategy shortcuts">
-            <a href="#strategy-smallcap">Smallcap</a>
+            <a href="#strategy-smallcap">Smallcap Equity</a>
             <a href="#strategy-dividends-plus">Dividends Plus+</a>
-            <a href="#strategy-multicap">Multicap</a>
+            <a href="#strategy-allcap">Allcap Equity</a>
             <a href="#strategy-smicrocap">SMICROCAP Growth</a>
+            <a href="#strategy-balanced-equity-income">Balanced Equity-Income</a>
+            <a href="#strategy-custom-balanced">Custom Balanced</a>
           </div>
           <div class="strategy-list">
             <article class="strategy-panel" id="strategy-smallcap">
@@ -169,14 +173,14 @@ const translations = {
                 <p class="strategy-risk">*Indices are unmanaged and investors cannot invest directly in an index. The Standard &amp; Poor's 500 (S&amp;P 500) is a subjectively formed, unmanaged group of securities considered to be representative of the stock market in general. It is a market value weighted index with each stock's weight in the index proportionate to its market value.</p>
               </div>
             </article>
-            <article class="strategy-panel" id="strategy-multicap">
-              <div><p class="card-kicker">Flexible U.S. equity exposure</p><h3>Patrumin U.S. Multicap Equity Strategy</h3></div>
+            <article class="strategy-panel" id="strategy-allcap">
+              <div><p class="card-kicker">Flexible U.S. equity exposure</p><h3>Patrumin U.S. Allcap Equity Strategy</h3></div>
               <div>
-                <p>The Patrumin U.S. Multicap Equity Strategy is our portfolio of best ideas. We construct this portfolio with U.S. stock investments that meet our rigorous, analytical, fundamentally-driven research process.</p>
+                <p>The Patrumin U.S. Allcap Equity Strategy is our portfolio of best ideas. We construct this portfolio with U.S. stock investments that meet our rigorous, analytical, fundamentally-driven research process.</p>
                 <p>The strategy's goal is to be balanced across the capitalization spectrum with exposure to smallcaps, midcaps and largecaps. The weighted average capitalization for the strategy is generally over $20bb, reflecting this diversification*.</p>
                 <p>The strategy is a concentrated portfolio, between 40 to 60 stocks, offered in an SMA format. The investment objective is to seek to outperform the S&amp;P 500 by 2.00% to 3.00% annually via growth in capital, over a full market cycle.</p>
-                <p>The investment style is core, with elements of growth, GARP and value investing included within the portfolio in order to maximize the number of investment opportunities for our clients. We consider Patrumin U.S. Multicap a "best ideas" strategy, irrespective of market capitalization and/or investment style.</p>
-                <p>We believe that clients benefit from broad diversification in their equity investment portfolios. We also believe clients benefit from investing in companies across the market cap spectrum, or a multi-cap approach.</p>
+                <p>The investment style is core, with elements of growth, GARP and value investing included within the portfolio in order to maximize the number of investment opportunities for our clients. We consider Patrumin U.S. Allcap a "best ideas" strategy, irrespective of market capitalization and/or investment style.</p>
+                <p>We believe that clients benefit from broad diversification in their equity investment portfolios. We also believe clients benefit from investing in companies across the market cap spectrum, or an all-cap approach.</p>
                 <p>We are confident that our decades of experience investing in small and mid-sized companies, many of which have become today's global industry leaders, gives us a competitive advantage when it comes to stock selection in this asset class.</p>
                 <p>We also seek out companies that we believe are undervalued relative to their earnings and cash generating potential, and we are especially attracted to companies that have products or services that fundamentally change the spending behavior of consumers or business customers.</p>
                 <p class="strategy-risk">*Diversification does not guarantee a profit or protect against loss in a declining market; it is a method used to help mitigate investment risk.</p>
@@ -191,16 +195,34 @@ const translations = {
                 <p class="strategy-risk">Smaller and micro-capitalization securities may involve greater issuer, liquidity, and market risk than securities of larger, more established companies.</p>
               </div>
             </article>
+            <article class="strategy-panel" id="strategy-balanced-equity-income">
+              <div><p class="card-kicker">Growth &amp; income combined</p><h3>Patrumin Balanced Equity-Income Strategy</h3></div>
+              <div>
+                <p>The Patrumin Balanced Equity-Income Strategy is designed for investors seeking both capital appreciation and consistent income generation within a single, actively managed portfolio. The strategy combines dividend-paying equities with growth-oriented positions to pursue a balanced approach to total return.</p>
+                <p>The strategy targets a diversified portfolio of U.S.-traded stocks that offer a combination of current income and growth potential, with particular emphasis on companies demonstrating durable free cash flow generation and a history of consistent dividend payment.</p>
+                <p>Portfolio construction emphasizes sector diversification and company-level due diligence, drawing on Patrumin's more than 30 years of fundamental equity research experience. The strategy is offered in an SMA (separately managed account) format.</p>
+                <p class="strategy-risk">Income-oriented strategies may be subject to risks including changes in dividend policy, interest rate sensitivity, and sector concentration. Diversification does not guarantee a profit or protect against loss in a declining market.</p>
+              </div>
+            </article>
+            <article class="strategy-panel" id="strategy-custom-balanced">
+              <div><p class="card-kicker">Personalized portfolio construction</p><h3>Patrumin Custom Balanced Strategy</h3></div>
+              <div>
+                <p>The Patrumin Custom Balanced Strategy offers a personalized approach to portfolio construction, tailored to each client's unique income, growth, risk, and tax parameters. Working closely with clients and their advisers, Patrumin constructs individually managed equity portfolios that reflect specific investment objectives and constraints.</p>
+                <p>This strategy is appropriate for investors with meaningful account balances who require a high degree of customization — including tax-loss harvesting considerations, legacy holding restrictions, sector exclusions, or a defined income target alongside growth participation.</p>
+                <p>Because every Custom Balanced portfolio is built from the ground up, clients benefit from Patrumin's full analytical process applied directly to their individual situation. Contact us to discuss how a custom balanced approach may align with your portfolio goals.</p>
+                <p class="strategy-risk">Custom strategies involve additional complexity and may not be appropriate for all investors. Minimum account sizes apply. Please contact Patrumin for eligibility details.</p>
+              </div>
+            </article>
           </div>
           <div class="strategy-materials">
             <div><p class="card-kicker">Strategy materials</p><h3>Factsheets and additional information</h3></div>
-            <p>Additional information about the Patrumin U.S. Smallcap Equity Strategy, Patrumin U.S. Dividends Plus+ Equity Strategy, and Patrumin U.S. Multicap Equity Strategy can be found in each product factsheet PDF, including performance, top ten positions, sector weightings, and detailed information about the strategy. To request further information about the U.S. SMICROCAP Growth Equity Strategy, or any Patrumin strategy, please email us at <a href="mailto:info@patrumin.com">info@patrumin.com</a>.</p>
+            <p>Additional information about Patrumin equity strategies can be found in each product factsheet PDF, including performance, top ten positions, sector weightings, and detailed information about the strategy. To request further information about any Patrumin strategy, please email us at <a href="mailto:info@patrumin.com">info@patrumin.com</a>.</p>
             <a class="button button--primary" href="mailto:info@patrumin.com?subject=Patrumin%20Strategy%20Materials%20Request">Email For Strategy Materials</a>
           </div>`,
       review: `
           <div>
-            <p class="eyebrow">Complimentary portfolio review</p>
-            <h2 id="review-title">A clear look at fees, tax efficiency, holdings, and fit.</h2>
+            <p class="eyebrow">GIPS Performance Records</p>
+            <h2 id="performance-title">A clear look at fees, tax efficiency, holdings, and fit.</h2>
             <p>Patrumin's complimentary portfolio review is intended to help investors understand what they own, what they pay, where tax considerations may matter, and whether legacy holdings still serve their objectives.</p>
             <a class="button button--primary" href="#contact">Request Complimentary Review</a>
           </div>
@@ -248,16 +270,18 @@ const translations = {
       registered: "注册投资顾问（RIA）",
       languageLabel: "语言",
       navAbout: "关于",
-      navStrategies: "策略",
+      navStrategies: "股票策略",
       navSmallcap: "美国小盘股票",
       navDividends: "美国 Dividends Plus+",
-      navMulticap: "美国多市值股票",
-      navSmicrocap: "SMICROCAP 成长",
-      navReview: "投资组合审阅",
+      navAllcap: "美国全市值股票",
+      navSmicrocap: "美国 SMICROCAP 成长",
+      navBalancedEqIncome: "平衡股票收益",
+      navCustomBalanced: "定制平衡",
+      navGipsComposite: "GIPS 组合报告",
+      navPerformance: "业绩记录",
       navInsights: "洞察",
       navContact: "联系",
       navCta: "免费审阅",
-      footerStrategy: "策略",
       heroEyebrow: "精品 RIA | 美国股票投资组合",
       heroTitle: "Patrumin Investors",
       heroCopy: "独立投资组合管理，专注于耐心选股、自由现金流分析、透明费用以及面向高净值家庭和机构的风险意识型受托管理。",
@@ -293,16 +317,18 @@ const extendTranslations = () => {
       registered: "Asesor de Inversiones Registrado (RIA)",
       languageLabel: "Idioma",
       navAbout: "Acerca de",
-      navStrategies: "Estrategias",
+      navStrategies: "Estrategias de Acciones",
       navSmallcap: "Renta variable smallcap de EE. UU.",
       navDividends: "Dividends Plus+ de EE. UU.",
-      navMulticap: "Renta variable multicap de EE. UU.",
-      navSmicrocap: "Crecimiento SMICROCAP",
-      navReview: "Revisión de cartera",
+      navAllcap: "Renta variable allcap de EE. UU.",
+      navSmicrocap: "Crecimiento U.S. SMICROCAP",
+      navBalancedEqIncome: "Acciones-Renta Equilibrado",
+      navCustomBalanced: "Equilibrado Personalizado",
+      navGipsComposite: "Informes Compuestos GIPS",
+      navPerformance: "Rendimiento",
       navInsights: "Perspectivas",
       navContact: "Contacto",
       navCta: "Revisión sin costo",
-      footerStrategy: "Estrategia",
       heroEyebrow: "RIA boutique | Carteras de renta variable de EE. UU.",
       heroCopy: "Gestión independiente de carteras enfocada en selección paciente de acciones, análisis de flujo de caja libre, comisiones transparentes y administración fiduciaria consciente del riesgo para familias e instituciones de alto patrimonio.",
       heroPrimary: "Explorar estrategias",
@@ -334,16 +360,18 @@ const extendTranslations = () => {
       registered: "Conseiller en Investissement Enregistré (RIA)",
       languageLabel: "Langue",
       navAbout: "À propos",
-      navStrategies: "Stratégies",
+      navStrategies: "Stratégies Actions",
       navSmallcap: "Actions smallcap américaines",
       navDividends: "Dividends Plus+ américain",
-      navMulticap: "Actions multicap américaines",
-      navSmicrocap: "Croissance SMICROCAP",
-      navReview: "Revue de portefeuille",
+      navAllcap: "Actions allcap américaines",
+      navSmicrocap: "Croissance U.S. SMICROCAP",
+      navBalancedEqIncome: "Actions-Revenu Équilibré",
+      navCustomBalanced: "Équilibré Personnalisé",
+      navGipsComposite: "Rapports Composites GIPS",
+      navPerformance: "Performance",
       navInsights: "Analyses",
       navContact: "Contact",
       navCta: "Revue offerte",
-      footerStrategy: "Stratégie",
       heroEyebrow: "RIA boutique | Portefeuilles actions américaines",
       heroCopy: "Gestion indépendante de portefeuilles axée sur une sélection patiente de titres, l'analyse du flux de trésorerie disponible, des frais transparents et une approche fiduciaire consciente du risque pour les familles et institutions fortunées.",
       heroPrimary: "Explorer les stratégies",
@@ -375,16 +403,18 @@ const extendTranslations = () => {
       registered: "登録投資顧問（RIA）",
       languageLabel: "言語",
       navAbout: "会社情報",
-      navStrategies: "戦略",
+      navStrategies: "株式戦略",
       navSmallcap: "米国小型株式",
       navDividends: "米国 Dividends Plus+",
-      navMulticap: "米国マルチキャップ株式",
-      navSmicrocap: "SMICROCAP 成長",
-      navReview: "ポートフォリオ診断",
+      navAllcap: "米国オールキャップ株式",
+      navSmicrocap: "米国 SMICROCAP 成長",
+      navBalancedEqIncome: "バランス型株式インカム",
+      navCustomBalanced: "カスタムバランス",
+      navGipsComposite: "GIPS コンポジットレポート",
+      navPerformance: "パフォーマンス",
       navInsights: "インサイト",
       navContact: "お問い合わせ",
       navCta: "無料診断",
-      footerStrategy: "戦略",
       heroEyebrow: "ブティック RIA | 米国株式ポートフォリオ",
       heroCopy: "忍耐強い銘柄選択、フリーキャッシュフロー分析、透明な手数料、リスクを意識した受託者としての管理に重点を置いた独立系ポートフォリオ運用です。",
       heroPrimary: "戦略を見る",

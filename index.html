@@ -19,13 +19,13 @@
           <span data-i18n="registered">Registered Investment Adviser (RIA)</span>
           <div class="topline__actions">
             <div class="social-links" aria-label="Social media links">
-              <a href="https://www.linkedin.com/company/10127582" aria-label="Patrumin Investors on LinkedIn">
+              <a class="social-link--linkedin" href="https://www.linkedin.com/company/10127582" aria-label="Patrumin Investors on LinkedIn">
                 <span>in</span>
               </a>
-              <a href="https://x.com/Patrumin" aria-label="Patrumin Investors on X">
+              <a class="social-link--x" href="https://x.com/Patrumin" aria-label="Patrumin Investors on X">
                 <span>X</span>
               </a>
-              <a href="https://www.facebook.com/patrumin" aria-label="Patrumin Investors on Facebook">
+              <a class="social-link--facebook" href="https://www.facebook.com/patrumin" aria-label="Patrumin Investors on Facebook">
                 <span>f</span>
               </a>
             </div>
@@ -59,15 +59,18 @@
         <div class="nav-links" id="site-menu">
           <a href="#about" data-i18n="navAbout">About</a>
           <div class="nav-item nav-item--has-menu">
-            <a class="nav-trigger" href="#strategy" data-i18n="navStrategies">Strategies</a>
-            <div class="nav-menu" aria-label="Investment strategies">
+            <a class="nav-trigger" href="#strategy" data-i18n="navStrategies">Equity Strategies</a>
+            <div class="nav-menu" aria-label="Equity investment strategies">
               <a href="#strategy-smallcap" data-i18n="navSmallcap">U.S. Smallcap Equity</a>
               <a href="#strategy-dividends-plus" data-i18n="navDividends">U.S. Dividends Plus+</a>
-              <a href="#strategy-multicap" data-i18n="navMulticap">U.S. Multicap Equity</a>
-              <a href="#strategy-smicrocap" data-i18n="navSmicrocap">SMICROCAP Growth</a>
+              <a href="#strategy-allcap" data-i18n="navAllcap">U.S. Allcap Equity</a>
+              <a href="#strategy-smicrocap" data-i18n="navSmicrocap">U.S. SMICROCAP Growth</a>
+              <a href="#strategy-balanced-equity-income" data-i18n="navBalancedEqIncome">Balanced Equity-Income</a>
+              <a href="#strategy-custom-balanced" data-i18n="navCustomBalanced">Custom Balanced</a>
             </div>
           </div>
-          <a href="#review" data-i18n="navReview">Portfolio Review</a>
+          <a href="#gips-composite" data-i18n="navGipsComposite">GIPS Composite Reports</a>
+          <a href="#performance" data-i18n="navPerformance">Performance</a>
           <a href="#insights" data-i18n="navInsights">Insights</a>
           <a href="#contact" data-i18n="navContact">Contact</a>
           <a class="nav-cta" href="#contact" data-i18n="navCta">Complimentary Review</a>
@@ -84,7 +87,7 @@
         </div>
 
         <div class="hero__content section-shell">
-          <p class="eyebrow" data-i18n="heroEyebrow">Boutique RIA | U.S. equity portfolios</p>
+          <p class="eyebrow" data-i18n="heroEyebrow">A Boutique Registered Advisory Firm (RIA)</p>
           <h1 id="hero-title" data-i18n="heroTitle">Patrumin Investors</h1>
           <p class="hero__lede" data-i18n-html="heroLede">
             The Analysis You Need<sup class="reg-mark">&reg;</sup> for disciplined, long-term equity portfolios.
@@ -96,7 +99,7 @@
           </p>
           <div class="button-row">
             <a class="button button--primary" href="#strategy" data-i18n="heroPrimary">Explore Strategies</a>
-            <a class="button button--secondary" href="#review" data-i18n="heroSecondary">Complimentary Portfolio Review</a>
+            <a class="button button--secondary" href="#gips-composite" data-i18n="heroSecondary">GIPS Performance Records</a>
           </div>
           <div class="hero-controls" aria-label="Hero image carousel">
             <button class="hero-dot is-active" type="button" data-slide="0" aria-label="Show hero image 1" aria-current="true"></button>
@@ -215,7 +218,7 @@
       <section class="strategy section-padding" id="strategy" aria-labelledby="strategy-title">
         <div class="section-shell" data-i18n-html="strategy">
           <div class="section-heading section-heading--wide">
-            <p class="eyebrow">Investment strategies</p>
+            <p class="eyebrow">Equity strategies</p>
             <h2 id="strategy-title">Research-led U.S. equity strategies.</h2>
             <p>
               Patrumin's strategies are built around bottom-up fundamental
@@ -226,10 +229,12 @@
           </div>
 
           <div class="strategy-nav" aria-label="Strategy shortcuts">
-            <a href="#strategy-smallcap">Smallcap</a>
+            <a href="#strategy-smallcap">Smallcap Equity</a>
             <a href="#strategy-dividends-plus">Dividends Plus+</a>
-            <a href="#strategy-multicap">Multicap</a>
+            <a href="#strategy-allcap">Allcap Equity</a>
             <a href="#strategy-smicrocap">SMICROCAP Growth</a>
+            <a href="#strategy-balanced-equity-income">Balanced Equity-Income</a>
+            <a href="#strategy-custom-balanced">Custom Balanced</a>
           </div>
 
           <div class="strategy-list">
@@ -319,14 +324,14 @@
               </div>
             </article>
 
-            <article class="strategy-panel" id="strategy-multicap">
+            <article class="strategy-panel" id="strategy-allcap">
               <div>
                 <p class="card-kicker">Flexible U.S. equity exposure</p>
-                <h3>Patrumin U.S. Multicap Equity Strategy</h3>
+                <h3>Patrumin U.S. Allcap Equity Strategy</h3>
               </div>
               <div>
                 <p>
-                  The Patrumin U.S. Multicap Equity Strategy is our portfolio
+                  The Patrumin U.S. Allcap Equity Strategy is our portfolio
                   of best ideas. We construct this portfolio with U.S. stock
                   investments that meet our rigorous, analytical,
                   fundamentally-driven research process.
@@ -339,7 +344,7 @@
                   diversification*.
                 </p>
                 <p>
-                  The Patrumin U.S. Multicap Equity Strategy is a concentrated
+                  The Patrumin U.S. Allcap Equity Strategy is a concentrated
                   portfolio, between 40 to 60 stocks, offered in an SMA
                   (separately managed account) format. The investment objective
                   is to seek to outperform the S&amp;P 500 by 2.00% to 3.00%
@@ -349,7 +354,7 @@
                   The investment style is core, with elements of growth, GARP
                   and value investing included within the portfolio in order to
                   maximize the number of investment opportunities for our
-                  clients. We consider Patrumin U.S. Multicap a "best ideas"
+                  clients. We consider Patrumin U.S. Allcap a "best ideas"
                   strategy, irrespective of market capitalization and/or
                   investment style.
                 </p>
@@ -358,7 +363,7 @@
                   in their equity investment portfolios. Therefore, in addition
                   to including companies from multiple economic sectors, we also
                   believe our clients benefit from investing in companies across
-                  the market cap spectrum, or a multi-cap approach.
+                  the market cap spectrum, or an all-cap approach.
                 </p>
                 <p>
                   We are confident that our decades of experience investing in
@@ -366,13 +371,6 @@
                   today's global industry leaders, gives us a competitive
                   advantage when it comes to stock selection in this asset
                   class.
-                </p>
-                <p>
-                  We also seek out companies that we believe are undervalued
-                  relative to their earnings and cash generating potential. And,
-                  we are especially attracted to companies that have either
-                  products or services that fundamentally change the spending
-                  behavior of consumers or business customers.
                 </p>
                 <p class="strategy-risk">
                   *Diversification does not guarantee a profit or protect
@@ -421,6 +419,79 @@
                 </p>
               </div>
             </article>
+
+            <article class="strategy-panel" id="strategy-balanced-equity-income">
+              <div>
+                <p class="card-kicker">Growth &amp; income combined</p>
+                <h3>Patrumin Balanced Equity-Income Strategy</h3>
+              </div>
+              <div>
+                <p>
+                  The Patrumin Balanced Equity-Income Strategy is designed for
+                  investors seeking both capital appreciation and consistent
+                  income generation within a single, actively managed portfolio.
+                  The strategy combines dividend-paying equities with
+                  growth-oriented positions to pursue a balanced approach to
+                  total return.
+                </p>
+                <p>
+                  The strategy targets a diversified portfolio of U.S.-traded
+                  stocks that offer a combination of current income and growth
+                  potential, with particular emphasis on companies demonstrating
+                  durable free cash flow generation and a history of consistent
+                  dividend payment.
+                </p>
+                <p>
+                  Portfolio construction emphasizes sector diversification and
+                  company-level due diligence, drawing on Patrumin's more than
+                  30 years of fundamental equity research experience. The
+                  strategy is offered in an SMA (separately managed account)
+                  format.
+                </p>
+                <p class="strategy-risk">
+                  Income-oriented strategies may be subject to risks including
+                  changes in dividend policy, interest rate sensitivity, and
+                  sector concentration. Diversification does not guarantee a
+                  profit or protect against loss in a declining market.
+                </p>
+              </div>
+            </article>
+
+            <article class="strategy-panel" id="strategy-custom-balanced">
+              <div>
+                <p class="card-kicker">Personalized portfolio construction</p>
+                <h3>Patrumin Custom Balanced Strategy</h3>
+              </div>
+              <div>
+                <p>
+                  The Patrumin Custom Balanced Strategy offers a personalized
+                  approach to portfolio construction, tailored to each client's
+                  unique income, growth, risk, and tax parameters. Working
+                  closely with clients and their advisers, Patrumin constructs
+                  individually managed equity portfolios that reflect specific
+                  investment objectives and constraints.
+                </p>
+                <p>
+                  This strategy is appropriate for investors with meaningful
+                  account balances who require a high degree of customization—
+                  including tax-loss harvesting considerations, legacy holding
+                  restrictions, sector exclusions, or a defined income target
+                  alongside growth participation.
+                </p>
+                <p>
+                  Because every Custom Balanced portfolio is built from the
+                  ground up, clients benefit from Patrumin's full analytical
+                  process applied directly to their individual situation.
+                  Contact us to discuss how a custom balanced approach may align
+                  with your portfolio goals.
+                </p>
+                <p class="strategy-risk">
+                  Custom strategies involve additional complexity and may not
+                  be appropriate for all investors. Minimum account sizes
+                  apply. Please contact Patrumin for eligibility details.
+                </p>
+              </div>
+            </article>
           </div>
 
           <div class="strategy-materials">
@@ -429,13 +500,11 @@
               <h3>Factsheets and additional information</h3>
             </div>
             <p>
-              Additional information about the Patrumin U.S. Smallcap Equity
-              Strategy, Patrumin U.S. Dividends Plus+ Equity Strategy, and
-              Patrumin U.S. Multicap Equity Strategy can be found in each
-              product factsheet PDF, including performance, top ten positions,
-              sector weightings, and detailed information about the strategy.
-              To request further information about the U.S. SMICROCAP Growth
-              Equity Strategy, or any Patrumin strategy, please email us at
+              Additional information about Patrumin equity strategies can be
+              found in each product factsheet PDF, including performance, top
+              ten positions, sector weightings, and detailed strategy
+              information. To request further information about any Patrumin
+              strategy, please email us at
               <a href="mailto:info@patrumin.com">info@patrumin.com</a>.
             </p>
             <a class="button button--primary" href="mailto:info@patrumin.com?subject=Patrumin%20Strategy%20Materials%20Request">
@@ -445,11 +514,103 @@
         </div>
       </section>
 
-      <section class="review section-padding" id="review" aria-labelledby="review-title">
+      <!-- GIPS Composite Reports -->
+      <section class="gips-composite section-padding" id="gips-composite" aria-labelledby="gips-composite-title">
+        <div class="section-shell">
+          <div class="section-heading section-heading--wide">
+            <p class="eyebrow">GIPS&reg; Composite Reports</p>
+            <h2 id="gips-composite-title">Patrumin Investors GIPS&reg; Composite Reports</h2>
+            <p>
+              Patrumin Investors presents performance results in compliance with the
+              Global Investment Performance Standards (GIPS&reg;). The following
+              composite reports are available for review and download. For questions
+              regarding GIPS compliance or performance records, please contact
+              <a href="mailto:info@patrumin.com" style="color:var(--green-dark);text-decoration:underline;text-underline-offset:3px;">info@patrumin.com</a>.
+            </p>
+          </div>
+
+          <div class="gips-reports-grid">
+            <div class="gips-report-item">
+              <p class="card-kicker">U.S. Smallcap Equity Composite</p>
+              <h3>GIPS&reg; Composite Report</h3>
+              <p style="color:var(--muted);font-size:0.92rem;margin-top:0.75rem;">
+                Performance record for the Patrumin U.S. Smallcap Equity Strategy composite.
+              </p>
+              <div class="gips-report-actions">
+                <a class="button button--primary" href="#">View PDF</a>
+                <a class="button button--outline" href="#">Download</a>
+              </div>
+            </div>
+
+            <div class="gips-report-item">
+              <p class="card-kicker">U.S. Dividends Plus+ Equity Composite</p>
+              <h3>GIPS&reg; Composite Report</h3>
+              <p style="color:var(--muted);font-size:0.92rem;margin-top:0.75rem;">
+                Performance record for the Patrumin U.S. Dividends Plus+ Equity Strategy composite.
+              </p>
+              <div class="gips-report-actions">
+                <a class="button button--primary" href="#">View PDF</a>
+                <a class="button button--outline" href="#">Download</a>
+              </div>
+            </div>
+
+            <div class="gips-report-item">
+              <p class="card-kicker">U.S. Allcap Equity Composite</p>
+              <h3>GIPS&reg; Composite Report</h3>
+              <p style="color:var(--muted);font-size:0.92rem;margin-top:0.75rem;">
+                Performance record for the Patrumin U.S. Allcap Equity Strategy composite.
+              </p>
+              <div class="gips-report-actions">
+                <a class="button button--primary" href="#">View PDF</a>
+                <a class="button button--outline" href="#">Download</a>
+              </div>
+            </div>
+
+            <div class="gips-report-item">
+              <p class="card-kicker">U.S. SMICROCAP Growth Composite</p>
+              <h3>GIPS&reg; Composite Report</h3>
+              <p style="color:var(--muted);font-size:0.92rem;margin-top:0.75rem;">
+                Performance record for the Patrumin U.S. SMICROCAP Growth Equity Strategy composite.
+              </p>
+              <div class="gips-report-actions">
+                <a class="button button--primary" href="#">View PDF</a>
+                <a class="button button--outline" href="#">Download</a>
+              </div>
+            </div>
+
+            <div class="gips-report-item">
+              <p class="card-kicker">Balanced Equity-Income Composite</p>
+              <h3>GIPS&reg; Composite Report</h3>
+              <p style="color:var(--muted);font-size:0.92rem;margin-top:0.75rem;">
+                Performance record for the Patrumin Balanced Equity-Income Strategy composite.
+              </p>
+              <div class="gips-report-actions">
+                <a class="button button--primary" href="#">View PDF</a>
+                <a class="button button--outline" href="#">Download</a>
+              </div>
+            </div>
+
+            <div class="gips-report-item">
+              <p class="card-kicker">Firm-wide GIPS&reg; Disclosure</p>
+              <h3>GIPS&reg; Firm Disclosure</h3>
+              <p style="color:var(--muted);font-size:0.92rem;margin-top:0.75rem;">
+                Patrumin Investors firm-wide GIPS disclosure, policies, and verification statement.
+              </p>
+              <div class="gips-report-actions">
+                <a class="button button--primary" href="#">View PDF</a>
+                <a class="button button--outline" href="#">Download</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GIPS Performance Records / Portfolio Review -->
+      <section class="review section-padding" id="performance" aria-labelledby="performance-title">
         <div class="section-shell review__grid" data-i18n-html="review">
           <div>
-            <p class="eyebrow">Complimentary portfolio review</p>
-            <h2 id="review-title">A clear look at fees, tax efficiency, holdings, and fit.</h2>
+            <p class="eyebrow">GIPS Performance Records</p>
+            <h2 id="performance-title">A clear look at fees, tax efficiency, holdings, and fit.</h2>
             <p>
               Patrumin's complimentary portfolio review is intended to help investors
               understand what they own, what they pay, where tax considerations
@@ -579,13 +740,13 @@
             LLC, a registered investment adviser.
           </p>
           <div class="social-links footer-social" aria-label="Social media links">
-            <a href="https://www.linkedin.com/company/10127582" aria-label="Patrumin Investors on LinkedIn">
+            <a class="social-link--linkedin" href="https://www.linkedin.com/company/10127582" aria-label="Patrumin Investors on LinkedIn">
               <span>in</span>
             </a>
-            <a href="https://x.com/Patrumin" aria-label="Patrumin Investors on X">
+            <a class="social-link--x" href="https://x.com/Patrumin" aria-label="Patrumin Investors on X">
               <span>X</span>
             </a>
-            <a href="https://www.facebook.com/patrumin" aria-label="Patrumin Investors on Facebook">
+            <a class="social-link--facebook" href="https://www.facebook.com/patrumin" aria-label="Patrumin Investors on Facebook">
               <span>f</span>
             </a>
           </div>
@@ -593,8 +754,9 @@
 
         <nav class="footer-nav" aria-label="Footer navigation">
           <a href="#about" data-i18n="navAbout">About</a>
-          <a href="#strategy" data-i18n="footerStrategy">Strategy</a>
-          <a href="#review" data-i18n="navReview">Portfolio Review</a>
+          <a href="#strategy" data-i18n="navStrategies">Equity Strategies</a>
+          <a href="#gips-composite" data-i18n="navGipsComposite">GIPS Composite Reports</a>
+          <a href="#performance" data-i18n="navPerformance">Performance</a>
           <a href="#insights" data-i18n="navInsights">Insights</a>
           <a href="#contact" data-i18n="navContact">Contact</a>
         </nav>
@@ -620,6 +782,12 @@
           risk, including possible loss of principal. Information presented here
           is for educational purposes and should not be considered a guarantee
           or promise of investment results.
+        </p>
+        <p>
+          Patrumin Investors claims compliance with the Global Investment
+          Performance Standards (GIPS&reg;). To obtain a list of composite
+          descriptions or a GIPS&reg; compliant presentation, please contact
+          <a href="mailto:info@patrumin.com">info@patrumin.com</a>.
         </p>
         <p class="footer-meta">
           &copy; 2026 Patrumin Investors, LLC | Privacy Policy | Legal
