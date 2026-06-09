@@ -1212,6 +1212,7 @@ main section[id] {
   grid-template-columns: 1.1fr 0.9fr;
   gap: 48px;
   padding: 58px 0 36px;
+  align-items: center;
 }
 
 .footer-brand {
@@ -1236,30 +1237,49 @@ main section[id] {
   object-fit: contain;
 }
 
-.footer-social {
-  margin-top: 1.4rem;
+/* ── Footer SVG social icons ── */
+.footer-social-icons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding-top: 18px;
 }
 
-.footer-nav {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(120px, 1fr));
-  gap: 0.9rem 2rem;
-  align-content: start;
-  justify-items: start;
-  color: var(--white);
-  font-size: 0.84rem;
-  font-weight: 500;
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.10);
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  transition: background 220ms ease, color 220ms ease, transform 220ms ease;
+  will-change: background, color, transform;
+  flex-shrink: 0;
 }
 
-.footer-nav a {
-  border-bottom: 1px solid transparent;
-  transition: color 180ms ease, border-color 180ms ease;
+.social-btn:hover,
+.social-btn:focus-visible {
+  color: #fff;
 }
 
-.footer-nav a:hover {
-  color: var(--green);
-  border-bottom-color: var(--green);
+.social-btn:active {
+  transform: scale(0.95);
 }
+
+.social-btn.linkedin:hover,
+.social-btn.linkedin:focus-visible { background: #0A66C2; }
+
+.social-btn.x-corp:hover,
+.social-btn.x-corp:focus-visible { background: #000000; }
+
+.social-btn.instagram:hover,
+.social-btn.instagram:focus-visible { background: #E4405F; }
+
+.social-btn.facebook:hover,
+.social-btn.facebook:focus-visible { background: #1877F2; }
 
 .footer-disclosures {
   padding: 28px 0 54px;
@@ -1393,11 +1413,6 @@ main section[id] {
     border-radius: 4px;
   }
 
-  .nav-links .nav-cta {
-    width: min(1180px, calc(100% - 48px));
-    margin: 1rem auto 1.2rem;
-  }
-
   .hero {
     min-height: 560px;
     height: auto;
@@ -1422,9 +1437,6 @@ main section[id] {
     grid-template-columns: 1fr;
   }
 
-  .footer-nav {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 620px) {
