@@ -1054,16 +1054,16 @@ main section[id] {
 }
 
 .button--outline {
-  color: var(--green-dark);
-  background: transparent;
-  border-color: var(--green-dark);
+  color: var(--charcoal);
+  background: var(--white);
+  border-color: var(--line);
 }
 
 .button--outline:hover {
-  color: var(--white);
-  background: var(--green-dark);
-  border-color: var(--green-dark);
-  box-shadow: 0 6px 16px rgba(26, 74, 10, 0.22);
+  color: var(--charcoal);
+  background: var(--white);
+  border-color: rgba(0,0,0,0.18);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.13);
   transform: translateY(-1px);
 }
 
@@ -1242,6 +1242,7 @@ main section[id] {
   display: flex;
   gap: 12px;
   align-items: center;
+  justify-content: center;
   padding-top: 18px;
 }
 
