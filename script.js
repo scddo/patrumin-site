@@ -76,10 +76,10 @@ if (heroSlides.length > 1 && heroDots.length === heroSlides.length) {
 const translations = {
   en: {
     title: "Patrumin Investors | Disciplined Equity Portfolio Management",
-    description: "Patrumin Investors is a boutique registered investment adviser focused on disciplined equity portfolio management, fiduciary transparency, and long-term company research.",
+    description: "Patrumin Investors is a boutique registered investment advisor focused on disciplined equity portfolio management, fiduciary transparency, and long-term company research.",
     text: {
       skip: "Skip to content",
-      registered: "Registered Investment Adviser (RIA)",
+      registered: "Registered Investment Advisor (RIA)",
       languageLabel: "Language",
       navAbout: "About",
       navStrategies: "Equity Strategies",
@@ -87,25 +87,23 @@ const translations = {
       navDividends: "U.S. Dividends Plus+",
       navAllcap: "U.S. Allcap Equity",
       navSmicrocap: "U.S. SMICROCAP Growth",
-      navBalancedEqIncome: "Balanced Equity-Income",
+      navBalancedEqIncome: "Custom Balanced Equity-Income",
       navCustomBalanced: "Custom Balanced",
       navGipsComposite: "GIPS Composite Reports",
       navPerformance: "Performance",
       navInsights: "Insights",
       navContact: "Contact",
       navCta: "Complimentary Review",
-      heroEyebrow: "A Boutique Registered Advisory Firm (RIA)",
+      heroEyebrow: "A Boutique Investment Management and Registered Investment Advisory Firm (RIA)",
       heroTitle: "Patrumin Investors",
-      heroCopy: "Independent portfolio management focused on patient stock selection, free cash flow analysis, transparent fees, and risk-aware stewardship for high-net-worth families and institutions.",
+      heroDefinition: "pat·ru·min — patient and thoughtful",
+      heroCopy: "Disciplined equity portfolio management for high-net-worth families and institutions. Our research-driven process focuses on free cash flow, management quality, and long-term competitive positioning.",
       heroPrimary: "Explore Strategies",
-      heroSecondary: "GIPS Performance Records",
-      heroBandOne: "One company at a time",
-      heroBandTwo: "Stock selection matters",
-      heroBandThree: "Designed for long-term investors",
-      footerAdvisory: "Investment advisory services offered through Patrumin Investors, LLC, a registered investment adviser."
+      heroSecondary: "GIPS Composite Reports",
+      footerAdvisory: "Investment advisory services offered through Patrumin Investors, LLC, a registered investment advisor."
     },
     html: {
-      heroLede: `The Analysis You Need<sup class="reg-mark">&reg;</sup> for disciplined, long-term equity portfolios.`,
+      heroLede: `The Analysis You Need<sup class="reg-mark">&reg;</sup>`,
       overview: `
           <div>
             <p class="eyebrow">Firm overview</p>
@@ -129,9 +127,9 @@ const translations = {
       about: `
           <div class="about__main">
             <p class="eyebrow">About Patrumin</p>
-            <h2 id="about-title">A boutique investment adviser focused on analysis before allocation.</h2>
-            <p>The investment management team at Patrumin has more than 30 years of experience navigating the U.S. equity market. The broad experience and perspective of the team provide a foundation for constructing portfolios of U.S. stocks.</p>
-            <p>Patrumin combines field research, conversations with management teams, industry-specific conferences, and rigorous qualitative and financial company analysis. The goal is to understand a company, its competitors, and its industry position before capital is committed.</p>
+            <h2 id="about-title">A boutique investment advisory firm focused on analysis before allocation.</h2>
+            <p>Patrumin Investors is an independent registered investment advisory firm dedicated to disciplined equity research and portfolio management. The firm's investment management team brings more than 30 years of experience identifying companies with durable competitive advantages and superior free cash flow characteristics.</p>
+            <p>Our research process combines proprietary company analysis, direct management engagement, industry conferences, and rigorous financial modeling. The goal is to understand a company, its competitors, and its industry position — and to invest with conviction before the market recognizes the opportunity.</p>
           </div>
           <aside class="leader-panel" aria-labelledby="leader-title">
             <p class="quote">"We strive to know early on which products and services will change consumer or business spending."</p>
@@ -157,7 +155,7 @@ const translations = {
               <div><p class="card-kicker">Concentrated smaller-company equity</p><h3>Patrumin U.S. Smallcap Equity Strategy</h3></div>
               <div>
                 <p>The Patrumin U.S. Smallcap Equity Strategy is a concentrated portfolio of smaller U.S. stocks. We generally hold 40-to-70 stocks to leverage our bottom-up, fundamental research approach.</p>
-                <p>The strategy invests in small companies, typically those with equity market capitalizations below $4B. Patrumin employs an opportunistic approach that does not emphasize any one investment style, like growth or value.</p>
+                <p>The strategy invests in small companies, typically those with equity market capitalizations below $10B. Patrumin employs an opportunistic approach that does not emphasize any one investment style, like growth or value.</p>
                 <p>Our diversified portfolios are constructed with stocks from multiple sectors of the economy, which may experience varying rates of growth. We also look to invest in companies we believe are undervalued relative to their earnings and cash generating potential.</p>
                 <p>We are especially attracted to companies which have products or services that fundamentally change the spending behavior of consumers or their business customers.</p>
                 <p class="strategy-risk">Small capitalization securities involve greater issuer risk than larger capitalization securities, and the markets for such securities may be more volatile and less liquid. Specifically, small capitalization companies may be subject to more volatile market movements than securities of larger, more established companies, both because the securities typically are traded in lower volume and because the issuers typically are more subject to changes in earnings and prospects.</p>
@@ -168,16 +166,16 @@ const translations = {
               <div>
                 <p>The Patrumin U.S. Dividends Plus+ Equity Strategy is a specialty product we created due to persistent customer requests and inquiries. There are two powerful demographic trends: the aging of America's baby boomer population and the ever-increasing life expectancy of our population. Families need to find a way to generate income for longer periods of time.</p>
                 <p>This portfolio is specifically constructed to include only 25 U.S.-traded stocks that pay cash dividends and is diversified with holdings across multiple economic sectors.</p>
-                <p>The strategy seeks to exceed the total return of the S&amp;P 500* over a market cycle, coincident with an economic cycle, of 4-to-6 years.</p>
+                <p>The strategy seeks to exceed the total return of the Russell 1000 Value Index* over a market cycle, coincident with an economic cycle, of 4-to-6 years.</p>
                 <p>The "Plus" in the product name signifies that we also seek to realize capital appreciation with a portion of the stock holdings to accentuate total investment returns of the strategy.</p>
-                <p class="strategy-risk">*Indices are unmanaged and investors cannot invest directly in an index. The Standard &amp; Poor's 500 (S&amp;P 500) is a subjectively formed, unmanaged group of securities considered to be representative of the stock market in general. It is a market value weighted index with each stock's weight in the index proportionate to its market value.</p>
+                <p class="strategy-risk">*The Russell 1000 Value Index is an unmanaged index comprised of those Russell 1000 companies with lower price-to-book ratios and lower expected growth values. Indices are unmanaged and investors cannot invest directly in an index.</p>
               </div>
             </article>
             <article class="strategy-panel" id="strategy-allcap">
               <div><p class="card-kicker">Flexible U.S. equity exposure</p><h3>Patrumin U.S. Allcap Equity Strategy</h3></div>
               <div>
                 <p>The Patrumin U.S. Allcap Equity Strategy is our portfolio of best ideas. We construct this portfolio with U.S. stock investments that meet our rigorous, analytical, fundamentally-driven research process.</p>
-                <p>The strategy's goal is to be balanced across the capitalization spectrum with exposure to smallcaps, midcaps and largecaps. The weighted average capitalization for the strategy is generally over $20bb, reflecting this diversification*.</p>
+                <p>The strategy's goal is to be balanced across the capitalization spectrum with exposure to smallcaps, midcaps and largecaps. The weighted average capitalization for the strategy is generally $20 to $25 billion, reflecting this diversification*.</p>
                 <p>The strategy is a concentrated portfolio, between 40 to 60 stocks, offered in an SMA format. The investment objective is to seek to outperform the S&amp;P 500 by 2.00% to 3.00% annually via growth in capital, over a full market cycle.</p>
                 <p>The investment style is core, with elements of growth, GARP and value investing included within the portfolio in order to maximize the number of investment opportunities for our clients. We consider Patrumin U.S. Allcap a "best ideas" strategy, irrespective of market capitalization and/or investment style.</p>
                 <p>We believe that clients benefit from broad diversification in their equity investment portfolios. We also believe clients benefit from investing in companies across the market cap spectrum, or an all-cap approach.</p>
@@ -191,24 +189,24 @@ const translations = {
               <div>
                 <p>The strategy invests in smaller companies that are often included in the Russell 2000 and Russell Microcap Indices as well as new issues (IPOs). The strategy is the only "growth-style" product offered by Patrumin, and attempts to leverage additional exposure, or sector weightings, to growth-oriented sectors like technology, healthcare, industrials and consumer discretionary.</p>
                 <p>The strategy will invest in volatile, smaller companies, including companies with equity market capitalizations below $100mm and occasionally companies with equity capitalizations greater than $5B. The strategy is constructed with stocks from multiple sectors of the economy.</p>
-                <p>A key investment priority will be to attempt to identify and invest in companies that may experience rapid rates of growth, irrespective of the strategy's industry or sector weightings. We are especially attracted to companies that have products or services that fundamentally change spending behavior.</p>
+                <p>A key investment priority will be to attempt to identify and invest in companies that may experience rapid rates of growth, irrespective of the strategy's industry or sector weightings. The strategy seeks to outperform the Russell Microcap Growth Index over a full market cycle. We are especially attracted to companies that have products or services that fundamentally change spending behavior.</p>
                 <p class="strategy-risk">Smaller and micro-capitalization securities may involve greater issuer, liquidity, and market risk than securities of larger, more established companies.</p>
               </div>
             </article>
             <article class="strategy-panel" id="strategy-balanced-equity-income">
-              <div><p class="card-kicker">Growth &amp; income combined</p><h3>Patrumin Balanced Equity-Income Strategy</h3></div>
+              <div><p class="card-kicker">Growth &amp; income strategies</p><h3>Patrumin Custom Balanced Equity-Income Strategy</h3></div>
               <div>
-                <p>The Patrumin Balanced Equity-Income Strategy is designed for investors seeking both capital appreciation and consistent income generation within a single, actively managed portfolio. The strategy combines dividend-paying equities with growth-oriented positions to pursue a balanced approach to total return.</p>
-                <p>The strategy targets a diversified portfolio of U.S.-traded stocks that offer a combination of current income and growth potential, with particular emphasis on companies demonstrating durable free cash flow generation and a history of consistent dividend payment.</p>
-                <p>Portfolio construction emphasizes sector diversification and company-level due diligence, drawing on Patrumin's more than 30 years of fundamental equity research experience. The strategy is offered in an SMA (separately managed account) format.</p>
-                <p class="strategy-risk">Income-oriented strategies may be subject to risks including changes in dividend policy, interest rate sensitivity, and sector concentration. Diversification does not guarantee a profit or protect against loss in a declining market.</p>
+                <p>The Patrumin Custom Balanced Equity-Income Strategy is designed for investors seeking both capital appreciation and consistent income generation within a single, actively managed portfolio. The strategy combines dividend-paying equities with growth-oriented positions to pursue a balanced approach to total return.</p>
+                <p>The strategy targets a diversified portfolio of U.S.-traded stocks that offer a combination of current income and growth potential. The strategy also includes fixed income securities, predominantly corporate investment grade bonds, that provide attractive interest income potential.</p>
+                <p>Portfolio construction emphasizes sector diversification and company-level due diligence, drawing on Patrumin's more than 30 years of fundamental equity research experience. The strategy is offered in an SMA (separately managed account) format. This strategy can be customized to meet the unique risk requirements of clients based on their specific financial situation.</p>
+                <p class="strategy-risk">Income-oriented strategies may be subject to risks including changes in dividend policy, interest rate sensitivity, and sector concentration. Fixed income securities are subject to credit risk and interest rate risk. Diversification does not guarantee a profit or protect against loss in a declining market.</p>
               </div>
             </article>
             <article class="strategy-panel" id="strategy-custom-balanced">
               <div><p class="card-kicker">Personalized portfolio construction</p><h3>Patrumin Custom Balanced Strategy</h3></div>
               <div>
-                <p>The Patrumin Custom Balanced Strategy offers a personalized approach to portfolio construction, tailored to each client's unique income, growth, risk, and tax parameters. Working closely with clients and their advisers, Patrumin constructs individually managed equity portfolios that reflect specific investment objectives and constraints.</p>
-                <p>This strategy is appropriate for investors with meaningful account balances who require a high degree of customization — including tax-loss harvesting considerations, legacy holding restrictions, sector exclusions, or a defined income target alongside growth participation.</p>
+                <p>The Patrumin Custom Balanced Strategy offers a personalized approach to portfolio construction, tailored to each client's unique income, growth, risk, and tax parameters. Working closely with clients and their advisors, Patrumin constructs individually managed equity portfolios that reflect specific investment objectives and constraints.</p>
+                <p>This strategy is appropriate for investors with meaningful account balances who require a high degree of customization — including tax-loss harvesting considerations, legacy holding restrictions, concentrated stock position(s), sector exclusions, or a defined income target alongside growth participation.</p>
                 <p>Because every Custom Balanced portfolio is built from the ground up, clients benefit from Patrumin's full analytical process applied directly to their individual situation. Contact us to discuss how a custom balanced approach may align with your portfolio goals.</p>
                 <p class="strategy-risk">Custom strategies involve additional complexity and may not be appropriate for all investors. Minimum account sizes apply. Please contact Patrumin for eligibility details.</p>
               </div>
@@ -221,45 +219,44 @@ const translations = {
           </div>`,
       review: `
           <div>
-            <p class="eyebrow">GIPS Performance Records</p>
-            <h2 id="performance-title">A clear look at fees, tax efficiency, holdings, and fit.</h2>
-            <p>Patrumin's complimentary portfolio review is intended to help investors understand what they own, what they pay, where tax considerations may matter, and whether legacy holdings still serve their objectives.</p>
-            <a class="button button--primary" href="#contact">Request Complimentary Review</a>
+            <p class="eyebrow">Complimentary Review</p>
+            <h2 id="performance-title">Let us review your portfolio.</h2>
+            <p>A clear assessment of your fees, tax considerations, holdings, and portfolio fit — for high-net-worth families and institutions.</p>
           </div>
           <div class="review-list">
             <article><h3>Fee Transparency</h3><p>Review advisory fees, embedded product expenses, and manager costs in plain language.</p></article>
-            <article><h3>Tax Efficiency</h3><p>Identify taxable-account considerations and coordination points for an investor's tax advisers.</p></article>
-            <article><h3>Legacy Holdings</h3><p>Evaluate concentrated positions, inherited securities, and holdings that may no longer align with long-term objectives.</p></article>
-            <article><h3>Portfolio Fit</h3><p>Connect allocation, risk, income needs, and liquidity considerations without aggressive sales language.</p></article>
+            <article><h3>Tax Considerations</h3><p>Identify taxable-account considerations and coordination points for your tax advisor.</p></article>
+            <article><h3>Legacy Holdings &amp; Concentrated Stock</h3><p>Evaluate legacy holding restrictions, concentrated stock position(s), sector exclusions, or a defined income target alongside long-term objectives.</p></article>
+            <article><h3>Portfolio Fit</h3><p>Revisit allocation, risk, income needs, and liquidity considerations with an eye on mitigating fees.</p></article>
           </div>`,
       insights: `
           <div class="section-heading">
-            <p class="eyebrow">Insights</p>
+            <p class="eyebrow">Investor Insights</p>
             <h2 id="insights-title">Market commentary and investor resources.</h2>
-            <p>A reserved home for Patrumin commentary, strategy updates, white papers, and pricing information.</p>
+            <p>A reserved home for Patrumin commentary, strategy updates, and white papers.</p>
           </div>
-          <div class="card-grid card-grid--three">
-            <article class="insight-card"><p class="card-kicker">Market commentary</p><h3>Quarterly notes coming soon</h3><p>Future updates can house market observations, portfolio themes, and commentary for clients and prospects.</p></article>
-            <article class="insight-card"><p class="card-kicker">White paper</p><h3>Good Yield Is Hard To Find</h3><p>Existing Patrumin resource positioned as an investor education piece rather than a performance claim.</p></article>
-            <article class="insight-card"><p class="card-kicker">Transparency</p><h3>Investment Management Pricing Information</h3><p>Pricing information and GIPS&reg; Composite Reports can be presented alongside appropriate disclosures.</p></article>
+          <div class="card-grid card-grid--two">
+            <article class="insight-card"><p class="card-kicker">Market commentary</p><h3>Monthly commentary coming soon</h3><p>Monthly market observations, portfolio themes, and commentary for clients and prospects.</p></article>
+            <article class="insight-card"><p class="card-kicker">White paper</p><h3>Good Yield Is Hard To Find</h3><p>An investor education piece on yield strategies, dividend income, and total return.</p></article>
           </div>`,
       contact: `
           <div>
             <p class="eyebrow">Contact</p>
             <h2 id="contact-title">Start a confidential conversation.</h2>
-            <p>For prospective clients, advisers, and families evaluating a more transparent portfolio management relationship or a complimentary portfolio review.</p>
+            <p>For prospective clients, advisors, and families evaluating a more transparent portfolio management relationship or a complimentary portfolio review.</p>
           </div>
           <div class="contact-actions" aria-label="Contact options">
             <a class="contact-link" href="tel:+18447287864"><span>Phone</span>844-728-7864</a>
-            <a class="contact-link" href="tel:+12393256498"><span>Office</span>239-325-6498</a>
+            <a class="contact-link" href="tel:+12393256498"><span>Naples Office</span>239-325-6498</a>
             <a class="contact-link" href="mailto:info@patrumin.com"><span>Email</span>info@patrumin.com</a>
             <a class="button button--primary" href="mailto:info@patrumin.com?subject=Patrumin%20Portfolio%20Review%20Request">Request Complimentary Review</a>
           </div>`,
       footerDisclosures: `
-        <p>This site is published for residents of the United States only. Investment adviser representatives may only conduct business with residents of the states and jurisdictions in which they are properly registered. A response to a request for information may be delayed until appropriate registration is obtained or exemption from registration is determined.</p>
-        <p>Not all services referenced on this site are available in every state and through every adviser listed. For additional information, please contact <a href="mailto:info@patrumin.com">info@patrumin.com</a> or call <a href="tel:+18447287864">844-728-7864</a>.</p>
+        <p>This site is published for residents of the United States only. Investment advisor representatives may only conduct business with residents of the states and jurisdictions in which they are properly registered. A response to a request for information may be delayed until appropriate registration is obtained or exemption from registration is determined.</p>
+        <p>Not all services referenced on this site are available in every state and through every advisor listed. For additional information, please contact <a href="mailto:info@patrumin.com">info@patrumin.com</a> or call <a href="tel:+18447287864">844-728-7864</a>.</p>
         <p>Past performance does not guarantee future results. Investing involves risk, including possible loss of principal. Information presented here is for educational purposes and should not be considered a guarantee or promise of investment results.</p>
-        <p class="footer-meta">&copy; 2026 Patrumin Investors, LLC | Privacy Policy | Legal Disclosures | Form ADV2</p>`
+        <p>Patrumin Investors claims compliance with the Global Investment Performance Standards (GIPS&reg;). To obtain a list of composite descriptions or a GIPS&reg; compliant presentation, please contact <a href="mailto:info@patrumin.com">info@patrumin.com</a>.</p>
+        <p class="footer-meta">&copy; 2026 Patrumin Investors, LLC | <a href="https://www.patrumin.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a> | <a href="https://www.patrumin.com/legal" target="_blank" rel="noopener">Legal Disclosures</a> | <a href="https://www.patrumin.com/form-adv" target="_blank" rel="noopener">Form ADV2</a></p>`
     }
   },
   zh: {
@@ -479,3 +476,86 @@ if (languageSelect) {
     applyLanguage(event.target.value);
   });
 }
+
+// ── GIPS Email Capture Modal ────────────────────────────────────────────────
+
+function openGipsModal(reportName, pdfUrl, mode) {
+  const modal = document.getElementById("gips-modal");
+  if (!modal) return;
+  modal.setAttribute("data-pdf", pdfUrl || "#");
+  modal.setAttribute("data-mode", mode || "download");
+  const nameEl = document.getElementById("gips-modal-report-name");
+  const titleEl = document.getElementById("gips-modal-title");
+  if (nameEl) nameEl.textContent = reportName || "";
+  if (titleEl) titleEl.textContent = mode === "view" ? "View GIPS® Composite Report" : "Download GIPS® Composite Report";
+  const formEl = document.getElementById("gips-download-form");
+  const successEl = document.getElementById("gips-modal-success");
+  if (formEl) { formEl.style.display = "block"; formEl.reset(); }
+  if (successEl) successEl.style.display = "none";
+  modal.removeAttribute("aria-hidden");
+  modal.classList.add("is-open");
+  const firstInput = modal.querySelector("input");
+  if (firstInput) setTimeout(() => firstInput.focus(), 60);
+}
+
+function closeGipsModal() {
+  const modal = document.getElementById("gips-modal");
+  if (!modal) return;
+  modal.classList.remove("is-open");
+  modal.setAttribute("aria-hidden", "true");
+}
+
+const gipsForm = document.getElementById("gips-download-form");
+if (gipsForm) {
+  gipsForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const name  = document.getElementById("gips-name").value.trim();
+    const email = document.getElementById("gips-email").value.trim();
+    const phone = document.getElementById("gips-phone").value.trim();
+    if (!name || !email) return;
+
+    const modal      = document.getElementById("gips-modal");
+    const reportName = document.getElementById("gips-modal-report-name").textContent;
+    const pdfUrl     = modal.getAttribute("data-pdf");
+    const mode       = modal.getAttribute("data-mode");
+
+    // Log distribution (localStorage — integrate with backend/CRM for production)
+    try {
+      const log = JSON.parse(window.localStorage.getItem("patrumin-gips-log") || "[]");
+      log.push({ name, email, phone, report: reportName, mode, date: new Date().toISOString() });
+      window.localStorage.setItem("patrumin-gips-log", JSON.stringify(log));
+    } catch (_) {}
+
+    // Trigger PDF if URL is available
+    if (pdfUrl && pdfUrl !== "#") {
+      if (mode === "view") {
+        window.open(pdfUrl, "_blank", "noopener");
+      } else {
+        const a = document.createElement("a");
+        a.href = pdfUrl;
+        a.download = "";
+        a.target = "_blank";
+        a.rel = "noopener";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+    }
+
+    // Show success state
+    gipsForm.style.display = "none";
+    const successEl = document.getElementById("gips-modal-success");
+    const noteEl    = document.getElementById("gips-modal-note");
+    if (noteEl) {
+      noteEl.textContent = pdfUrl && pdfUrl !== "#"
+        ? ""
+        : "The PDF will be available once reports are uploaded. We may follow up at " + email + ".";
+    }
+    if (successEl) successEl.style.display = "block";
+  });
+}
+
+// Close modal on Escape
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") closeGipsModal();
+});
