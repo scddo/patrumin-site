@@ -89,7 +89,7 @@ const translations = {
       navSmicrocap: "U.S. SMICROCAP Growth",
       navBalancedEqIncome: "Custom Balanced Equity-Income",
       navCustomBalanced: "Custom Balanced",
-      navGipsComposite: "GIPS Reports",
+      navGipsComposite: "GIPS® Reports",
       navPerformance: "Equity Performance",
       navInsights: "Insights",
       navContact: "Contact",
@@ -509,22 +509,31 @@ if (gipsForm) {
     e.preventDefault();
     const name  = document.getElementById("gips-name").value.trim();
     const email = document.getElementById("gips-email").value.trim();
-    const phone = document.getElementById("gips-phone").value.trim();
-    if (!name || !email) return;
+
+    // Basic email validation — reject obvious garbage, allow free webmail
+    if (!name || !email || !email.includes("@") || email.indexOf(".") < email.indexOf("@")) return;
 
     const modal      = document.getElementById("gips-modal");
     const reportName = document.getElementById("gips-modal-report-name").textContent;
     const pdfUrl     = modal.getAttribute("data-pdf");
     const mode       = modal.getAttribute("data-mode");
 
-    // Log distribution (localStorage — integrate with backend/CRM for production)
+    // Log BEFORE serving the file — Marketing Rule recordkeeping
+    // Stores: report name, name, email, action (view/download), ISO timestamp
+    // TODO: also POST to Formspree/backend endpoint for server-side record
     try {
       const log = JSON.parse(window.localStorage.getItem("patrumin-gips-log") || "[]");
-      log.push({ name, email, phone, report: reportName, mode, date: new Date().toISOString() });
+      log.push({
+        report: reportName,
+        name,
+        email,
+        mode,
+        date: new Date().toISOString()
+      });
       window.localStorage.setItem("patrumin-gips-log", JSON.stringify(log));
     } catch (_) {}
 
-    // Trigger PDF if URL is available
+    // Trigger PDF only after successful log write
     if (pdfUrl && pdfUrl !== "#") {
       if (mode === "view") {
         window.open(pdfUrl, "_blank", "noopener");
