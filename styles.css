@@ -366,39 +366,10 @@ h3 {
   position: relative;
 }
 
-/* ── Dropdown ── */
+/* ── Strategy submenu: hidden on desktop (plain link with underline
+   highlight); shown inline inside the collapsed hamburger menu ── */
 .nav-menu {
-  position: absolute;
-  top: calc(100% + 14px);
-  left: 50%;
-  width: 240px;
-  padding: 0.4rem;
-  border: 1px solid var(--soft-line);
-  border-radius: 10px;
-  background: var(--white);
-  box-shadow: 0 12px 32px rgba(18, 28, 24, 0.12);
-  opacity: 0;
-  pointer-events: none;
-  transform: translate(-50%, 10px);
-  transition:
-    opacity 200ms ease,
-    transform 200ms ease;
-}
-
-.nav-menu::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: -16px;
-  height: 16px;
-}
-
-.nav-item:hover .nav-menu,
-.nav-item:focus-within .nav-menu {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translate(-50%, 0);
+  display: none;
 }
 
 .nav-menu a {
@@ -1434,8 +1405,7 @@ main section[id] {
 .contact-social {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 18px;
+  justify-content: space-between; /* spread evenly, first/last flush with the lines above */
   margin-top: 22px;
 }
 
@@ -1583,21 +1553,27 @@ main section[id] {
   background: var(--deep);
 }
 
-/* Advisory line — right side, mirroring the brand on the left */
+/* Advisory line — right side, always a single line beside the brand */
 .footer-advisory {
   justify-self: end;
-  max-width: 44ch;
+  max-width: none;
   font-size: 0.88rem;
   line-height: 1.6;
   text-align: right;
-  text-wrap: balance;
+  white-space: nowrap;
 }
 
-/* Wide screens: advisory stays on a single line */
-@media (min-width: 1240px) {
+/* Too narrow for one line beside the logo: stack under it */
+@media (max-width: 1239px) {
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
   .footer-advisory {
-    max-width: none;
-    white-space: nowrap;
+    justify-self: start;
+    text-align: left;
+    white-space: normal;
   }
 }
 
@@ -1757,7 +1733,9 @@ main section[id] {
   }
 }
 
-@media (max-width: 880px) {
+/* Nav collapses to the hamburger before the link bar can overflow */
+@media (max-width: 1319px) {
+
   :root {
     --header-height: 86px;
   }
@@ -1776,13 +1754,18 @@ main section[id] {
 
   .nav-toggle {
     display: inline-flex;
+    order: 3;
   }
 
   .nav-aux {
-    display: none;
+    order: 2;
+    margin-left: auto;
+    border-left: none;
+    padding-left: 0;
   }
 
   .nav-links {
+    justify-content: normal; /* full-width rows, not a packed right column */
     position: absolute;
     left: 0;
     right: 0;
@@ -1814,6 +1797,7 @@ main section[id] {
   }
 
   .nav-menu {
+    display: block;
     position: static;
     width: 100%;
     padding: 0.35rem 0 1rem;
@@ -1826,17 +1810,15 @@ main section[id] {
     transform: none;
   }
 
-  .nav-menu::before {
-    display: none;
-  }
-
   .nav-menu a {
     padding: 0.65rem 1rem;
     background: var(--off-white);
     margin-bottom: 2px;
     border-radius: 4px;
   }
+}
 
+@media (max-width: 880px) {
   .hero {
     min-height: 560px;
     height: auto;
@@ -1869,7 +1851,7 @@ main section[id] {
   }
 
   .contact-social {
-    justify-content: flex-start;
+    max-width: 20rem; /* keep the spread sensible when the column goes full-width */
   }
 
 }
@@ -1999,6 +1981,12 @@ li {
   text-wrap: balance;  /* preferred: evens out all lines, no stub endings */
 }
 
+/* Footer legal text wraps naturally, full line width */
+.site-footer p,
+.site-footer li {
+  text-wrap: wrap;
+}
+
 /* ── Registered mark — small, raised, up and to the right ── */
 sup.reg {
   font-size: 0.55em;
@@ -2046,6 +2034,24 @@ sup.reg {
   color: var(--muted);
   font-size: 1rem;
   line-height: 1.75;
+}
+
+.privacy-doc ol {
+  margin: 1rem 0 0 1.3rem;
+  padding: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.privacy-doc ol li {
+  margin-bottom: 1.1rem;
+  padding-left: 0.4rem;
+}
+
+.privacy-doc ol li::marker {
+  color: var(--green-dark);
+  font-weight: 600;
 }
 
 .privacy-doc ul {
@@ -2245,10 +2251,16 @@ sup.reg {
   margin: 0;
 }
 
-/* ── Privacy policy document — full page width ── */
+/* ── Privacy / legal documents — full page width, natural line wrapping ── */
 .privacy-doc {
   max-width: none;
   margin: 0;
+}
+
+.privacy-doc p,
+.privacy-doc li,
+.privacy-doc h2 {
+  text-wrap: wrap; /* legal text fills each line completely */
 }
 
 /* ── Hero: 2:1 split — left column dominates, right column condensed ── */
