@@ -6,7 +6,7 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Equity Strategies | Patrumin Investors</title>
 <meta content="Patrumin Investors offers research-led U.S. equity strategies including Smallcap, Dividends Plus+, Allcap, SMICROCAP, and custom balanced portfolios." name="description"/>
-<link rel="stylesheet" href="styles.css?v=13">
+<link rel="stylesheet" href="styles.css?v=17">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -22,7 +22,7 @@
 <span class="sr-only">Menu</span>
 </button>
 <div class="nav-links" id="site-menu">
-<a data-i18n="navAbout" href="about.html">About</a>
+<a data-i18n="navPhilosophy" href="index.html#philosophy">Investment Philosophy</a>
 <div class="nav-item nav-item--has-menu">
 <a class="nav-trigger" data-i18n="navStrategies" href="strategies.html">Equity Strategies</a>
 <div aria-label="Equity investment strategies" class="nav-menu">
@@ -34,20 +34,21 @@
 <a data-i18n="navCustomBalanced" href="strategies.html#strategy-custom-balanced">Custom Balanced</a>
 </div>
 </div>
-<a data-i18n="navGipsComposite" href="gips.html">GIPS® Reports</a>
+<a data-i18n="navGipsComposite" href="gips.html">GIPS<sup class="reg">®</sup> Reports</a>
 <a data-i18n="navPerformance" href="performance.html">Equity Performance</a>
 <a data-i18n="navInsights" href="insights.html">Insights</a>
-<a data-i18n="navContact" href="#contact">Contact</a>
+<a data-i18n="navAbout" href="about.html">About</a>
+<a data-i18n="navContact" href="#contact">Contact Us</a>
 </div>
 <div aria-label="Utilities" class="nav-aux">
 <label class="language-switch" for="language-select">
 <svg aria-hidden="true" class="lang-globe" fill="none" height="13" stroke="currentColor" stroke-width="1.5" viewbox="0 0 16 16" width="13"><circle cx="8" cy="8" r="6.5"></circle><ellipse cx="8" cy="8" rx="2.9" ry="6.5"></ellipse><line x1="1.5" x2="14.5" y1="8" y2="8"></line><line x1="2" x2="14" y1="5" y2="5"></line><line x1="2" x2="14" y1="11" y2="11"></line></svg>
 <select aria-label="Select language" id="language-select">
-<option value="en">EN</option>
-<option value="zh">ZH</option>
-<option value="es">ES</option>
-<option value="fr">FR</option>
-<option value="ja">JA</option>
+<option value="en">English</option>
+<option value="zh">中文</option>
+<option value="es">Español</option>
+<option value="fr">Français</option>
+<option value="ja">日本語</option>
 </select>
 </label>
 </div>
@@ -56,12 +57,11 @@
 <main id="main">
 <section class="page-hero">
 <div class="section-shell">
-<p class="eyebrow">Equity Strategies</p>
-<h1>Research-led U.S. equity strategies.</h1>
+<h1 data-i18n="pageTitleStrategies">Research-led U.S. equity strategies.</h1>
 </div>
 </section>
 <section aria-labelledby="strategy-title" class="strategy section-padding" id="strategy">
-<div class="section-shell">
+<div class="section-shell" data-i18n-html="strategyPage">
 <div class="section-heading section-heading--full">
 <p>Patrumin’s strategies are built around bottom-up fundamental research, company-level analysis, and disciplined portfolio construction. Each strategy is designed to express a distinct opportunity set without relying on performance promises.</p></div>
 <div aria-label="Strategy shortcuts" class="strategy-nav">
@@ -76,7 +76,7 @@
 <article class="strategy-panel" id="strategy-smallcap"><div class="strategy-panel__top"><div>
 <p class="card-kicker">Concentrated smaller-company equity</p>
 <h3>Patrumin U.S. Smallcap Equity Strategy</h3>
-</div><a class="button button--outline strategy-panel__cta" href="gips.html">GIPS® Report</a></div>
+</div><a class="button button--outline strategy-panel__cta" href="gips.html">GIPS<sup class="reg">®</sup> Report</a></div>
 
 
 <div class="strategy-panel__body">
@@ -90,7 +90,7 @@
 <article class="strategy-panel" id="strategy-dividends-plus"><div class="strategy-panel__top"><div>
 <p class="card-kicker">Dividend-focused U.S. equity</p>
 <h3>Patrumin U.S. Dividends Plus+ Equity Strategy</h3>
-</div><a class="button button--outline strategy-panel__cta" href="gips.html">GIPS® Report</a></div>
+</div><a class="button button--outline strategy-panel__cta" href="gips.html">GIPS<sup class="reg">®</sup> Report</a></div>
 
 
 <div class="strategy-panel__body">
@@ -103,7 +103,7 @@
 <article class="strategy-panel" id="strategy-allcap"><div class="strategy-panel__top"><div>
 <p class="card-kicker">All-capitalization U.S. equity</p>
 <h3>Patrumin U.S. Allcap Equity Strategy</h3>
-</div><a class="button button--outline strategy-panel__cta" href="gips.html">GIPS® Report</a></div>
+</div><a class="button button--outline strategy-panel__cta" href="gips.html">GIPS<sup class="reg">®</sup> Report</a></div>
 
 
 <div class="strategy-panel__body">
@@ -116,7 +116,7 @@
 <article class="strategy-panel" id="strategy-smicrocap"><div class="strategy-panel__top"><div>
 <p class="card-kicker">Concentrated micro &amp; small-cap equity</p>
 <h3>Patrumin U.S. SMICROCAP Growth Equity Strategy</h3>
-</div><a class="button button--outline strategy-panel__cta" href="gips.html">GIPS® Report</a></div>
+</div><a class="button button--outline strategy-panel__cta" href="gips.html">GIPS<sup class="reg">®</sup> Report</a></div>
 
 
 <div class="strategy-panel__body">
@@ -155,32 +155,30 @@
 <section aria-labelledby="contact-title" class="contact section-padding" id="contact">
 <div class="section-shell contact__grid">
 <div>
-<p class="eyebrow">Contact</p>
-<h2 id="contact-title">Start a confidential conversation.</h2>
-<p>
+<p class="eyebrow" data-i18n="contactEyebrow">Contact Us</p>
+<h2 data-i18n="contactTitle" id="contact-title">Start a confidential conversation.</h2>
+<p data-i18n="contactBlurb">
               For prospective clients, advisors, and families evaluating a more
               transparent portfolio management relationship or a complimentary
               portfolio review.
             </p>
+<a class="button button--primary" href="mailto:info@patrumin.com?subject=Patrumin%20Portfolio%20Review%20Request"><span data-i18n="contactCta">Request Complimentary Review</span></a>
 </div>
 <div aria-hidden="true" class="contact__mark-col">
 <img alt="" class="contact__mark" src="assets/patrumin-mark.png"/>
 </div>
 <div aria-label="Contact options" class="contact-actions">
 <a class="contact-link" href="tel:+18447287864">
-<span>Phone</span>
+<span data-i18n="contactPhoneLabel">Phone</span>
               844-728-7864
             </a>
 <a class="contact-link" href="tel:+12393256498">
-<span>Naples Office</span>
+<span data-i18n="contactOfficeLabel">Naples Office</span>
               239-325-6498
             </a>
 <a class="contact-link" href="mailto:info@patrumin.com">
-<span>Email</span>
+<span data-i18n="contactEmailLabel">Email</span>
               info@patrumin.com
-            </a>
-<a class="button button--primary" href="mailto:info@patrumin.com?subject=Patrumin%20Portfolio%20Review%20Request">
-              Request Complimentary Review
             </a>
 <div aria-label="Social media links" class="contact-social">
 <a aria-label="Patrumin Investors on LinkedIn" class="social-btn linkedin" href="https://www.linkedin.com/company/10127582" rel="noopener noreferrer" target="_blank">
@@ -208,42 +206,42 @@
 </div>
 <p class="footer-advisory" data-i18n="footerAdvisory">Investment advisory services offered through Patrumin Investors, LLC, a registered investment advisor.</p>
 </div>
-<div class="section-shell footer-disclosures">
+<div class="section-shell footer-disclosures" data-i18n-html="footerDisclosures">
 <p>This site is published for residents of the United States only. Investment advisor representatives may only conduct business with residents of the states and jurisdictions in which they are properly registered. A response to a request for information may be delayed until appropriate registration is obtained or exemption from registration is determined.</p>
 <p>Not all services referenced on this site are available in every state and through every advisor listed. For additional information, please contact <a href="mailto:info@patrumin.com">info@patrumin.com</a> or call <a href="tel:+18447287864">844-728-7864</a>.</p>
 <p>Past performance does not guarantee future results. Investing involves risk, including possible loss of principal. Information presented here is for educational purposes and should not be considered a guarantee or promise of investment results.</p>
-<p>Patrumin Investors claims compliance with the Global Investment Performance Standards (GIPS®). To obtain a list of composite descriptions or a GIPS® compliant presentation, please contact <a href="mailto:info@patrumin.com">info@patrumin.com</a>.</p>
+<p>Patrumin Investors claims compliance with the Global Investment Performance Standards (GIPS<sup class="reg">®</sup>). To obtain a list of composite descriptions or a GIPS<sup class="reg">®</sup> compliant presentation, please contact <a href="mailto:info@patrumin.com">info@patrumin.com</a>.</p>
 <p class="footer-meta">© 2026 Patrumin Investors, LLC | <a href="privacy.html">Privacy Policy</a> | <a href="https://www.patrumin.com/legal" rel="noopener" target="_blank">Legal Disclosures</a> | <a href="https://www.patrumin.com/form-adv" rel="noopener" target="_blank">Form ADV2</a></p>
 </div>
 </footer>
-<!-- GIPS® Email Capture Modal -->
+<!-- GIPS<sup class="reg">®</sup> Email Capture Modal -->
 <div aria-hidden="true" aria-labelledby="gips-modal-title" aria-modal="true" class="gips-modal" id="gips-modal" role="dialog">
 <div class="gips-modal__backdrop" onclick="closeGipsModal()"></div>
 <div class="gips-modal__box" role="document">
 <button aria-label="Close dialog" class="gips-modal__close" onclick="closeGipsModal()">×</button>
 <p class="card-kicker" id="gips-modal-report-name"></p>
-<h3 id="gips-modal-title">Access GIPS® Composite Report</h3>
-<p class="gips-modal__desc">Please provide your contact information. Patrumin Investors maintains a record of all composite report distributions as required under GIPS® standards.</p>
+<h3 id="gips-modal-title">Access GIPS<sup class="reg">®</sup> Composite Report</h3>
+<p class="gips-modal__desc" data-i18n="gipsModalDesc">Please provide your contact information. Patrumin Investors maintains a record of all composite report distributions as required under GIPS<sup class="reg">®</sup> standards.</p>
 <form id="gips-download-form" novalidate="">
 <div class="gips-modal__field">
-<label for="gips-name">Full Name <span aria-hidden="true" class="gips-modal__req">*</span></label>
+<label data-i18n="gipsModalNameLabel" for="gips-name">Full Name <span aria-hidden="true" class="gips-modal__req">*</span></label>
 <input autocomplete="name" id="gips-name" placeholder="First and last name" required="" type="text"/>
 </div>
 <div class="gips-modal__field">
-<label for="gips-email">Email Address <span aria-hidden="true" class="gips-modal__req">*</span></label>
+<label data-i18n="gipsModalEmailLabel" for="gips-email">Email Address <span aria-hidden="true" class="gips-modal__req">*</span></label>
 <input autocomplete="email" id="gips-email" placeholder="your@email.com" required="" type="email"/>
 </div>
-<button class="button button--primary gips-modal__submit" type="submit">Access Report</button>
-<p class="gips-modal__privacy">By accessing this report, you agree that Patrumin Investors may contact you regarding its services.</p>
+<button class="button button--primary gips-modal__submit" data-i18n="gipsModalSubmit" type="submit">Access Report</button>
+<p class="gips-modal__privacy" data-i18n="gipsModalPrivacy">By accessing this report, you agree that Patrumin Investors may contact you regarding its services.</p>
 </form>
 <div class="gips-modal__success" id="gips-modal-success" style="display:none;">
 <div class="gips-modal__check">✓</div>
-<p><strong>Thank you.</strong> Your report access has been logged.</p>
+<p data-i18n="gipsModalThanks"><strong>Thank you.</strong> Your report access has been logged.</p>
 <p class="gips-modal__note" id="gips-modal-note"></p>
-<button class="button button--primary gips-modal__submit" onclick="closeGipsModal()">Close</button>
+<button class="button button--primary gips-modal__submit" data-i18n="gipsModalClose" onclick="closeGipsModal()">Close</button>
 </div>
 </div>
 </div>
-<script src="script.js?v=3"></script>
+<script src="script.js?v=7"></script>
 </body>
 </html>

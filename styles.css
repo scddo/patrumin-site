@@ -532,24 +532,46 @@ h3 {
   border-color: transparent;
 }
 
+/* Language switcher — sleek pill with full language names */
 .nav-aux .language-switch {
+  min-height: 40px;
+  gap: 0.5rem;
+  padding: 0 1.05rem;
   color: var(--charcoal-2);
-  background: transparent;
-  border-color: rgba(0, 0, 0, 0.13);
+  background: linear-gradient(180deg, var(--white) 0%, var(--off-white) 100%);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition:
+    border-color 240ms ease,
+    box-shadow 240ms ease,
+    transform 240ms ease;
 }
 
 .nav-aux .language-switch:hover {
-  border-color: rgba(0, 0, 0, 0.22);
+  border-color: var(--green-dark);
+  box-shadow: 0 3px 14px rgba(93, 165, 34, 0.22);
+  transform: translateY(-1px);
 }
 
 .nav-aux .language-switch::after {
-  border-right-color: var(--charcoal-2);
-  border-bottom-color: var(--charcoal-2);
+  border-right-color: var(--green-dark);
+  border-bottom-color: var(--green-dark);
 }
 
 .nav-aux .language-switch select {
+  max-width: none;
+  width: auto;
   color: var(--charcoal);
-  max-width: 30px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.nav-aux .lang-globe {
+  width: 15px;
+  height: 15px;
+  color: var(--green-dark);
+  opacity: 1;
 }
 
 .nav-aux .language-switch option {
@@ -644,12 +666,13 @@ main section[id] {
   min-width: 0;
 }
 
-/* Hero subtitle — larger so the block fills the hero */
+/* Hero subtitle — two even, balanced lines */
 .hero__left > p:not(.eyebrow) {
-  max-width: 640px;
+  max-width: none;
   color: rgba(255, 255, 255, 0.88);
   font-size: 1.15rem;
   line-height: 1.7;
+  text-wrap: balance;
 }
 
 .hero__text {
@@ -876,6 +899,19 @@ main section[id] {
 .principle-card {
   display: flex;
   flex-direction: column;
+  min-height: 0; /* sized by content, not a fixed box */
+  padding: 26px 28px;
+}
+
+.principle-card h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.principle-card p {
+  margin-top: 0.8rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
 }
 
 .principle-card h3,
@@ -1304,7 +1340,24 @@ main section[id] {
 
 .contact__grid > div > p {
   color: rgba(255, 255, 255, 0.78);
-  max-width: 26rem;
+  max-width: 28rem;
+  text-wrap: balance; /* even, full lines — no widows */
+}
+
+/* Request button lives under the blurb in the left column */
+.contact__grid > div:first-child .button {
+  margin-top: 1.8rem;
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.35);
+  color: var(--white);
+  letter-spacing: 0.05em;
+  font-size: 0.76rem;
+}
+
+.contact__grid > div:first-child .button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: none;
 }
 
 /* Blurb hugs the left edge — mirror of the contact actions on the right */
@@ -1363,21 +1416,6 @@ main section[id] {
   background: transparent;
 }
 
-.contact-actions .button {
-  margin-top: 20px;
-  width: 100%;
-  background: transparent;
-  border-color: rgba(255, 255, 255, 0.35);
-  color: var(--white);
-  letter-spacing: 0.05em;
-  font-size: 0.76rem;
-}
-
-.contact-actions .button:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.6);
-  box-shadow: none;
-}
 
 /* ── Contact actions — pushed to right edge, mirroring the blurb on the left.
    Same 26rem cap as the blurb so both columns are equidistant from the
@@ -1637,13 +1675,15 @@ main section[id] {
 .social-btn.facebook:focus-visible { background: #1877F2; }
 
 .footer-disclosures {
-  padding: 28px 0 54px;
+  padding: 24px 0 44px;
   border-top: 1px solid rgba(255, 255, 255, 0.16);
-  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.72rem;
+  line-height: 1.6;
 }
 
 .footer-disclosures p + p {
-  margin-top: 0.85rem;
+  margin-top: 0.7rem;
 }
 
 .footer-disclosures a {
@@ -1651,7 +1691,7 @@ main section[id] {
 }
 
 .footer-meta {
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(255, 255, 255, 0.8);
   font-weight: 600;
 }
 
@@ -1941,16 +1981,26 @@ main section[id] {
   transform: translateY(-1px);
 }
 
-/* ── Heading balance (reduces orphans) ── */
-h2 {
+/* ── Orphan / widow control, sitewide ── */
+h1,
+h2,
+h3 {
   text-wrap: balance;
 }
 
-/* ── Investment Principles — keep tagline on one line ── */
-#principles-title {
-  font-size: 1.75rem;
-  white-space: nowrap;
+p,
+li {
+  text-wrap: pretty; /* prevents single-word last lines */
 }
+
+/* ── Registered mark — small, raised, up and to the right ── */
+sup.reg {
+  font-size: 0.55em;
+  line-height: 0;
+  vertical-align: super;
+  letter-spacing: 0;
+}
+
 
 /* ── About page — firm tagline one line ── */
 .about-firm-intro h2 {
@@ -2030,111 +2080,6 @@ h2 {
   color: var(--muted);
 }
 
-/* ── Composite performance chart ── */
-.perf-chart {
-  background: var(--off-white);
-  border-top: 1px solid var(--soft-line);
-}
-
-.perf-controls {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 26px;
-}
-
-.perf-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.perf-tab,
-.perf-view {
-  min-height: 38px;
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--white);
-  color: var(--charcoal);
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 220ms ease, border-color 220ms ease, color 220ms ease;
-}
-
-.perf-tab:hover,
-.perf-view:hover {
-  border-color: var(--green-dark);
-}
-
-.perf-tab.is-active,
-.perf-view.is-active {
-  color: var(--white);
-  background: var(--green-dark);
-  border-color: var(--green-dark);
-}
-
-.perf-options {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1.2rem;
-}
-
-.perf-views {
-  display: flex;
-  gap: 0.4rem;
-}
-
-.perf-benches {
-  display: flex;
-  gap: 1rem;
-}
-
-.perf-bench {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.84rem;
-  color: var(--charcoal);
-  cursor: pointer;
-}
-
-.perf-bench input {
-  accent-color: var(--green-dark);
-  width: 15px;
-  height: 15px;
-  cursor: pointer;
-}
-
-.perf-canvas-wrap {
-  position: relative;
-  height: 440px;
-  padding: 24px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--white);
-  box-shadow: 0 8px 24px rgba(20, 28, 24, 0.05);
-}
-
-.perf-summary {
-  margin-top: 16px;
-  color: var(--charcoal);
-  font-size: 0.95rem;
-  font-weight: 600;
-}
-
-@media (max-width: 880px) {
-  .perf-canvas-wrap {
-    height: 340px;
-    padding: 14px;
-  }
-}
-
 /* ── Page transitions (View Transitions API — progressive enhancement) ── */
 @view-transition {
   navigation: auto;
@@ -2185,155 +2130,6 @@ h2 {
 
 .gips-modal.is-open {
   display: flex;
-}
-
-.gips-modal__backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(17, 25, 29, 0.62);
-  backdrop-filter: blur(3px);
-}
-
-.gips-modal__box {
-  position: relative;
-  width: min(480px, 100%);
-  max-height: calc(100dvh - 3rem);
-  overflow-y: auto;
-  background: var(--white);
-  border-radius: 12px;
-  padding: 2.4rem 2.4rem 2rem;
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.22);
-}
-
-.gips-modal__close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 36px;
-  height: 36px;
-  border: none;
-  border-radius: 999px;
-  background: var(--soft-line);
-  color: var(--charcoal);
-  font-size: 1.25rem;
-  line-height: 1;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 180ms ease;
-}
-
-.gips-modal__close:hover {
-  background: var(--line);
-}
-
-.gips-modal__box h3 {
-  margin-top: 0.35rem;
-  font-size: 1.3rem;
-}
-
-.gips-modal__desc {
-  margin-top: 0.75rem;
-  color: var(--muted);
-  font-size: 0.88rem;
-  line-height: 1.55;
-}
-
-.gips-modal__field {
-  margin-top: 1.1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.gips-modal__field label {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--charcoal);
-}
-
-.gips-modal__req {
-  color: var(--green-dark);
-}
-
-.gips-modal__field input {
-  width: 100%;
-  padding: 0.65rem 0.9rem;
-  border: 1.5px solid var(--line);
-  border-radius: 6px;
-  background: var(--white);
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  color: var(--ink);
-  transition: border-color 180ms ease, box-shadow 180ms ease;
-}
-
-.gips-modal__field input:focus {
-  outline: none;
-  border-color: var(--green-dark);
-  box-shadow: 0 0 0 3px rgba(93, 165, 34, 0.18);
-}
-
-.gips-modal__field input::placeholder {
-  color: var(--brand-gray);
-}
-
-.gips-modal__submit {
-  width: 100%;
-  margin-top: 1.2rem;
-  justify-content: center;
-}
-
-.gips-modal__privacy {
-  margin-top: 0.8rem;
-  color: var(--muted);
-  font-size: 0.76rem;
-  line-height: 1.5;
-  text-align: center;
-}
-
-.gips-modal__success {
-  padding-top: 0.5rem;
-  text-align: center;
-}
-
-.gips-modal__check {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
-  margin-bottom: 1rem;
-  border-radius: 999px;
-  background: var(--mist);
-  color: var(--green-dark);
-  font-size: 1.6rem;
-}
-
-.gips-modal__note {
-  margin-top: 0.6rem;
-  color: var(--muted);
-  font-size: 0.84rem;
-}
-
-@media (max-width: 520px) {
-  .topline__inner {
-    width: min(100% - 24px, 1180px);
-  }
-
-  .topline__inner > span {
-    display: none;
-  }
-
-  .topline__actions {
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .language-switch span {
-    display: none;
-  }
 }
 
 /* ── Team / Bio layout (about page) ── */
@@ -2409,7 +2205,7 @@ h2 {
 }
 
 .bio-card__history li::before {
-  content: "—";
+  content: "\2014";
   position: absolute;
   left: 0;
   color: var(--green-dark);
@@ -2417,13 +2213,11 @@ h2 {
 
 .about-firm-text {
   max-width: none;
-  columns: 1;
   margin-top: 2rem;
 }
 
 .about-firm-text p {
   margin-bottom: 1.2rem;
-  break-inside: avoid;
   color: var(--muted);
   font-size: 1.03rem;
   line-height: 1.75;
@@ -2434,20 +2228,40 @@ h2 {
   justify-content: center;
 }
 
-/* ── Page hero (non-home pages) ── */
+/* ── Page hero (non-home pages) — single big title, vertically centered ── */
 .page-hero {
   background: var(--deep);
-  padding: 64px 0 48px;
-}
-
-.page-hero .eyebrow {
-  color: var(--green);
+  padding: 72px 0;
 }
 
 .page-hero h1 {
   color: var(--white);
-  font-size: 3rem;
-  margin-top: 0.4rem;
+  font-size: 3.4rem;
+  margin: 0;
+}
+
+/* ── Privacy policy document — full page width ── */
+.privacy-doc {
+  max-width: none;
+  margin: 0;
+}
+
+/* ── Hero: 2:1 split — left column dominates, right column condensed ── */
+.hero__left {
+  flex: 2;
+}
+
+.hero__right {
+  flex: 1;
+}
+
+.hero__right-heading {
+  font-size: 1.5rem;
+}
+
+.hero__right p {
+  font-size: 0.98rem;
+  line-height: 1.75;
 }
 
 @media (max-width: 1040px) {
@@ -2465,10 +2279,6 @@ h2 {
   .bio-card__photo--placeholder {
     width: 160px;
     height: 200px;
-  }
-
-  .about-firm-text {
-    columns: 1;
   }
 }
 
