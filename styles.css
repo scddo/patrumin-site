@@ -1147,6 +1147,23 @@ main section[id] {
   background: var(--off-white);
 }
 
+/* Tighter padding below the report grid */
+.gips-composite.section-padding {
+  padding-bottom: 64px;
+}
+
+/* ── Uniform intro band under every page hero ──
+   Same space above and below the first text block on all subpages,
+   so the intro sits centered between the black bar and what follows. */
+.page-hero + .section-padding {
+  padding-top: 56px;
+}
+
+.page-hero + .section-padding .section-heading {
+  margin-top: 0;
+  margin-bottom: 56px;
+}
+
 .gips-reports-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1318,6 +1335,7 @@ main section[id] {
 .contact-link {
   display: flex;
   align-items: baseline;
+  justify-content: space-between; /* green label left, number/email right */
   gap: 10px;
   padding: 13px 0;
   border: none;
@@ -1362,11 +1380,21 @@ main section[id] {
 }
 
 /* ── Contact actions — pushed to right edge, mirroring the blurb on the left.
-   Width is capped so the divider lines and button stay short. ── */
+   Same 26rem cap as the blurb so both columns are equidistant from the
+   centered logo and from their respective page edges. ── */
 .contact-actions {
   width: 100%;
-  max-width: 340px;
+  max-width: 26rem;
   justify-self: end;
+}
+
+/* Social icons under the Request button in the contact pane */
+.contact-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 22px;
 }
 
 /* ── Hero buttons — outline style ── */
@@ -1516,18 +1544,29 @@ main section[id] {
   background: var(--deep);
 }
 
-.footer__grid > div > p[data-i18n="footerAdvisory"] {
+/* Advisory line — right side, mirroring the brand on the left */
+.footer-advisory {
+  justify-self: end;
+  max-width: 44ch;
   font-size: 0.88rem;
   line-height: 1.6;
+  text-align: right;
   text-wrap: balance;
-  margin-top: 0.5rem;
+}
+
+/* Wide screens: advisory stays on a single line */
+@media (min-width: 1240px) {
+  .footer-advisory {
+    max-width: none;
+    white-space: nowrap;
+  }
 }
 
 .footer__grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: auto 1fr;
   gap: 48px;
-  padding: 58px 0 36px;
+  padding: 48px 0 32px;
   align-items: center;
 }
 
@@ -1535,7 +1574,6 @@ main section[id] {
   display: inline-flex;
   align-items: center;
   gap: 0.9rem;
-  margin-bottom: 1.4rem;
   color: var(--white);
   font-family: var(--font-heading);
   font-size: 1.65rem;
@@ -1782,6 +1820,17 @@ main section[id] {
     grid-template-columns: 1fr;
   }
 
+  /* Stacked footer: advisory back under the brand, left-aligned */
+  .footer-advisory {
+    justify-self: start;
+    text-align: left;
+    max-width: none;
+  }
+
+  .contact-social {
+    justify-content: flex-start;
+  }
+
 }
 
 @media (max-width: 620px) {
@@ -1979,6 +2028,137 @@ h2 {
   border-top: 1px solid var(--line);
   font-size: 0.88rem;
   color: var(--muted);
+}
+
+/* ── Composite performance chart ── */
+.perf-chart {
+  background: var(--off-white);
+  border-top: 1px solid var(--soft-line);
+}
+
+.perf-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 26px;
+}
+
+.perf-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.perf-tab,
+.perf-view {
+  min-height: 38px;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--charcoal);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 220ms ease, border-color 220ms ease, color 220ms ease;
+}
+
+.perf-tab:hover,
+.perf-view:hover {
+  border-color: var(--green-dark);
+}
+
+.perf-tab.is-active,
+.perf-view.is-active {
+  color: var(--white);
+  background: var(--green-dark);
+  border-color: var(--green-dark);
+}
+
+.perf-options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.perf-views {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.perf-benches {
+  display: flex;
+  gap: 1rem;
+}
+
+.perf-bench {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.84rem;
+  color: var(--charcoal);
+  cursor: pointer;
+}
+
+.perf-bench input {
+  accent-color: var(--green-dark);
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.perf-canvas-wrap {
+  position: relative;
+  height: 440px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: 0 8px 24px rgba(20, 28, 24, 0.05);
+}
+
+.perf-summary {
+  margin-top: 16px;
+  color: var(--charcoal);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+@media (max-width: 880px) {
+  .perf-canvas-wrap {
+    height: 340px;
+    padding: 14px;
+  }
+}
+
+/* ── Page transitions (View Transitions API — progressive enhancement) ── */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 220ms;
+}
+
+/* ── Scroll-reveal (elements get .reveal via script.js) ── */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 650ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* ── Footer meta links ── */

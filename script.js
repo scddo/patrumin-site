@@ -96,7 +96,7 @@ const translations = {
       navCta: "Complimentary Review",
       heroEyebrow: "A Boutique Investment Management and Registered Investment Advisory Firm (RIA)",
       heroTitle: "Patrumin Investors",
-      heroDefinition: "pat·ru·min  |  /pä-ˈtrü-min/  |  n.  —  From Latin patientia (patience) and ruminatio (reflection); patient, deliberate analysis at the heart of every investment decision.",
+      heroDefinition: "pat·ru·min  |  /pä-ˈtrü-min/  |  n.  —  From Latin patientia (patience) and ruminatio (rumination); patient, deliberate analysis at the heart of every investment decision.",
       heroCopy: "Disciplined equity portfolio management for high-net-worth families and institutions. Our research-driven process focuses on free cash flow, management quality, and long-term competitive positioning.",
       heroPrimary: "Explore Strategies",
       heroSecondary: "GIPS Composite Reports",
@@ -503,9 +503,13 @@ function closeGipsModal() {
   modal.setAttribute("aria-hidden", "true");
 }
 
+// Google Sheets logging endpoint — paste the Apps Script web-app URL here.
+// Setup instructions: gips-sheet-setup.md in the project root.
+const GIPS_LOG_ENDPOINT = "https://script.google.com/macros/s/AKfycbwIurr3hOnzQj-eCmnvFvkSb9xg8zSOlVDIJB5GreZfcQfs5eJwPkjBzqY4Hd5T8GpJ/exec";
+
 const gipsForm = document.getElementById("gips-download-form");
 if (gipsForm) {
-  gipsForm.addEventListener("submit", function (e) {
+  gipsForm.addEventListener("submit", async function (e) {
     e.preventDefault();
     const name  = document.getElementById("gips-name").value.trim();
     const email = document.getElementById("gips-email").value.trim();
@@ -519,19 +523,36 @@ if (gipsForm) {
     const mode       = modal.getAttribute("data-mode");
 
     // Log BEFORE serving the file — Marketing Rule recordkeeping
-    // Stores: report name, name, email, action (view/download), ISO timestamp
-    // TODO: also POST to Formspree/backend endpoint for server-side record
+    // Stores: report name, name (raw string, unparsed), email, action, ISO timestamp
+    const record = {
+      report: reportName,
+      name,
+      email,
+      mode,
+      date: new Date().toISOString()
+    };
+
+    // 1) Local backup copy in this browser
     try {
       const log = JSON.parse(window.localStorage.getItem("patrumin-gips-log") || "[]");
-      log.push({
-        report: reportName,
-        name,
-        email,
-        mode,
-        date: new Date().toISOString()
-      });
+      log.push(record);
       window.localStorage.setItem("patrumin-gips-log", JSON.stringify(log));
     } catch (_) {}
+
+    // 2) Central record — appends a row to the Google Sheet.
+    //    Awaited so the log write happens before the file is served.
+    if (GIPS_LOG_ENDPOINT) {
+      try {
+        await fetch(GIPS_LOG_ENDPOINT, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(record)
+        });
+      } catch (_) {
+        // Network failure: local backup above still holds the record
+      }
+    }
 
     // Trigger PDF only after successful log write
     if (pdfUrl && pdfUrl !== "#") {
@@ -562,7 +583,29 @@ if (gipsForm) {
   });
 }
 
-// Close modal on Escape
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape") closeGipsModal();
-});
+// Close moda
+// ── Scroll-reveal: subtle fade-up as sections enter the viewport ───────────
+(function () {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (!("IntersectionObserver" in window)) return;
+  const els = document.querySelectorAll(
+    ".principle-card, .strategy-panel, .gips-report-item, .insight-card, .bio-card, .leader-panel, .review-list article, .feature-card, .perf-canvas-wrap"
+  );
+  if (!els.length) return;
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) {
+          en.target.classList.add("is-visible");
+          io.unobserve(en.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+  );
+  els.forEach((el, i) => {
+    el.classList.add("reveal");
+    el.style.transitionDelay = ((i % 4) * 70) + "ms";
+    io.observe(el);
+  });
+})();
