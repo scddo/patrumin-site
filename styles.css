@@ -29,6 +29,11 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  overflow-x: clip; /* hard stop on sideways scroll from any stray wide element */
+}
+
 body {
   margin: 0;
   color: var(--ink);
@@ -1327,7 +1332,6 @@ main section[id] {
 .contact h2 {
   color: var(--white);
   font-size: 1.8rem;
-  white-space: nowrap;
 }
 
 .contact h3 {
@@ -1422,7 +1426,7 @@ main section[id] {
    centered logo and from their respective page edges. ── */
 .contact-actions {
   width: 100%;
-  max-width: 26rem;
+  max-width: 20rem;
   justify-self: end;
 }
 
@@ -1431,7 +1435,7 @@ main section[id] {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 18px;
   margin-top: 22px;
 }
 
@@ -1449,10 +1453,7 @@ main section[id] {
   box-shadow: none;
 }
 
-/* ── About team heading — one line ── */
-.about__team-intro h2 {
-  white-space: nowrap;
-}
+
 
 /* ── GIPS modal ── */
 .gips-modal {
@@ -1950,6 +1951,10 @@ main section[id] {
     display: grid;
   }
 
+  .strategy-panel__top {
+    flex-wrap: wrap;
+  }
+
   .strategy-points {
     grid-template-columns: 1fr;
   }
@@ -1990,7 +1995,8 @@ h3 {
 
 p,
 li {
-  text-wrap: pretty; /* prevents single-word last lines */
+  text-wrap: pretty;   /* fallback: prevents single-word last lines */
+  text-wrap: balance;  /* preferred: evens out all lines, no stub endings */
 }
 
 /* ── Registered mark — small, raised, up and to the right ── */
@@ -2002,10 +2008,9 @@ sup.reg {
 }
 
 
-/* ── About page — firm tagline one line ── */
+/* ── About page — firm tagline ── */
 .about-firm-intro h2 {
   font-size: 1.75rem;
-  white-space: nowrap;
 }
 
 /* ── GIPS report-item description ── */
