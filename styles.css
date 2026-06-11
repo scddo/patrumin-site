@@ -304,9 +304,10 @@ h3 {
 
 /* ── Main nav ── */
 .main-nav {
-  width: calc(100% - 64px);
+  width: 100%;
   min-height: 76px;
-  margin: 0 auto;
+  margin: 0;
+  padding: 0 18px 0 8px;
   display: flex;
   align-items: center;
   gap: 1.5rem;
@@ -317,7 +318,7 @@ h3 {
 }
 
 .brand img {
-  width: 310px;
+  width: 280px;
   height: auto;
 }
 
@@ -1250,7 +1251,7 @@ main section[id] {
 .contact__grid {
   grid-template-columns: repeat(3, 1fr);
   gap: 3rem;
-  align-items: start; /* columns top-align at their natural height */
+  align-items: stretch; /* all three columns share top and bottom edges */
 }
 
 /* Spacing: eyebrow → h2 → supporting copy */
@@ -1424,12 +1425,15 @@ main section[id] {
 /* Right column: big mark on top, advisory note at the bottom,
    text justified edge-to-edge with the icon */
 .contact-brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* logo top-aligned, note bottom-aligned */
   justify-self: end;
   width: 310px;
 }
 
 .contact-brand__mark {
-  width: 128px;
+  width: 112px;
   height: auto;
   margin: 0 auto; /* centered over the note */
   opacity: 0.95;
@@ -1450,7 +1454,8 @@ main section[id] {
   display: flex;
   align-items: center;
   justify-content: space-between; /* spread evenly, first/last flush with the lines above */
-  margin-top: 28px;
+  margin-top: auto;
+  padding-top: 24px;
 }
 
 /* ── Hero buttons — outline style ── */
@@ -1631,40 +1636,32 @@ main section[id] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.10);
-  color: rgba(255,255,255,0.55);
+  padding: 6px; /* comfortable tap target around the floating glyph */
+  background: none;
+  border-radius: 0;
+  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
-  transition: background 220ms ease, color 220ms ease, transform 220ms ease;
-  will-change: background, color, transform;
+  transition: color 220ms ease, transform 220ms ease;
   flex-shrink: 0;
+}
+
+.social-btn svg {
+  width: 26px;
+  height: 26px;
 }
 
 .social-btn:hover,
 .social-btn:focus-visible {
-  color: #fff;
+  color: var(--green);
+  transform: translateY(-2px);
 }
 
 .social-btn:active {
   transform: scale(0.95);
 }
 
-.social-btn.linkedin:hover,
-.social-btn.linkedin:focus-visible { background: #0A66C2; }
-
-.social-btn.x-corp:hover,
-.social-btn.x-corp:focus-visible { background: #000000; }
-
-.social-btn.instagram:hover,
-.social-btn.instagram:focus-visible { background: #E4405F; }
-
-.social-btn.facebook:hover,
-.social-btn.facebook:focus-visible { background: #1877F2; }
-
 .footer-disclosures {
-  padding: 36px 0 44px;
+  padding: 36px 0 32px;
   color: rgba(255, 255, 255, 0.6);
   font-size: 0.72rem;
   line-height: 1.6;
@@ -2314,7 +2311,12 @@ sup.reg {
     grid-template-columns: 1fr;
   }
 
-  .bio-card__photo,
+  .bio-card__photo {
+    width: 100%;
+    height: auto;
+    max-height: 520px;
+  }
+
   .bio-card__photo--placeholder {
     width: 100%;
     height: 220px;
