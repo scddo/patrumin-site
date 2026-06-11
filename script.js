@@ -247,7 +247,7 @@ Object.assign(translations.zh.text, {
   gipsModalNameLabel: `姓名 <span aria-hidden="true" class="gips-modal__req">*</span>`,
   gipsModalEmailLabel: `电子邮件地址 <span aria-hidden="true" class="gips-modal__req">*</span>`,
   gipsModalSubmit: "获取报告",
-  gipsModalPrivacy: "获取本报告即表示您同意 Patrumin Investors 可能就其服务与您联系。",
+  gipsModalPrivacy: "提交本表单即表示您同意接收 Patrumin Investors 与其服务相关的通讯。我们绝不会向第三方出售您的个人信息。根据 GIPS<sup class='reg'>®</sup> 标准要求，本次提交将被记录存档。",
   gipsModalThanks: `<strong>谢谢。</strong>您的报告获取已记录。`,
   gipsModalClose: "关闭",
   gipsModalTitleView: "查看 GIPS<sup class='reg'>®</sup> 综合报告",
@@ -281,7 +281,7 @@ Object.assign(translations.es.text, {
   gipsModalNameLabel: `Nombre completo <span aria-hidden="true" class="gips-modal__req">*</span>`,
   gipsModalEmailLabel: `Correo electrónico <span aria-hidden="true" class="gips-modal__req">*</span>`,
   gipsModalSubmit: "Acceder al informe",
-  gipsModalPrivacy: "Al acceder a este informe, usted acepta que Patrumin Investors pueda contactarle en relación con sus servicios.",
+  gipsModalPrivacy: "Al enviar este formulario, usted acepta recibir comunicaciones de Patrumin Investors relacionadas con sus servicios. Nunca venderemos su información personal a terceros. Se conserva un registro de este envío según lo exigen las normas GIPS<sup class='reg'>®</sup>.",
   gipsModalThanks: `<strong>Gracias.</strong> Su acceso al informe ha sido registrado.`,
   gipsModalClose: "Cerrar",
   gipsModalTitleView: "Ver informe compuesto GIPS<sup class='reg'>®</sup>",
@@ -315,7 +315,7 @@ Object.assign(translations.fr.text, {
   gipsModalNameLabel: `Nom complet <span aria-hidden="true" class="gips-modal__req">*</span>`,
   gipsModalEmailLabel: `Adresse e-mail <span aria-hidden="true" class="gips-modal__req">*</span>`,
   gipsModalSubmit: "Accéder au rapport",
-  gipsModalPrivacy: "En accédant à ce rapport, vous acceptez que Patrumin Investors puisse vous contacter au sujet de ses services.",
+  gipsModalPrivacy: "En soumettant ce formulaire, vous acceptez de recevoir des communications de Patrumin Investors concernant ses services. Nous ne vendrons jamais vos informations personnelles à des tiers. Un enregistrement de cette soumission est conservé conformément aux normes GIPS<sup class='reg'>®</sup>.",
   gipsModalThanks: `<strong>Merci.</strong> Votre accès au rapport a été enregistré.`,
   gipsModalClose: "Fermer",
   gipsModalTitleView: "Consulter le rapport composite GIPS<sup class='reg'>®</sup>",
@@ -349,7 +349,7 @@ Object.assign(translations.ja.text, {
   gipsModalNameLabel: `氏名 <span aria-hidden="true" class="gips-modal__req">*</span>`,
   gipsModalEmailLabel: `メールアドレス <span aria-hidden="true" class="gips-modal__req">*</span>`,
   gipsModalSubmit: "レポートを取得",
-  gipsModalPrivacy: "本レポートの取得により、Patrumin Investors がサービスに関してご連絡する場合があることに同意したものとみなされます。",
+  gipsModalPrivacy: "本フォームの送信により、Patrumin Investors のサービスに関する連絡を受け取ることに同意したものとみなされます。お客様の個人情報を第三者に販売することは一切ありません。GIPS<sup class='reg'>®</sup> 基準の要件に従い、本送信の記録は保管されます。",
   gipsModalThanks: `<strong>ありがとうございます。</strong>レポートへのアクセスを記録しました。`,
   gipsModalClose: "閉じる",
   gipsModalTitleView: "GIPS<sup class='reg'>®</sup> コンポジット・レポートを見る",
@@ -420,6 +420,10 @@ const applyLanguage = (language) => {
   if (languageSelect) {
     languageSelect.value = language;
   }
+  const langLabel = document.querySelector(".language-switch__label");
+  if (langLabel) {
+    langLabel.textContent = { en: "English", zh: "中文", es: "Español", fr: "Français", ja: "日本語" }[language] || language;
+  }
   window.localStorage.setItem("patrumin-language", language);
   fixWidows();
 };
@@ -487,6 +491,7 @@ if (gipsForm) {
       name,
       email,
       mode,
+      consent: "v1 — agreed to receive communications; personal information not sold to third parties",
       date: new Date().toISOString()
     };
 

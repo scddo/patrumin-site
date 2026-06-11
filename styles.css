@@ -534,13 +534,24 @@ h3 {
   border-bottom-color: var(--green-dark);
 }
 
+/* Select stretches invisibly over the entire pill — every pixel is clickable.
+   The visible text is the .language-switch__label span, synced by script.js. */
 .nav-aux .language-switch select {
+  position: absolute;
+  inset: 0;
+  width: 100%;
   max-width: none;
-  width: auto;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.language-switch__label {
   color: var(--charcoal);
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
 .nav-aux .lang-globe {
@@ -2011,6 +2022,12 @@ sup.reg {
 /* ── Privacy policy document ── */
 .privacy-doc {
   max-width: 760px;
+}
+
+.privacy-divider {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 2.6rem 0;
 }
 
 .privacy-intro {

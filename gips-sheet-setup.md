@@ -17,11 +17,11 @@ function doPost(e) {
 
   // Header row on first write
   if (sheet.getLastRow() === 0) {
-    sheet.appendRow(["Date (UTC)", "Name", "Email", "Report", "Action"]);
+    sheet.appendRow(["Date (UTC)", "Name", "Email", "Report", "Action", "Consent"]);
   }
 
   var d = JSON.parse(e.postData.contents);
-  sheet.appendRow([d.date, d.name, d.email, d.report, d.mode]);
+  sheet.appendRow([d.date, d.name, d.email, d.report, d.mode, d.consent || ""]);
 
   return ContentService.createTextOutput("ok");
 }
@@ -59,3 +59,7 @@ Done. Submissions now append to the "Log" tab of the sheet.
 - The write happens **before** the PDF is served (Marketing Rule recordkeeping). If the network call fails, a backup copy is kept in the visitor's browser localStorage under `patrumin-gips-log`, and the report is still served.
 - The "Anyone" access setting only allows appending via this script — it does not expose the sheet's contents.
 - If you ever update the Apps Script code, redeploy via **Deploy → Manage deployments → Edit (pencil) → Version: New version**, or the live URL keeps running the old code.
+
+## Consent column (added later)
+
+Submissions now include a `consent` field recording the consent-statement version the visitor agreed to — your evidence of the form's disclosure. If you deployed the script before this column existed, paste the updated code above into Apps Script, then **Deploy → Manage deployments → Edit (pencil) → Version: New version → Deploy**. Without redeploying as a new version, the live endpoint keeps running the old code and the consent value is silently dropped.
