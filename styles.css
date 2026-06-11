@@ -1300,13 +1300,12 @@ main section[id] {
   position: relative;
   overflow: hidden;
   color: var(--white);
-  background:
-    linear-gradient(135deg, #11191d 0%, #17211f 55%, #10201a 100%);
+  background: #10201a;
 }
 
 /* Content fills more of the pane vertically; columns tucked in from the edges */
 .contact.section-padding {
-  padding: 72px 0;
+  padding: 64px 0 50px;
 }
 
 .contact .contact__grid {
@@ -1322,7 +1321,7 @@ main section[id] {
 
 .contact h2 {
   color: var(--white);
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 
 .contact h3 {
@@ -1343,7 +1342,7 @@ main section[id] {
 .contact__grid > div:first-child {
   display: flex;
   flex-direction: column;
-  max-width: 27rem;
+  max-width: 28rem;
 }
 
 .contact__grid > div:first-child > p {
@@ -1354,6 +1353,7 @@ main section[id] {
 .contact__grid > div:first-child .button {
   margin-top: 2.2rem;
   width: 100%;
+  max-width: 26rem;
   background: transparent;
   border-color: rgba(255, 255, 255, 0.35);
   color: var(--white);
@@ -1425,21 +1425,23 @@ main section[id] {
    text justified edge-to-edge with the icon */
 .contact-brand {
   justify-self: end;
-  width: 230px;
+  width: 310px;
 }
 
 .contact-brand__mark {
-  width: 175px;
+  width: 128px;
   height: auto;
+  margin: 0 auto; /* centered over the note */
   opacity: 0.95;
 }
 
 .contact-brand__note {
-  margin-top: 1.3rem;
+  margin-top: 1.7rem;
   color: rgba(255, 255, 255, 0.62);
-  font-size: 0.82rem;
-  line-height: 1.7;
-  text-wrap: wrap;
+  font-size: 0.78rem;
+  line-height: 1.65;
+  text-align: left;
+  text-wrap: balance;
   max-width: none;
 }
 
