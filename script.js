@@ -450,7 +450,12 @@ function openGipsModal(reportName, pdfUrl, mode) {
   if (titleEl) titleEl.innerHTML = (mode === "view" ? i18nText("gipsModalTitleView") : i18nText("gipsModalTitleDownload")) || (mode === "view" ? "View GIPS<sup class='reg'>®</sup> Composite Report" : "Download GIPS<sup class='reg'>®</sup> Composite Report");
   const formEl = document.getElementById("gips-download-form");
   const successEl = document.getElementById("gips-modal-success");
-  if (formEl) { formEl.style.display = "block"; formEl.reset(); }
+  if (formEl) {
+    formEl.style.display = "block";
+    formEl.reset();
+    const sb = formEl.querySelector('button[type="submit"]');
+    if (sb) sb.disabled = false;
+  }
   if (successEl) successEl.style.display = "none";
   modal.removeAttribute("aria-hidden");
   modal.classList.add("is-open");
@@ -495,30 +500,48 @@ if (gipsForm) {
       date: new Date().toISOString()
     };
 
-    // 1) Local backup copy in this browser
+// Guard against double-clicks
+    const submitBtn = gipsForm.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      if (submitBtn.disabled) return;
+      submitBtn.disabled = true;
+    }
+
+    // 1) Instant, synchronous local log — the submission is recorded the
+    //    moment the button is pressed
     try {
       const log = JSON.parse(window.localStorage.getItem("patrumin-gips-log") || "[]");
       log.push(record);
       window.localStorage.setItem("patrumin-gips-log", JSON.stringify(log));
     } catch (_) {}
 
-    // 2) Central record — appends a row to the Google Sheet.
-    //    Awaited so the log write happens before the file is served.
+    // 2) Success state shows IMMEDIATELY so there is no dead time
+    gipsForm.style.display = "none";
+    const successEl = document.getElementById("gips-modal-success");
+    const noteEl    = document.getElementById("gips-modal-note");
+    if (noteEl) {
+      noteEl.textContent = pdfUrl && pdfUrl !== "#"
+        ? ""
+        : (i18nText("gipsModalNote") || "The PDF will be available once reports are uploaded. We may follow up at {email}.").replace("{email}", email);
+    }
+    if (successEl) successEl.style.display = "block";
+
+    // 3) Central record — Google Sheet write runs in the background
+    let logged = Promise.resolve();
     if (GIPS_LOG_ENDPOINT) {
-      try {
-        await fetch(GIPS_LOG_ENDPOINT, {
-          method: "POST",
-          mode: "no-cors",
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify(record)
-        });
-      } catch (_) {
-        // Network failure: local backup above still holds the record
-      }
+      logged = fetch(GIPS_LOG_ENDPOINT, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(record)
+      }).catch(() => {
+        // Network failure: the local log above still holds the record
+      });
     }
 
-    // Trigger PDF only after successful log write
+    // 4) Serve the PDF once the log write has had its chance (2.5s cap)
     if (pdfUrl && pdfUrl !== "#") {
+      await Promise.race([logged, new Promise((resolve) => setTimeout(resolve, 2500))]);
       if (mode === "view") {
         window.open(pdfUrl, "_blank", "noopener");
       } else {
@@ -532,17 +555,6 @@ if (gipsForm) {
         document.body.removeChild(a);
       }
     }
-
-    // Show success state
-    gipsForm.style.display = "none";
-    const successEl = document.getElementById("gips-modal-success");
-    const noteEl    = document.getElementById("gips-modal-note");
-    if (noteEl) {
-      noteEl.textContent = pdfUrl && pdfUrl !== "#"
-        ? ""
-        : (i18nText("gipsModalNote") || "The PDF will be available once reports are uploaded. We may follow up at {email}.").replace("{email}", email);
-    }
-    if (successEl) successEl.style.display = "block";
   });
 }
 
