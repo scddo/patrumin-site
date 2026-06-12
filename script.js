@@ -474,6 +474,9 @@ function openGipsModal(reportName, pdfUrl, mode) {
     const sb = formEl.querySelector('button[type="submit"]');
     if (sb) sb.disabled = false;
   }
+  modal.querySelectorAll("#gips-modal-report-name, #gips-modal-title, .gips-modal__desc").forEach((el) => {
+    el.style.display = "";
+  });
   if (successEl) successEl.style.display = "none";
   modal.removeAttribute("aria-hidden");
   modal.classList.add("is-open");
@@ -533,8 +536,12 @@ if (gipsForm) {
       window.localStorage.setItem("patrumin-gips-log", JSON.stringify(log));
     } catch (_) {}
 
-    // 2) Success state shows IMMEDIATELY so there is no dead time
+    // 2) Success state shows IMMEDIATELY so there is no dead time —
+    //    only the thank-you, checkmark, note, and Close remain
     gipsForm.style.display = "none";
+    modal.querySelectorAll("#gips-modal-report-name, #gips-modal-title, .gips-modal__desc").forEach((el) => {
+      el.style.display = "none";
+    });
     const successEl = document.getElementById("gips-modal-success");
     const noteEl    = document.getElementById("gips-modal-note");
     if (noteEl) {

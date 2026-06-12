@@ -461,16 +461,25 @@ h3 {
   justify-content: center;
   flex-direction: column;
   gap: 5px;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  background: var(--white);
+  border: none;
+  background: transparent;
   cursor: pointer;
 }
 
 .nav-toggle__line {
-  width: 20px;
+  width: 22px;
   height: 2px;
   background: var(--charcoal);
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Open menu: the lines drift apart; they glide back when it closes */
+.main-nav.is-open .nav-toggle__line:first-child {
+  transform: translateY(-4px);
+}
+
+.main-nav.is-open .nav-toggle__line:last-of-type {
+  transform: translateY(4px);
 }
 
 .sr-only {
@@ -641,12 +650,51 @@ main section[id] {
 .hero__content {
   position: relative;
   z-index: 2;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  flex: 1; /* fill the full hero height */
+  padding-top: 52px;
+  padding-bottom: 44px;
   display: flex;
   flex-direction: row;
   align-items: stretch; /* both columns top-align — eyebrows sit on the same line */
   gap: 4rem;
+}
+
+/* Desktop: type scaled up so the text spans the panel top to bottom */
+@media (min-width: 881px) {
+  .hero__left {
+    justify-content: space-between;
+  }
+
+  .hero h1 {
+    font-size: 5rem;
+  }
+
+  .hero .eyebrow {
+    font-size: 1.02rem;
+  }
+
+  .hero-definition {
+    font-size: 0.94rem;
+  }
+
+  .hero__left > p:not(.eyebrow) {
+    font-size: 1.32rem;
+    line-height: 1.65;
+  }
+
+  .hero__left .button {
+    min-height: 48px;
+    font-size: 0.88rem;
+  }
+
+  .hero__right-heading {
+    font-size: 1.9rem;
+  }
+
+  .hero__right p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
 }
 
 .hero__left {
@@ -1432,11 +1480,12 @@ main section[id] {
   flex-direction: column;
   justify-content: space-between; /* logo top-aligned, note bottom-aligned */
   justify-self: end;
-  width: 310px;
+  width: max-content;
+  max-width: 100%;
 }
 
 .contact-brand__mark {
-  width: 112px;
+  width: 150px;
   height: auto;
   margin: 0 auto; /* centered over the note */
   opacity: 0.95;
@@ -1444,12 +1493,26 @@ main section[id] {
 
 .contact-brand__note {
   margin-top: 1.7rem;
-  color: rgba(255, 255, 255, 0.62);
-  font-size: 0.78rem;
-  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.6rem;
+  letter-spacing: 0.015em;
+  line-height: 1.5;
   text-align: left;
-  text-wrap: balance;
+  white-space: nowrap; /* single line, bottom-aligned with the social row */
   max-width: none;
+}
+
+/* Narrower desktops: let the line wrap rather than collide with the middle column */
+@media (max-width: 1359px) {
+  .contact-brand {
+    width: 300px;
+  }
+
+  .contact-brand__note {
+    white-space: normal;
+    font-size: 0.72rem;
+    line-height: 1.6;
+  }
 }
 
 /* Social icons under the Request button in the contact pane */
@@ -2143,6 +2206,20 @@ sup.reg {
     opacity: 1;
     transform: none;
   }
+}
+
+/* ── GIPS modal success state ── */
+.gips-modal__success p[data-i18n="gipsModalThanks"] {
+  font-size: 1.3rem;
+  font-family: var(--font-heading);
+}
+
+.gips-modal__success .gips-modal__check {
+  margin: 1.2rem auto;
+}
+
+.gips-modal.is-open .gips-modal__box {
+  padding-bottom: 1.5rem; /* trim the dead space under the Close button */
 }
 
 /* ── Footer meta links ── */
