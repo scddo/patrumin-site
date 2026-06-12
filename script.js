@@ -616,6 +616,7 @@ if (gipsForm) {
 function fixWidows() {
   document.querySelectorAll("p, li, h2, h3").forEach((el) => {
     if (el.closest(".privacy-doc, .site-footer")) return; // legal/footer text wraps naturally
+    if (el.id === "contact-title") return; // breaks best as "...confidential / conversation."
     const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
     let last = null;
     let node;

@@ -478,7 +478,7 @@ h3 {
   transform: translateY(-4px);
 }
 
-.main-nav.is-open .nav-toggle__line:last-of-type {
+.main-nav.is-open .nav-toggle__line:nth-of-type(3) {
   transform: translateY(4px);
 }
 
@@ -687,13 +687,17 @@ main section[id] {
     font-size: 0.88rem;
   }
 
+  .hero__right {
+    justify-content: space-between; /* fills the panel top to bottom */
+  }
+
   .hero__right-heading {
-    font-size: 1.9rem;
+    font-size: 2.2rem;
   }
 
   .hero__right p {
-    font-size: 1.1rem;
-    line-height: 1.8;
+    font-size: 1.18rem;
+    line-height: 1.85;
   }
 }
 
@@ -1502,8 +1506,8 @@ main section[id] {
   max-width: none;
 }
 
-/* Narrower desktops: let the line wrap rather than collide with the middle column */
-@media (max-width: 1359px) {
+/* Stacked mobile layout: let the line wrap */
+@media (max-width: 1040px) {
   .contact-brand {
     width: 300px;
   }
