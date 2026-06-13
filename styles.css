@@ -656,36 +656,37 @@ main section[id] {
   display: flex;
   flex-direction: row;
   align-items: stretch; /* both columns top-align — eyebrows sit on the same line */
-  gap: 4rem;
+  gap: 3.5rem; /* space left of the divider — matched to the right column's padding so the divider is centered in the gutter */
 }
 
 /* Desktop: type scaled up so the text spans the panel top to bottom */
 @media (min-width: 881px) {
   .hero__left {
-    justify-content: space-between;
+    justify-content: space-between; /* distribute lines top-to-bottom, align eyebrow with the right column, fill the bottom */
+    gap: 2.6rem; /* minimum breathing room between the left-column lines */
   }
 
   .hero h1 {
-    font-size: 5rem;
+    font-size: 6.9rem;
   }
 
   .hero .eyebrow {
-    font-size: 1.02rem;
+    font-size: 2.7rem;
   }
 
   .hero-definition {
-    font-size: 0.94rem;
+    font-size: 2.08rem;
   }
 
   .hero__left > p:not(.eyebrow) {
-    font-size: 1.32rem;
+    font-size: 2.9rem;
     line-height: 1.65;
   }
 
   .hero__left .button,
   .hero__right .button {
-    min-height: 48px;
-    font-size: 0.88rem;
+    min-height: 58px;
+    font-size: 1.04rem;
   }
 
   .hero__right {
@@ -693,11 +694,11 @@ main section[id] {
   }
 
   .hero__right-heading {
-    font-size: 2.2rem;
+    font-size: 2.9rem;
   }
 
   .hero__right p {
-    font-size: 1.18rem;
+    font-size: 1.34rem;
     line-height: 1.85;
   }
 }
@@ -739,7 +740,7 @@ main section[id] {
   min-width: 0;
   padding-top: 0;
   border-left: 2px solid rgba(255, 255, 255, 0.15);
-  padding-left: 3rem;
+  padding-left: 3.5rem; /* matched to the column gap so the divider sits centered between the two panels */
 }
 
 .hero__left .button-row {
@@ -749,7 +750,7 @@ main section[id] {
 
 @media (min-width: 881px) {
   .hero__left .button-row {
-    margin-top: auto;
+    margin-top: 0; /* space-between handles bottom alignment now */
   }
 }
 
@@ -2390,12 +2391,12 @@ sup.reg {
 }
 
 .hero__right-heading {
-  font-size: 1.5rem;
+  font-size: 1.76rem;
 }
 
 .hero__right p {
-  font-size: 0.98rem;
-  line-height: 1.75;
+  font-size: 1.12rem;
+  line-height: 1.72;
 }
 
 @media (max-width: 1040px) {
@@ -2434,5 +2435,36 @@ sup.reg {
 
   .gips-reports-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ── Desktop hero type — final sizing (placed last so it wins over the
+      earlier base rules that were overriding the 881px block above) ── */
+@media (min-width: 881px) {
+  /* Both green eyebrows: "A Boutique…" (left) and "Firm Overview" (right).
+     Same rule => identical size, both pinned to the top of their columns. */
+  .hero .eyebrow {
+    font-size: 1.2rem;
+    line-height: 1.3;
+    margin-bottom: 0;
+  }
+
+  /* keep "A Boutique…" on a single line so it sits level with "Firm Overview" */
+  .hero__left .eyebrow {
+    white-space: nowrap;
+  }
+
+  /* pat·ru·min dictionary line — beefed up, wraps to multiple lines */
+  .hero-definition {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  /* "Disciplined equity portfolio management…" blurb */
+  .hero__left > p:not(.eyebrow) {
+    font-size: 1.85rem;
+    line-height: 1.55;
   }
 }
