@@ -1529,11 +1529,11 @@ main section[id] {
   padding-top: 24px;
 }
 
-/* ── Hero buttons — outline style ── */
+/* ── Hero buttons — solid Patrumin green ── */
 .hero__left .button,
 .hero__right .button {
-  background: transparent;
-  border-color: rgba(255, 255, 255, 0.45);
+  background: var(--green);
+  border-color: var(--green);
   color: var(--white);
   font-size: 0.8rem;
   letter-spacing: 0.05em;
@@ -1541,8 +1541,8 @@ main section[id] {
 
 .hero__left .button:hover,
 .hero__right .button:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.75);
+  background: var(--green-hover);
+  border-color: var(--green-hover);
   box-shadow: none;
 }
 
@@ -2444,27 +2444,32 @@ sup.reg {
   /* Both green eyebrows: "A Boutique…" (left) and "Firm Overview" (right).
      Same rule => identical size, both pinned to the top of their columns. */
   .hero .eyebrow {
-    font-size: 1.2rem;
+    font-size: 1.7rem;
     line-height: 1.3;
     margin-bottom: 0;
   }
 
-  /* keep "A Boutique…" on a single line so it sits level with "Firm Overview" */
+  /* keep "A Boutique…" on a single line */
   .hero__left .eyebrow {
     white-space: nowrap;
   }
 
-  /* pat·ru·min dictionary line — beefed up, wraps to multiple lines */
+  /* pat·ru·min dictionary line — wraps to two lines */
   .hero-definition {
-    font-size: 1.6rem;
+    font-size: 1.78rem;
     line-height: 1.5;
     margin-top: 0;
     margin-bottom: 0;
   }
 
-  /* "Disciplined equity portfolio management…" blurb */
+  /* "Disciplined equity portfolio management…" blurb — two lines */
   .hero__left > p:not(.eyebrow) {
-    font-size: 1.85rem;
+    font-size: 2.05rem;
     line-height: 1.55;
+  }
+
+  /* "Firm Overview" removed — pull the right heading flush to the top */
+  .hero__right-heading {
+    margin-top: 0;
   }
 }
