@@ -29,7 +29,7 @@ if (nav && toggle) {
 const heroSlides = document.querySelectorAll(".hero-slide");
 const heroDots = document.querySelectorAll(".hero-dot");
 
-if (heroSlides.length > 1 && heroDots.length === heroSlides.length) {
+if (heroSlides.length > 1) {
   let activeSlide = 0;
   let carouselTimer;
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
