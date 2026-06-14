@@ -1386,22 +1386,29 @@ main section[id] {
   max-width: none;
 }
 
-/* Request button lives under the blurb in the left column */
+/* Request button — same frosted-glass style as the hero CTAs */
 .contact__grid > div:first-child .button {
   margin-top: 2.2rem;
   width: 100%;
   max-width: 26rem;
-  background: transparent;
-  border-color: rgba(255, 255, 255, 0.35);
+  border-radius: 6px;
   color: var(--white);
-  letter-spacing: 0.05em;
-  font-size: 0.76rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.13em;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
+  backdrop-filter: blur(6px) saturate(120%);
+  box-shadow: 0 6px 20px rgba(8, 20, 6, 0.18);
+  transition:
+    background-color 240ms ease,
+    border-color 240ms ease;
 }
 
 .contact__grid > div:first-child .button:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.6);
-  box-shadow: none;
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 6px 20px rgba(8, 20, 6, 0.18);
 }
 
 /* Blurb hugs the left edge — mirror of the contact actions on the right */
@@ -1507,9 +1514,9 @@ main section[id] {
   }
 
   .contact-brand__note {
-    white-space: normal;
-    font-size: 0.72rem;
-    line-height: 1.6;
+    white-space: nowrap;
+    font-size: 0.5rem;
+    line-height: 1.2;
     text-align: left;
   }
 
@@ -1529,21 +1536,37 @@ main section[id] {
   padding-top: 24px;
 }
 
-/* ── Hero buttons — solid Patrumin green ── */
+/* ── Hero buttons — frosted-glass outline (both panels) ─────── */
 .hero__left .button,
 .hero__right .button {
-  background: var(--green);
-  border-color: var(--green);
+  min-height: 50px;
+  padding: 0.95rem 1.7rem;
+  border-radius: 6px;
   color: var(--white);
-  font-size: 0.8rem;
-  letter-spacing: 0.05em;
+  font-size: 0.82rem;
+  letter-spacing: 0.13em;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
+  backdrop-filter: blur(6px) saturate(120%);
+  box-shadow: 0 6px 20px rgba(8, 20, 6, 0.18);
+  transition:
+    background-color 240ms ease,
+    border-color 240ms ease;
 }
 
+/* trademark sits snug against GIPS despite the button's letter-spacing */
+.hero__left .button sup.reg,
+.hero__right .button sup.reg {
+  margin-left: -0.25em;
+}
+
+/* Hover: simply flash a slightly lighter shade — no movement */
 .hero__left .button:hover,
 .hero__right .button:hover {
-  background: var(--green-hover);
-  border-color: var(--green-hover);
-  box-shadow: none;
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 6px 20px rgba(8, 20, 6, 0.18);
 }
 
 .hero__right-cta {
@@ -2471,5 +2494,13 @@ sup.reg {
   /* "Firm Overview" removed — pull the right heading flush to the top */
   .hero__right-heading {
     margin-top: 0;
+  }
+}
+
+/* Very small phones can't fit the disclaimer on one line — let it wrap there */
+@media (max-width: 600px) {
+  .contact-brand__note {
+    white-space: normal;
+    line-height: 1.5;
   }
 }
