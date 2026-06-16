@@ -81,6 +81,17 @@
 <p data-i18n="heroRightP2">The firm’s approach is built on patient, bottom-up company research and a clear fiduciary commitment to transparency — no hidden fees, no conflicts, no model portfolios handed down from a home office.</p>
 <a class="button button--secondary hero__right-cta" data-i18n="heroSecondary" href="gips.html">GIPS<sup class="reg">&reg;</sup> Composite Reports</a>
 </div>
+<button aria-label="Contact Samuel A. Dedio" class="hero-contact" onclick="openContactModal()" type="button">
+<span class="hero-contact__label">
+<small data-i18n="heroContactKicker">Get in touch</small>
+<span data-i18n="heroContactName">Samuel A. Dedio</span>
+</span>
+<span class="hero-contact__photo">
+<span aria-hidden="true" class="hero-contact__badge">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4L4 21l1.1-3.9A8.4 8.4 0 1 1 21 11.5z"></path></svg>
+</span>
+</span>
+</button>
 </div>
 </section>
 <!-- ── Firm Overview ──────────────────────────────────────────── -->
@@ -240,6 +251,44 @@
 </div>
 </div>
 </div>
-<script src="script.js?v=16"></script>
+<!-- Contact the founder modal -->
+<div aria-hidden="true" aria-labelledby="contact-modal-title" aria-modal="true" class="gips-modal" id="contact-modal" role="dialog">
+<div class="gips-modal__backdrop" onclick="closeContactModal()"></div>
+<div class="gips-modal__box" role="document">
+<button aria-label="Close dialog" class="gips-modal__close" onclick="closeContactModal()">×</button>
+<div class="contact-modal__head">
+<span aria-hidden="true" class="contact-modal__avatar"></span>
+<span class="contact-modal__who">
+<strong>Samuel A. Dedio</strong>
+<span data-i18n="contactModalRole">Founder, Chief Investment Officer</span>
+</span>
+</div>
+<h3 data-i18n="contactModalTitle" id="contact-modal-title">Start a conversation</h3>
+<p class="gips-modal__desc" data-i18n="contactModalDesc">Send a note and it will reach our team directly. We typically respond within one business day.</p>
+<form id="contact-form" novalidate="">
+<div class="gips-modal__field">
+<label data-i18n="contactModalNameLabel" for="contact-name">Full Name <span aria-hidden="true" class="gips-modal__req">*</span></label>
+<input autocomplete="name" id="contact-name" placeholder="First and last name" required="" type="text"/>
+</div>
+<div class="gips-modal__field">
+<label data-i18n="contactModalEmailLabel" for="contact-email">Email Address <span aria-hidden="true" class="gips-modal__req">*</span></label>
+<input autocomplete="email" id="contact-email" placeholder="your@email.com" required="" type="email"/>
+</div>
+<div class="gips-modal__field">
+<label data-i18n="contactModalMessageLabel" for="contact-message">Message <span aria-hidden="true" class="gips-modal__req">*</span></label>
+<textarea id="contact-message" placeholder="How can we help?" required=""></textarea>
+</div>
+<button class="button button--primary gips-modal__submit" data-i18n="contactModalSubmit" type="submit">Send Message</button>
+<p class="gips-modal__privacy" data-i18n="contactModalPrivacy">By submitting this form, you agree to be contacted by Patrumin Investors regarding your inquiry. We will never sell your personal information to third parties.</p>
+</form>
+<div class="gips-modal__success" id="contact-modal-success" style="display:none;">
+<div class="gips-modal__check">✓</div>
+<p data-i18n="contactModalThanks"><strong>Thank you — your message is on its way.</strong></p>
+<p class="gips-modal__note" data-i18n="contactModalNote">We'll reply to the email address you provided shortly.</p>
+<button class="button button--primary gips-modal__submit" data-i18n="contactModalClose" onclick="closeContactModal()">Close</button>
+</div>
+</div>
+</div>
+<script src="script.js?v=17"></script>
 </body>
 </html>

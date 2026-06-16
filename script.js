@@ -628,3 +628,108 @@ function fixWidows() {
   });
 }
 fixWidows();
+
+
+// \u2500\u2500 Contact-the-founder Modal \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+// Paste your Apps Script web-app URL between the quotes to send messages
+// server-side by email. Leave it empty ("") and the form falls back to opening
+// the visitor's own email app, pre-filled. Setup: contact-email-setup.md
+const CONTACT_FORM_ENDPOINT = "";
+const CONTACT_RECIPIENT = "scdedio@patrumin.com";
+
+function openContactModal() {
+  const modal = document.getElementById("contact-modal");
+  if (!modal) return;
+  const formEl = document.getElementById("contact-form");
+  const successEl = document.getElementById("contact-modal-success");
+  if (formEl) {
+    formEl.style.display = "block";
+    formEl.reset();
+    const sb = formEl.querySelector('button[type="submit"]');
+    if (sb) sb.disabled = false;
+  }
+  if (successEl) successEl.style.display = "none";
+  modal.removeAttribute("aria-hidden");
+  modal.classList.add("is-open");
+  const firstInput = modal.querySelector("input, textarea");
+  if (firstInput) setTimeout(() => firstInput.focus(), 60);
+}
+
+function closeContactModal() {
+  const modal = document.getElementById("contact-modal");
+  if (!modal) return;
+  modal.classList.remove("is-open");
+  modal.setAttribute("aria-hidden", "true");
+}
+
+// Close any open modal on Escape
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") return;
+  ["contact-modal", "gips-modal"].forEach((id) => {
+    const m = document.getElementById(id);
+    if (m && m.classList.contains("is-open")) {
+      m.classList.remove("is-open");
+      m.setAttribute("aria-hidden", "true");
+    }
+  });
+});
+
+const contactForm = document.getElementById("contact-form");
+if (contactForm) {
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const name    = document.getElementById("contact-name").value.trim();
+    const email   = document.getElementById("contact-email").value.trim();
+    const message = document.getElementById("contact-message").value.trim();
+
+    // Basic validation \u2014 require name, message, and a plausible email
+    if (!name || !message || !email || !email.includes("@") ||
+        email.indexOf(".") < email.indexOf("@")) return;
+
+    // Guard against double-clicks
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      if (submitBtn.disabled) return;
+      submitBtn.disabled = true;
+    }
+
+    const record = {
+      form: "contact",
+      to: CONTACT_RECIPIENT,
+      name,
+      email,
+      message,
+      date: new Date().toISOString()
+    };
+
+    // Local safety-net copy
+    try {
+      const log = JSON.parse(window.localStorage.getItem("patrumin-contact-log") || "[]");
+      log.push(record);
+      window.localStorage.setItem("patrumin-contact-log", JSON.stringify(log));
+    } catch (_) {}
+
+    if (CONTACT_FORM_ENDPOINT) {
+      // Preferred: Apps Script emails it server-side (fire-and-forget)
+      fetch(CONTACT_FORM_ENDPOINT, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(record)
+      }).catch(() => {});
+    } else {
+      // Fallback: open the visitor's email client pre-filled to the recipient
+      const subject = encodeURIComponent("Website inquiry from " + name);
+      const body = encodeURIComponent(
+        "Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message
+      );
+      window.location.href =
+        "mailto:" + CONTACT_RECIPIENT + "?subject=" + subject + "&body=" + body;
+    }
+
+    // Show the success state
+    contactForm.style.display = "none";
+    const successEl = document.getElementById("contact-modal-success");
+    if (successEl) successEl.style.display = "block";
+  });
+}
