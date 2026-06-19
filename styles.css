@@ -1734,8 +1734,8 @@ main section[id] {
   border-radius: 50%;
   background-image: url("assets/sam-a-dedio.jpg");
   background-repeat: no-repeat;
-  background-size: 290%;
-  background-position: 62% 27%;
+  background-size: 245%;
+  background-position: 62% 24%;
   border: 2px solid var(--off-white);
   box-shadow: 0 2px 8px rgba(10, 20, 14, 0.18);
 }
@@ -1747,6 +1747,13 @@ main section[id] {
 .contact-modal__who span {
   font-size: 0.8rem;
   color: var(--muted);
+}
+
+/* privacy line spans the full form width (same as the button) and wraps
+   naturally — left-aligned, lines reach the right edge when long */
+#contact-modal .gips-modal__privacy {
+  width: 100%;
+  text-align: left;
 }
 
 /* ── Hero "talk to the founder" headshot button (bottom-right) ── */
@@ -1799,8 +1806,8 @@ main section[id] {
   border-radius: 50%;
   background-image: url("assets/sam-a-dedio.jpg");
   background-repeat: no-repeat;
-  background-size: 290%;
-  background-position: 62% 27%;
+  background-size: 245%;
+  background-position: 62% 24%;
   border: 2px solid rgba(255, 255, 255, 0.85);
   box-shadow: 0 8px 26px rgba(6, 12, 8, 0.42);
   transition:
@@ -2692,5 +2699,74 @@ sup.reg {
   .contact-brand__note {
     white-space: normal;
     line-height: 1.5;
+  }
+}
+
+/* ── Split hero (desktop ≥1041px): photo slideshow behind the LEFT column only,
+      right column on a clean white panel with larger, darker type. Below 1041px
+      the hero stays full-bleed photo with white text (unchanged). ── */
+@media (min-width: 1041px) {
+  .hero {
+    background: #fff;
+  }
+
+  /* slideshow occupies just the left half, still bleeding to the screen edge */
+  .hero-media {
+    right: auto;
+    width: 50%;
+  }
+
+  /* even darkening so the white left-column text stays legible over the photo */
+  .hero-slide::after {
+    background: linear-gradient(
+      90deg,
+      rgba(16, 24, 25, 0.88) 0%,
+      rgba(16, 24, 25, 0.66) 100%
+    );
+  }
+
+  /* equal columns so the photo/white seam falls cleanly between them */
+  .hero__left,
+  .hero__right {
+    flex: 1;
+  }
+
+  /* right panel sits on white — drop the light divider, darken the text */
+  .hero__right {
+    border-left: none;
+  }
+  .hero__right-heading {
+    color: var(--ink);
+    font-size: clamp(1.65rem, 0.85rem + 1.55vw, 2.5rem);
+    line-height: 1.25;
+  }
+  .hero__right p {
+    color: var(--muted);
+    font-size: clamp(1.1rem, 0.8rem + 0.62vw, 1.36rem);
+    line-height: 1.72;
+  }
+
+  /* GIPS button needs a solid fill to read against white */
+  .hero__right .button {
+    background: var(--green);
+    border-color: var(--green);
+    color: var(--white);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: 0 6px 18px rgba(22, 62, 8, 0.18);
+  }
+  .hero__right .button:hover {
+    background: var(--green-hover);
+    border-color: var(--green-hover);
+    box-shadow: 0 10px 24px rgba(22, 62, 8, 0.26);
+  }
+
+  /* headshot button now sits on white — dark name label, softer ring */
+  .hero-contact__label span {
+    color: var(--ink);
+  }
+  .hero-contact__photo {
+    border-color: #fff;
+    box-shadow: 0 8px 22px rgba(20, 30, 22, 0.22);
   }
 }

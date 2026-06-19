@@ -678,21 +678,24 @@ const contactForm = document.getElementById("contact-form");
 if (contactForm) {
   contactForm.addEventListener("submit", function (e) {
     e.preventDefault();
+
+    // Let the browser flag any empty/invalid fields with its own prompt,
+    // so the button is never a silent no-op.
+    if (!contactForm.checkValidity()) {
+      contactForm.reportValidity();
+      return;
+    }
+
     const name    = document.getElementById("contact-name").value.trim();
     const email   = document.getElementById("contact-email").value.trim();
     const message = document.getElementById("contact-message").value.trim();
 
-    // Basic validation \u2014 require name, message, and a plausible email
-    if (!name || !message || !email || !email.includes("@") ||
-        email.indexOf(".") < email.indexOf("@")) return;
+    // 1) Flash to the thank-you screen IMMEDIATELY on click
+    contactForm.style.display = "none";
+    const successEl = document.getElementById("contact-modal-success");
+    if (successEl) successEl.style.display = "block";
 
-    // Guard against double-clicks
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    if (submitBtn) {
-      if (submitBtn.disabled) return;
-      submitBtn.disabled = true;
-    }
-
+    // 2) Deliver the message in the background
     const record = {
       form: "contact",
       to: CONTACT_RECIPIENT,
@@ -718,18 +721,16 @@ if (contactForm) {
         body: JSON.stringify(record)
       }).catch(() => {});
     } else {
-      // Fallback: open the visitor's email client pre-filled to the recipient
+      // Fallback: open the visitor's email client pre-filled \u2014 deferred slightly
+      // so the thank-you screen paints first.
       const subject = encodeURIComponent("Website inquiry from " + name);
       const body = encodeURIComponent(
         "Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message
       );
-      window.location.href =
-        "mailto:" + CONTACT_RECIPIENT + "?subject=" + subject + "&body=" + body;
+      setTimeout(function () {
+        window.location.href =
+          "mailto:" + CONTACT_RECIPIENT + "?subject=" + subject + "&body=" + body;
+      }, 150);
     }
-
-    // Show the success state
-    contactForm.style.display = "none";
-    const successEl = document.getElementById("contact-modal-success");
-    if (successEl) successEl.style.display = "block";
   });
 }
