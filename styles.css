@@ -3607,3 +3607,51 @@ sup.reg {
   background: #15211a;
   border: 1px solid rgba(122, 201, 58, 0.26);
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   CONTACT BAND — stacked (mobile / narrow) layout
+   Once the three columns sit top-to-bottom, the social row, the mark
+   and its advisory note read badly flush-left, so they centre.
+   ═══════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1040px) {
+  .contact .contact-actions {
+    width: 100%;
+    max-width: none;
+    justify-self: stretch;
+  }
+
+  .contact .contact-social {
+    max-width: 22rem;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+    padding-top: 30px;
+  }
+
+  .contact .contact-brand {
+    align-items: center;
+    justify-self: center;
+    max-width: none;
+    text-align: center;
+    padding-top: 8px;
+  }
+
+  .contact .contact-brand__mark {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact .contact-brand__note {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 30rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 620px) {
+  .contact .contact-social {
+    max-width: 17rem;
+  }
+}

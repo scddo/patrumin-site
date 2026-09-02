@@ -6,7 +6,7 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>GIPS® Composite Reports | Patrumin Investors</title>
 <meta content="Access Patrumin Investors GIPS® verified composite performance reports for all core equity strategies." name="description"/>
-<link rel="stylesheet" href="styles.css?v=51">
+<link rel="stylesheet" href="styles.css?v=52">
 <script>
 /* Theme boot — runs before first paint so there is no flash.
    An explicit choice in localStorage wins; otherwise the OS/browser
@@ -25,7 +25,7 @@
 </script>
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to content</a>
+<a class="skip-link" data-i18n="skip" href="#main">Skip to content</a>
 <header class="site-header">
 <nav aria-label="Primary navigation" class="main-nav">
 <a aria-label="Patrumin Investors home" class="brand" href="index.html">
@@ -36,7 +36,7 @@
 <span class="nav-toggle__line"></span>
 <span class="nav-toggle__line"></span>
 <span class="nav-toggle__line"></span>
-<span class="sr-only">Menu</span>
+<span class="sr-only" data-i18n="navMenuLabel">Menu</span>
 </button>
 <div class="nav-links" id="site-menu">
 <a data-i18n="navPhilosophy" href="index.html#philosophy">Investment Philosophy</a>
@@ -86,7 +86,7 @@
 <section aria-labelledby="gips-composite-title" class="gips-composite section-padding" id="gips-composite">
 <div class="section-shell">
 <div class="section-heading section-heading--full">
-<h2 class="sr-only" id="gips-composite-title">GIPS<sup class="reg">®</sup> Composite Reports</h2>
+<h2 class="sr-only" data-i18n="gipsCompositeHeading" id="gips-composite-title">GIPS<sup class="reg">®</sup> Composite Reports</h2>
 <p data-i18n="gipsIntro">Below are our GIPS<sup class="reg">®</sup> Composite Reports, prepared and presented in compliance with the Global Investment Performance Standards (GIPS<sup class="reg">®</sup>). These reports provide detailed, standardized performance information for each of our investment strategies.</p>
 </div>
 <div class="gips-reports-grid" data-i18n-html="gipsCards">
@@ -196,7 +196,7 @@
 <div class="gips-modal__box" role="document">
 <button aria-label="Close dialog" class="gips-modal__close" onclick="closeGipsModal()">×</button>
 <p class="card-kicker" id="gips-modal-report-name"></p>
-<h3 id="gips-modal-title">Access GIPS<sup class="reg">®</sup> Composite Report</h3>
+<h3 data-i18n="gipsModalTitle" id="gips-modal-title">Access GIPS<sup class="reg">®</sup> Composite Report</h3>
 <p class="gips-modal__desc" data-i18n="gipsModalDesc">Please provide your contact information. Patrumin Investors maintains a record of all composite report distributions as required under GIPS<sup class="reg">®</sup> standards.</p>
 <form id="gips-download-form" novalidate="">
 <div class="gips-modal__field">
@@ -218,4 +218,4 @@
 </div>
 </div>
 </div>
-<script src="script.js?v=24"></script></body></html>
+<script src="script.js?v=26"></script></body></html>

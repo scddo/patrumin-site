@@ -5,7 +5,7 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Patrumin Investors | Disciplined Equity Portfolio Management</title>
 <meta content="Patrumin Investors is a boutique registered investment advisor focused on disciplined equity portfolio management, fiduciary transparency, and long-term company research." name="description"/>
-<link href="styles.css?v=51" rel="stylesheet"/>
+<link href="styles.css?v=52" rel="stylesheet"/>
 <script>
 /* Theme boot — runs before first paint so there is no flash.
    An explicit choice in localStorage wins; otherwise the OS/browser
@@ -35,7 +35,7 @@
 <span class="nav-toggle__line"></span>
 <span class="nav-toggle__line"></span>
 <span class="nav-toggle__line"></span>
-<span class="sr-only">Menu</span>
+<span class="sr-only" data-i18n="navMenuLabel">Menu</span>
 </button>
 <div class="nav-links" id="site-menu">
 <a data-i18n="navPhilosophy" href="index.html#philosophy">Investment Philosophy</a>
@@ -88,18 +88,18 @@
 <div class="hero__inner">
 <div class="hero__left">
 <h1 class="sr-only" data-i18n="heroTitle" id="hero-title">Patrumin Investors</h1>
-<p class="hero__subgreen">A Boutique Investment Management and Registered Investment Advisory Firm (RIA)</p>
-<p aria-label="Etymology of Patrumin" class="hero-definition">pat&#183;ru&#183;min / pa-tr&#252;-min / n. From Latin <em>patientia</em> (patience) and <em>ruminatio</em> (rumination); patient, deliberate analysis at the heart of every investment decision.</p>
+<p class="hero__subgreen" data-i18n="heroSubgreen">A Boutique Investment Management and Registered Investment Advisory Firm (RIA)</p>
+<p aria-label="Etymology of Patrumin" class="hero-definition" data-i18n="heroEtymology">pat&#183;ru&#183;min / pa-tr&#252;-min / n. From Latin <em>patientia</em> (patience) and <em>ruminatio</em> (rumination); patient, deliberate analysis at the heart of every investment decision.</p>
 <div class="button-row">
-<a class="button button--primary" href="strategies.html">Explore Strategies</a>
+<a class="button button--primary" data-i18n="heroPrimary" href="strategies.html">Explore Strategies</a>
 </div>
 </div>
 <div class="hero__right">
-<p class="eyebrow">Firm Overview</p>
-<h2 class="hero__right-heading">Bespoke Portfolios. Institutional Execution.</h2>
-<p class="hero__right-body">Patrumin Investors constructs bespoke equity and balanced portfolios for high-net-worth families, family offices, and institutional fiduciaries. As a specialized boutique, we bypass the limitations of passive, commoditized indexing. Our mandates rely exclusively on active management, concentrated positions, and the rigorous pursuit of alpha.</p>
+<p class="eyebrow" data-i18n="heroRightEyebrow">Firm Overview</p>
+<h2 class="hero__right-heading" data-i18n="heroRightTitle">Bespoke Portfolios. Institutional Execution.</h2>
+<p class="hero__right-body" data-i18n="heroRightBody">Patrumin Investors constructs bespoke equity and balanced portfolios for high-net-worth families, family offices, and institutional fiduciaries. As a specialized boutique, we bypass the limitations of passive, commoditized indexing. Our mandates rely exclusively on active management, concentrated positions, and the rigorous pursuit of alpha.</p>
 <div class="button-row">
-<a class="button button--secondary" href="capabilities.html">Explore Our Capabilities</a>
+<a class="button button--secondary" data-i18n="heroCapabilitiesCta" href="capabilities.html">Explore Our Capabilities</a>
 </div>
 </div>
 </div>
@@ -149,7 +149,7 @@
 <!-- ── Personalized Portfolio Construction ────────────────────── -->
 <section aria-labelledby="customization-title" class="customization section-padding" id="customization">
 <div class="section-shell" data-i18n-html="customization">
-<h2 class="customization__title" id="customization-title">Customization? We&rsquo;ve been doing that for years.</h2>
+<h2 class="customization__title" id="customization-title">Customization is the new trend. We&rsquo;ve been doing it for years.</h2>
 <p class="customization__sub">Personalized Portfolio Construction</p>
 <p class="customization__lede">Patrumin builds portfolios around the client&mdash;not around a product shelf, model lineup, or outside manager.</p>
 <div class="customization__copy">
@@ -254,7 +254,7 @@
 <div class="gips-modal__box" role="document">
 <button aria-label="Close dialog" class="gips-modal__close" onclick="closeGipsModal()">×</button>
 <p class="card-kicker" id="gips-modal-report-name"></p>
-<h3 id="gips-modal-title">Access GIPS<sup class="reg">®</sup> Composite Report</h3>
+<h3 data-i18n="gipsModalTitle" id="gips-modal-title">Access GIPS<sup class="reg">®</sup> Composite Report</h3>
 <p class="gips-modal__desc" data-i18n="gipsModalDesc">Please provide your contact information. Patrumin Investors maintains a record of all composite report distributions as required under GIPS<sup class="reg">®</sup> standards.</p>
 <form id="gips-download-form" novalidate="">
 <div class="gips-modal__field">
@@ -314,6 +314,6 @@
 </div>
 </div>
 </div>
-<script src="script.js?v=24"></script>
+<script src="script.js?v=26"></script>
 </body>
 </html>
