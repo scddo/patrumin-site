@@ -1,19 +1,35 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Patrumin Investors | Disciplined Equity Portfolio Management</title>
 <meta content="Patrumin Investors is a boutique registered investment advisor focused on disciplined equity portfolio management, fiduciary transparency, and long-term company research." name="description"/>
-<link href="styles.css?v=38" rel="stylesheet"/>
+<link href="styles.css?v=51" rel="stylesheet"/>
+<script>
+/* Theme boot — runs before first paint so there is no flash.
+   An explicit choice in localStorage wins; otherwise the OS/browser
+   preference is honoured; otherwise light. */
+(function () {
+  try {
+    var t = localStorage.getItem("patrumin-theme");
+    if (t !== "dark" && t !== "light") {
+      t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {
+    document.documentElement.setAttribute("data-theme", "light");
+  }
+})();
+</script>
 </head>
 <body>
 <a class="skip-link" data-i18n="skip" href="#main">Skip to content</a>
 <header class="site-header">
 <nav aria-label="Primary navigation" class="main-nav">
 <a aria-label="Patrumin Investors home" class="brand" href="index.html">
-<img alt="Patrumin Investors" src="assets/patrumin-logo-clean.png"/>
+<img class="brand__mark" alt="" src="assets/patrumin-mark-hd.png"/>
+<span class="brand__name"><span class="brand__name--dark">Patrumin</span> <span class="brand__name--green">Investors</span></span>
 </a>
 <button aria-controls="site-menu" aria-expanded="false" class="nav-toggle" type="button">
 <span class="nav-toggle__line"></span>
@@ -34,6 +50,7 @@
 <a data-i18n="navCustomBalanced" href="strategies.html#strategy-custom-balanced">Custom Balanced</a>
 </div>
 </div>
+<a data-i18n="navCapabilities" href="capabilities.html">Capabilities</a>
 <a data-i18n="navGipsComposite" href="gips.html">GIPS<sup class="reg">®</sup> Reports</a>
 <a data-i18n="navPerformance" href="performance.html">Equity Performance</a>
 <a data-i18n="navInsights" href="insights.html">Insights</a>
@@ -41,6 +58,10 @@
 <a data-i18n="navContact" href="#contact">Contact Us</a>
 </div>
 <div aria-label="Utilities" class="nav-aux">
+<button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" title="Switch to dark mode">
+<svg class="theme-toggle__moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+<svg class="theme-toggle__sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.2v2.4M12 19.4v2.4M4.1 4.1l1.7 1.7M18.2 18.2l1.7 1.7M2.2 12h2.4M19.4 12h2.4M4.1 19.9l1.7-1.7M18.2 5.8l1.7-1.7"></path></svg>
+</button>
 <label class="language-switch" for="language-select">
 <svg aria-hidden="true" class="lang-globe" fill="none" height="13" stroke="currentColor" stroke-width="1.5" viewbox="0 0 16 16" width="13"><circle cx="8" cy="8" r="6.5"></circle><ellipse cx="8" cy="8" rx="2.9" ry="6.5"></ellipse><line x1="1.5" x2="14.5" y1="8" y2="8"></line><line x1="2" x2="14" y1="5" y2="5"></line><line x1="2" x2="14" y1="11" y2="11"></line></svg>
 <span aria-hidden="true" class="language-switch__label">English</span>
@@ -64,22 +85,23 @@
 <div class="hero-slide hero-slide--photo-three"></div>
 </div>
 <div class="hero__content section-shell">
+<div class="hero__inner">
 <div class="hero__left">
-          <p class="eyebrow" data-i18n="heroEyebrow">A Boutique Investment Management and Registered Investment Advisory Firm (RIA)</p>
-          <h1 class="sr-only" data-i18n="heroTitle" id="hero-title">Patrumin Investors</h1>
-          <div aria-label="Etymology of Patrumin" class="hero-definition">
-            <span data-i18n="heroDefinition">pat&#183;ru&#183;min&nbsp;&nbsp;|&nbsp;&nbsp;/p&#228;-&#712;tr&#252;-min/&nbsp;&nbsp;|&nbsp;&nbsp;n.&nbsp;&nbsp;&mdash;&nbsp;&nbsp;From Latin <em>patientia</em> (patience) and <em>ruminatio</em> (rumination); patient, deliberate analysis at the heart of every investment decision.</span>
-          </div>
-          <p data-i18n="heroSubtitle">Disciplined equity portfolio management for high-net-worth families and institutions. Patient research, fiduciary-grade transparency, and long-term conviction at the core of every portfolio decision.</p>
-          <div class="button-row">
-            <a class="button button--primary" data-i18n="heroPrimary" href="strategies.html">Explore Strategies</a>
-          </div>
-        </div>
+<h1 class="sr-only" data-i18n="heroTitle" id="hero-title">Patrumin Investors</h1>
+<p class="hero__subgreen">A Boutique Investment Management and Registered Investment Advisory Firm (RIA)</p>
+<p aria-label="Etymology of Patrumin" class="hero-definition">pat&#183;ru&#183;min / pa-tr&#252;-min / n. From Latin <em>patientia</em> (patience) and <em>ruminatio</em> (rumination); patient, deliberate analysis at the heart of every investment decision.</p>
+<div class="button-row">
+<a class="button button--primary" href="strategies.html">Explore Strategies</a>
+</div>
+</div>
 <div class="hero__right">
-<h2 class="hero__right-heading" data-i18n="heroRightTitle">Customized portfolios built around your objectives.</h2>
-<p data-i18n="heroRightP1">Patrumin Investors builds custom equity and balanced portfolios for high-net-worth families, family offices, and institutional clients. Every mandate is tailored — from pure equity strategies to Custom Balanced Equity-Income solutions structured around each client’s income needs, tax situation, and risk tolerance.</p>
-<p data-i18n="heroRightP2">The firm’s approach is built on patient, bottom-up company research and a clear fiduciary commitment to transparency — no hidden fees, no conflicts, no model portfolios handed down from a home office.</p>
-<a class="button button--secondary hero__right-cta" data-i18n="heroSecondary" href="gips.html">GIPS<sup class="reg">&reg;</sup> Composite Reports</a>
+<p class="eyebrow">Firm Overview</p>
+<h2 class="hero__right-heading">Bespoke Portfolios. Institutional Execution.</h2>
+<p class="hero__right-body">Patrumin Investors constructs bespoke equity and balanced portfolios for high-net-worth families, family offices, and institutional fiduciaries. As a specialized boutique, we bypass the limitations of passive, commoditized indexing. Our mandates rely exclusively on active management, concentrated positions, and the rigorous pursuit of alpha.</p>
+<div class="button-row">
+<a class="button button--secondary" href="capabilities.html">Explore Our Capabilities</a>
+</div>
+</div>
 </div>
 <button aria-label="Contact Samuel A. Dedio" class="hero-contact" onclick="openContactModal()" type="button">
 <span class="hero-contact__label">
@@ -94,23 +116,6 @@
 </button>
 </div>
 </section>
-<!-- ── Firm Overview ──────────────────────────────────────────── -->
-<section class="overview section-padding">
-<div class="section-shell overview__grid" data-i18n-html="overview">
-<div>
-<p class="eyebrow">Firm Overview</p>
-<h2>Customized portfolios built around your objectives.</h2>
-</div>
-<div class="overview__copy">
-<p>
-              Patrumin Investors builds custom equity and balanced portfolios for high-net-worth families, family offices, and institutional clients. Every mandate is tailored — from pure equity strategies to Custom Balanced Equity-Income solutions that combine stock selection with fixed income, structured around each client’s income needs, tax situation, and risk tolerance.
-            </p>
-<p>
-              The firm’s approach is built on patient, bottom-up company research and a clear fiduciary commitment to transparency — no hidden fees, no conflicts, no model portfolios handed down from a home office.
-            </p>
-</div>
-</div>
-</section>
 <!-- ── Investment Principles ──────────────────────────────────── -->
 <section aria-labelledby="principles-title" class="principles section-padding" id="philosophy">
 <div class="section-shell" data-i18n-html="principles">
@@ -120,29 +125,57 @@
 <div class="card-grid card-grid--four">
 <article class="principle-card">
 <h3>Patient</h3>
-<p>We look for stocks that may outperform over the coming one to two years, not months.</p>
+<p>At Patrumin, we are patient investors—we look for stocks that will outperform in the coming one-to-two years, not months.</p>
+<a class="card-more" href="about.html">more</a>
 </article>
 <article class="principle-card">
 <h3>Thoughtful</h3>
-<p>We consider potential reward-to-risk trade-offs before making investment decisions.</p>
+<p>We always consider the potential reward to risk trade-offs for any investment we make. We look for three or four units of upside potential relative to one unit of down side risk.</p>
+<a class="card-more" href="about.html">more</a>
 </article>
 <article class="principle-card">
 <h3>Disciplined</h3>
-<p>We look at free cash flow characteristics and remain focused on owning businesses rather than timing markets.</p>
+<p>We look at the free cash flow characteristics of every investment we consider. We never market time—we are always fully invested.</p>
+<a class="card-more" href="about.html">more</a>
 </article>
 <article class="principle-card">
 <h3>Knowledgeable</h3>
-<p>Decades of research across companies, sectors, industries, and financial statements inform our view of business change.</p>
+<p>At Patrumin, we leverage our decades of analyzing companies, stocks, industries, sectors and financial statements with understanding which products and services offered by companies will change the way people spend their money in both consumer and business settings.</p>
+<a class="card-more" href="about.html">more</a>
 </article>
 </div>
 </div>
 </section>
+<!-- ── Personalized Portfolio Construction ────────────────────── -->
+<section aria-labelledby="customization-title" class="customization section-padding" id="customization">
+<div class="section-shell" data-i18n-html="customization">
+<h2 class="customization__title" id="customization-title">Customization? We&rsquo;ve been doing that for years.</h2>
+<p class="customization__sub">Personalized Portfolio Construction</p>
+<p class="customization__lede">Patrumin builds portfolios around the client&mdash;not around a product shelf, model lineup, or outside manager.</p>
+<div class="customization__copy">
+<p>We construct portfolios directly, tailoring asset allocation, security selection, risk management, and implementation to each client&rsquo;s objectives and circumstances. Outside strategies are used selectively when they provide a specific portfolio benefit or when regulatory, jurisdictional, custody, or other client-specific considerations require a different solution.</p>
+</div>
+<a class="customization__link" href="strategies.html#built-around-the-client">Read how we build around the client</a>
+</div>
+</section>
+<!-- ── Founder quote ──────────────────────────────────────────── -->
+<section aria-label="Investment philosophy" class="quote-band section-padding">
+<div class="section-shell">
+<blockquote class="firm-quote" data-i18n-html="firmQuote">
+<p class="firm-quote__text">“We strive to know early on which products and services will change consumer or business spending.”</p>
+<footer class="firm-quote__by">
+<span class="firm-quote__name">Samuel A. Dedio</span>
+<span class="firm-quote__role">Founder &amp; Chief Investment Officer</span>
+</footer>
+</blockquote>
+</div>
+</section>
 <!-- ── About Patrumin ─────────────────────────────────────────── -->
 <section aria-labelledby="about-title" class="about section-padding" id="about">
-<div class="section-shell about__grid" data-i18n-html="about">
-<div class="about__main">
+<div class="section-shell about__stack" data-i18n-html="about">
 <p class="eyebrow">About Patrumin</p>
 <h2 id="about-title">A boutique investment advisory firm focused on analysis before allocation.</h2>
+<div class="about__copy">
 <p>
               Patrumin Investors is an independent registered investment advisory firm dedicated
               to disciplined equity research and portfolio management. The firm’s investment
@@ -156,14 +189,6 @@
               invest with conviction before the market recognizes the opportunity.
             </p>
 </div>
-<aside aria-labelledby="leader-title" class="leader-panel">
-<p class="quote">
-              “We strive to know early on which products and services will
-              change consumer or business spending.”
-            </p>
-<h3 id="leader-title">Samuel A. Dedio</h3>
-<p>Founder &amp; Chief Investment Officer</p>
-</aside>
 </div>
 </section>
 <!-- ── Contact ────────────────────────────────────────────────── -->
@@ -200,7 +225,7 @@
 <svg aria-hidden="true" fill="currentColor" height="22" viewbox="0 0 24 24" width="22"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
 </a>
 <a aria-label="Patrumin Investors on Instagram" class="social-btn instagram" href="https://www.instagram.com/patrumininvestors" rel="noopener noreferrer" target="_blank">
-<svg aria-hidden="true" fill="url(#ig-gradient)" height="22" viewbox="0 0 24 24" width="22"><defs><radialGradient id="ig-gradient" cx="0.3" cy="1.07" r="1.35"><stop offset="0" stop-color="#fdf497"/><stop offset="0.05" stop-color="#fdf497"/><stop offset="0.45" stop-color="#fd5949"/><stop offset="0.6" stop-color="#d6249f"/><stop offset="0.9" stop-color="#285AEB"/></radialGradient></defs><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12c0 3.259.014 3.668.072 4.948.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24c3.259 0 3.668-.014 4.948-.072 1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.689.072-4.948 0-3.259-.014-3.667-.072-4.947-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 01-2.88 0 1.44 1.44 0 012.88 0z"></path></svg>
+<svg aria-hidden="true" fill="url(#ig-gradient)" height="22" viewbox="0 0 24 24" width="22"><defs><radialGradient id="ig-gradient" cx="0.3" cy="1.07" r="1.35"><stop offset="0" stop-color="#fdf497"></stop><stop offset="0.05" stop-color="#fdf497"></stop><stop offset="0.45" stop-color="#fd5949"></stop><stop offset="0.6" stop-color="#d6249f"></stop><stop offset="0.9" stop-color="#285AEB"></stop></radialGradient></defs><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12c0 3.259.014 3.668.072 4.948.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24c3.259 0 3.668-.014 4.948-.072 1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.689.072-4.948 0-3.259-.014-3.667-.072-4.947-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 01-2.88 0 1.44 1.44 0 012.88 0z"></path></svg>
 </a>
 <a aria-label="Patrumin Investors on Facebook" class="social-btn facebook" href="https://www.facebook.com/patrumin" rel="noopener noreferrer" target="_blank">
 <svg aria-hidden="true" fill="currentColor" height="22" viewbox="0 0 24 24" width="22"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 11.954 12 12.873v-9.107H8.468V12.06h3.532V9.39c0-3.487 2.078-5.415 5.253-5.415 1.522 0 3.114.272 3.114.272v3.427h-1.754c-1.726 0-2.265 1.072-2.265 2.17v2.21h3.85l-.615 3.807h-3.235v9.108C19.612 24.027 24 18.062 24 12.073z"></path></svg>
@@ -289,6 +314,6 @@
 </div>
 </div>
 </div>
-<script src="script.js?v=18"></script>
+<script src="script.js?v=24"></script>
 </body>
 </html>

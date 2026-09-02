@@ -5,16 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>About Patrumin Investors | Team & Firm Overview</title>
     <meta name="description" content="Learn about Patrumin Investors, an independent registered investment adviser, and meet the investment team.">
-    <link rel="stylesheet" href="styles.css?v=38">
-  </head>
+    <link rel="stylesheet" href="styles.css?v=51">
+  <script>
+/* Theme boot — runs before first paint so there is no flash.
+   An explicit choice in localStorage wins; otherwise the OS/browser
+   preference is honoured; otherwise light. */
+(function () {
+  try {
+    var t = localStorage.getItem("patrumin-theme");
+    if (t !== "dark" && t !== "light") {
+      t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {
+    document.documentElement.setAttribute("data-theme", "light");
+  }
+})();
+</script>
+</head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header">
       <nav class="main-nav" aria-label="Primary navigation">
-        <a class="brand" href="index.html" aria-label="Patrumin Investors home">
-          <img src="assets/patrumin-logo-clean.png" alt="Patrumin Investors">
-        </a>
+        <a aria-label="Patrumin Investors home" class="brand" href="index.html">
+<img class="brand__mark" alt="" src="assets/patrumin-mark-hd.png"/>
+<span class="brand__name"><span class="brand__name--dark">Patrumin</span> <span class="brand__name--green">Investors</span></span>
+</a>
 
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
           <span class="nav-toggle__line"></span>
@@ -36,6 +53,7 @@
               <a href="strategies.html#strategy-custom-balanced" data-i18n="navCustomBalanced">Custom Balanced</a>
             </div>
           </div>
+          <a href="capabilities.html" data-i18n="navCapabilities">Capabilities</a>
           <a href="gips.html" data-i18n="navGipsComposite">GIPS<sup class="reg">&reg;</sup> Reports</a>
           <a href="performance.html" data-i18n="navPerformance">Equity Performance</a>
           <a href="insights.html" data-i18n="navInsights">Insights</a>
@@ -44,7 +62,11 @@
         </div>
 
         <div class="nav-aux" aria-label="Utilities">
-          <label class="language-switch" for="language-select">
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" title="Switch to dark mode">
+<svg class="theme-toggle__moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+<svg class="theme-toggle__sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.2v2.4M12 19.4v2.4M4.1 4.1l1.7 1.7M18.2 18.2l1.7 1.7M2.2 12h2.4M19.4 12h2.4M4.1 19.9l1.7-1.7M18.2 5.8l1.7-1.7"></path></svg>
+</button>
+<label class="language-switch" for="language-select">
             <svg class="lang-globe" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><ellipse cx="8" cy="8" rx="2.9" ry="6.5"/><line x1="1.5" y1="8" x2="14.5" y2="8"/><line x1="2" y1="5" x2="14" y2="5"/><line x1="2" y1="11" x2="14" y2="11"/></svg>
 <span aria-hidden="true" class="language-switch__label">English</span>
             <select id="language-select" aria-label="Select language">
@@ -66,16 +88,49 @@
         </div>
       </section>
 
-      <section class="section-padding about-firm-intro" style="background:var(--white);">
-        <div class="section-shell" data-i18n-html="aboutFirm">
-          <div class="section-heading">
-            <h2>An independent, registered investment adviser.</h2>
+      <section class="section-padding about-firm-intro" style="background:var(--surface-page);">
+        <div class="section-shell about-firm" data-i18n-html="aboutFirm">
+          <div class="section-heading section-heading--full">
+            <p class="eyebrow">About Us</p>
+            <h2>Constructing and managing equity portfolios &mdash; that&rsquo;s all we do.</h2>
           </div>
-          <div class="about-firm-text">
-            <p>Patrumin Investors LLC (&ldquo;the Firm&rdquo; or &ldquo;Patrumin&rdquo;) is an independent investment adviser registered under the Investment Advisers Act of 1940. The Firm was founded in September 2012 and is owned by Samuel Dedio.</p>
-            <p>Patrumin Investors operates as an independent investment management company specializing in U.S. equities, and offers equity-focused portfolio strategies, including the Patrumin U.S. Dividends Plus+ Equity Strategy, Patrumin U.S. Smallcap Equity Strategy, Patrumin U.S. Allcap Equity Strategy, and Patrumin U.S. SMICROCAP Equity Strategy.</p>
-            <p>The Firm also manages strategies that balance equities and fixed income, including Custom Balanced Equity-Income and Custom Balanced strategies designed around each client&rsquo;s income objectives, risk tolerance, and investment time horizon. The Firm manages discretionary accounts for institutional and retail clients.</p>
-            <p>Patrumin&rsquo;s investment management team brings more than 30 years of experience identifying companies with durable competitive advantages and superior free cash flow characteristics. The research process combines proprietary company analysis, direct management engagement, industry conferences, and rigorous financial modeling.</p>
+          <div class="about-prose">
+            <p>Patrumin Investors, LLC, was founded in 2012 by Sam Dedio. The firm was formed then to ensure a continuation of four successful U.S. Equity Strategies that he managed for Artio Global Investors since 2006.</p>
+            <p>The Patrumin team has decades of experience managing sizable assets and will also provide SMA, UMA and sub-advisory account management services. Patrumin Investors specializes and focuses on one thing only: constructing and managing equity investment portfolios.</p>
+          </div>
+
+          <div class="about-approach">
+            <h3>Our Approach To Equity Research And Analysis</h3>
+            <p>At Patrumin, we have decades of experience analyzing companies. For example, Sam Dedio has been researching and analyzing technology companies for over 25 years. To get quality insights into the companies we are interested in or industries we are analyzing, we take a comprehensive approach to company analysis. We have visited 100&rsquo;s of companies on location and have met with 1000+ management teams in their respective careers. Attendance at trade and industry shows is a must to maintain a working knowledge and understanding of various companies and industries. We think this, along with a consistent review of the initial public offering and venture capital landscape, provides a solid industry framework in which individual company analysis can be undertaken.</p>
+            <ul class="strategy-points about-points">
+              <li>Company visits</li>
+              <li>Attendance at trade shows</li>
+              <li>Meetings with management</li>
+              <li>Accounting and financial analysis</li>
+              <li>Industry knowledge and perspective</li>
+              <li>Economic earnings vs. accounting earnings</li>
+              <li>Allcap investors</li>
+              <li>Conviction equals concentrated positions</li>
+              <li>We diversify via sectors, market cap., and capital structure</li>
+            </ul>
+          </div>
+
+          <div class="about-why">
+            <h3>Why Choose Us?</h3>
+            <div class="about-why__grid">
+              <article class="about-why__item">
+                <h4>We Have Our Own Money Invested In Each Strategy That We Manage For Clients</h4>
+                <p>At Patrumin Investors, the founders have their own money invested in each of the equity strategies they offer to clients. We absolutely believe in having &ldquo;skin in the game.&rdquo; We are confident in our ability to successfully manage each of our equity strategies so we have no reservations about eating our own cooking and living with our investment decisions.</p>
+              </article>
+              <article class="about-why__item">
+                <h4>Experience And Perspective Does Matter</h4>
+                <p>Sam has over 25 years experience analyzing companies of all sizes. Each of us started our careers analyzing smaller companies, &ldquo;growing up&rdquo; with many of the survivors that are today&rsquo;s large cap stocks. The Patrumin team has met with thousands of CEOs, CFOs and senior management teams and visited hundreds of companies since the early 1990&rsquo;s. Our practical experience provides a qualified, knowledgeable and compelling perspective for the identification and selection of stocks to be included in our portfolios.</p>
+              </article>
+              <article class="about-why__item">
+                <h4>Portfolio Construction Specialists</h4>
+                <p>Patrumin Investors provide innovative equity portfolio strategies to serve a wide variety of investment needs. We focus only on products that our equity research process supports, leveraging the decades of U.S. company research our team has undertaken to analyze a globally competitive market for multiple sectors and industries.</p>
+              </article>
+            </div>
           </div>
         </div>
       </section>
@@ -83,7 +138,7 @@
       <section class="section-padding" style="background:var(--off-white);">
         <div class="section-shell" data-i18n-html="aboutTeam">
           <div class="section-heading">
-            <h2>The team behind the research.</h2>
+            <h2>Meet Our Team</h2>
           </div>
 
           <div class="team-grid">
@@ -215,6 +270,6 @@
         </div>
       </div>
     </div>
-    <script src="script.js?v=16"></script>
+    <script src="script.js?v=24"></script>
   </body>
 </html>

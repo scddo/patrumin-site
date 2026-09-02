@@ -19,6 +19,51 @@
   --header-height: 76px;
   --font-body: "Iskoola Pota", "Noto Serif", Georgia, "Times New Roman", serif;
   --font-heading: "Iskoola Pota", "Noto Serif", Georgia, "Times New Roman", serif;
+
+  /* ── Theme surfaces (light) ──────────────────────────────────────
+     --white / --charcoal / --deep stay literal brand colours and are
+     used for text and panels that are dark in BOTH themes. Anything
+     that flips between light and dark uses the tokens below.        */
+  --surface-page: #ffffff;
+  --surface-card: #ffffff;
+  --surface-header: rgba(255, 255, 255, 0.97);
+  --panel-dark: #242628;
+  --brand-name: #323232;
+  --card-shadow: 0 8px 24px rgba(20, 28, 24, 0.05);
+  color-scheme: light;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   DARK THEME
+   Set by the inline <head> script as data-theme="dark" on <html>:
+   an explicit choice in localStorage wins, otherwise the OS/browser
+   preference is honoured, otherwise light.
+   ══════════════════════════════════════════════════════════════════ */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --surface-page: #121618;
+  --surface-card: #1b2022;
+  --surface-header: rgba(17, 21, 23, 0.94);
+
+  --off-white: #1d2224;
+  --mist: #16211c;
+
+  --ink: #e4e9e9;
+  --charcoal: #f1f4f3;
+  --charcoal-2: #e4e9e9;
+  --muted: #a2adaf;
+
+  --line: #2f3639;
+  --soft-line: #262c2f;
+
+  --brand-name: #f1f4f3;
+  --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.34);
+
+  /* NOTE: --green / --green-dark are deliberately NOT changed here.
+     They are the brand greens and also fill the primary buttons, which
+     carry white text — lightening them lowers button contrast. On the
+     dark page ground #5da522 still reads at roughly 5.7:1 as link text. */
 }
 
 * {
@@ -31,13 +76,13 @@ html {
 
 html,
 body {
-  overflow-x: clip; /* hard stop on sideways scroll from any stray wide element */
+  overflow-x: clip;
 }
 
 body {
   margin: 0;
   color: var(--ink);
-  background: var(--white);
+  background: var(--surface-page);
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.65;
@@ -77,8 +122,9 @@ h3 {
   color: var(--charcoal);
   font-family: var(--font-heading);
   font-weight: 500;
-  line-height: 1.08;
+  line-height: 1.12;
   letter-spacing: 0;
+  width: 100%;
 }
 
 h1 {
@@ -87,7 +133,8 @@ h1 {
 }
 
 h2 {
-  font-size: 2.7rem;
+  font-size: clamp(1.85rem, 1.5rem + 1.5vw, 4.2rem);
+  text-wrap: normal;
 }
 
 h3 {
@@ -101,7 +148,7 @@ h3 {
   z-index: 1000;
   padding: 0.75rem 1rem;
   color: var(--white);
-  background: var(--charcoal);
+  background: var(--panel-dark);
   transform: translateY(-150%);
 }
 
@@ -132,7 +179,7 @@ h3 {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.97);
+  background: var(--surface-header);
   border-bottom: 1px solid var(--soft-line);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
   backdrop-filter: blur(14px);
@@ -140,7 +187,7 @@ h3 {
 
 .topline {
   color: var(--white);
-  background: var(--charcoal);
+  background: var(--panel-dark);
   font-size: 0.8rem;
 }
 
@@ -174,7 +221,6 @@ h3 {
   gap: 0.75rem;
 }
 
-/* ── Social icons ── */
 .social-links {
   display: flex;
   align-items: center;
@@ -201,7 +247,6 @@ h3 {
     transform 220ms ease;
 }
 
-/* Platform-specific hover colours */
 .social-links a.social-link--linkedin:hover,
 .social-links a.social-link--linkedin:focus-visible {
   background: #0A66C2;
@@ -226,7 +271,6 @@ h3 {
   transform: translateY(-1px);
 }
 
-/* Footer social on dark bg */
 .footer-social .social-links a.social-link--linkedin:hover {
   background: #0A66C2;
   border-color: #0A66C2;
@@ -240,7 +284,6 @@ h3 {
   border-color: #1877F2;
 }
 
-/* ── Language switcher ── */
 .language-switch {
   position: relative;
   display: inline-flex;
@@ -299,10 +342,9 @@ h3 {
 
 .language-switch option {
   color: var(--white);
-  background: var(--charcoal);
+  background: var(--panel-dark);
 }
 
-/* ── Main nav ── */
 .main-nav {
   width: 100%;
   min-height: 76px;
@@ -367,8 +409,6 @@ h3 {
   position: relative;
 }
 
-/* ── Strategy submenu: hidden on desktop (plain link with underline
-   highlight); shown inline inside the collapsed hamburger menu ── */
 .nav-menu {
   display: none;
 }
@@ -391,7 +431,6 @@ h3 {
   background: var(--off-white);
 }
 
-/* ── Buttons ── */
 .nav-cta,
 .button {
   display: inline-flex;
@@ -439,7 +478,6 @@ h3 {
   transition-duration: 100ms;
 }
 
-/* Nav CTA — slightly more compact than hero/section buttons */
 .nav-cta {
   min-height: 36px;
   padding: 0.5rem 0.9rem;
@@ -473,7 +511,6 @@ h3 {
   transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Open menu: the lines drift apart; they glide back when it closes */
 .main-nav.is-open .nav-toggle__line:first-child {
   transform: translateY(-4px);
 }
@@ -494,7 +531,6 @@ h3 {
   border: 0;
 }
 
-/* ── Nav utilities (formerly in topline) ── */
 .nav-aux {
   flex-shrink: 0;
   display: flex;
@@ -518,13 +554,12 @@ h3 {
   border-color: transparent;
 }
 
-/* Language switcher — sleek pill with full language names */
 .nav-aux .language-switch {
   min-height: 40px;
   gap: 0;
-  padding: 0 12px; /* globe and chevron sit as far from the sides as from the top */
+  padding: 0 12px;
   color: var(--charcoal-2);
-  background: linear-gradient(180deg, var(--white) 0%, var(--off-white) 100%);
+  background: linear-gradient(180deg, var(--surface-card) 0%, var(--off-white) 100%);
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   transition:
@@ -544,8 +579,6 @@ h3 {
   border-bottom-color: var(--green-dark);
 }
 
-/* Select stretches invisibly over the entire pill — every pixel is clickable.
-   The visible text is the .language-switch__label span, synced by script.js. */
 .nav-aux .language-switch select {
   position: absolute;
   inset: 0;
@@ -558,7 +591,7 @@ h3 {
 
 .language-switch__label {
   flex: 1;
-  text-align: center; /* centered between globe and chevron */
+  text-align: center;
   padding: 0 8px;
   color: var(--charcoal);
   font-size: 0.82rem;
@@ -576,7 +609,7 @@ h3 {
 
 .nav-aux .language-switch option {
   color: var(--ink);
-  background: var(--white);
+  background: var(--surface-card);
 }
 
 .lang-globe {
@@ -602,7 +635,6 @@ main section[id] {
   background: var(--deep);
 }
 
-/* Overview section is folded into the hero — hide standalone panel */
 .overview {
   display: none;
 }
@@ -650,56 +682,48 @@ main section[id] {
 .hero__content {
   position: relative;
   z-index: 2;
-  flex: 1; /* fill the full hero height */
+  flex: 1;
   padding-top: 52px;
   padding-bottom: 44px;
   display: flex;
-  flex-direction: row;
-  align-items: stretch; /* both columns top-align — eyebrows sit on the same line */
-  gap: clamp(2rem, 3vw, 3.5rem); /* fluid gutter — tightens as the window narrows so the columns keep their room; matched to the right column's padding so the divider stays centered */
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-/* Desktop: type scaled up so the text spans the panel top to bottom */
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  max-width: none;
+  width: 100%;
+}
+
+.hero__headline {
+  margin: 0;
+  width: 100%;
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+  font-size: clamp(2.6rem, 1rem + 5.2vw, 7.4rem);
+}
+
 @media (min-width: 881px) {
-  .hero__left {
-    justify-content: space-between; /* distribute lines top-to-bottom, align eyebrow with the right column, fill the bottom */
-    gap: 2.6rem; /* minimum breathing room between the left-column lines */
+  .hero__inner {
+    gap: 1.9rem;
+    max-width: none;
   }
 
   .hero h1 {
-    font-size: 6.9rem;
+    font-size: clamp(3.4rem, 0.4rem + 4.4vw, 7.4rem);
   }
 
-  .hero .eyebrow {
-    font-size: 2.7rem;
-  }
-
-  .hero-definition {
-    font-size: 2.08rem;
-  }
-
-  .hero__left > p:not(.eyebrow) {
-    font-size: 2.9rem;
-    line-height: 1.65;
-  }
-
-  .hero__left .button,
-  .hero__right .button {
+  .hero__inner .button {
     min-height: 58px;
     font-size: 1.04rem;
-  }
-
-  .hero__right {
-    justify-content: space-between; /* fills the panel top to bottom */
-  }
-
-  .hero__right-heading {
-    font-size: 2.9rem;
-  }
-
-  .hero__right p {
-    font-size: 1.34rem;
-    line-height: 1.85;
   }
 }
 
@@ -711,13 +735,11 @@ main section[id] {
   min-width: 0;
 }
 
-/* Hero subtitle — two even, balanced lines */
 .hero__left > p:not(.eyebrow) {
   max-width: none;
   color: rgba(255, 255, 255, 0.88);
   font-size: 1.15rem;
   line-height: 1.7;
-  text-wrap: balance;
 }
 
 .hero__text {
@@ -740,7 +762,7 @@ main section[id] {
   min-width: 0;
   padding-top: 0;
   border-left: 2px solid rgba(255, 255, 255, 0.15);
-  padding-left: clamp(2rem, 3vw, 3.5rem); /* matched to the fluid column gap so the divider sits centered between the two panels */
+  padding-left: clamp(2rem, 3vw, 3.5rem);
 }
 
 .hero__left .button-row {
@@ -750,7 +772,7 @@ main section[id] {
 
 @media (min-width: 881px) {
   .hero__left .button-row {
-    margin-top: 0; /* space-between handles bottom alignment now */
+    margin-top: 0;
   }
 }
 
@@ -766,6 +788,7 @@ main section[id] {
   line-height: 1.3;
   margin-top: 0.5rem;
   margin-bottom: 0;
+  width: 100%;
 }
 
 .hero__right p {
@@ -804,7 +827,8 @@ main section[id] {
 }
 
 .hero__lede {
-  max-width: 720px;
+  max-width: none;
+  width: 100%;
   margin-top: 1.2rem;
   color: var(--white);
   font-family: var(--font-heading);
@@ -819,7 +843,8 @@ main section[id] {
 }
 
 .hero__copy {
-  max-width: 650px;
+  max-width: none;
+  width: 100%;
   margin-top: 1.1rem;
   color: rgba(255, 255, 255, 0.86);
   font-size: 1.05rem;
@@ -850,15 +875,13 @@ main section[id] {
   border-left: 3px solid var(--green);
 }
 
-/* ── Overview ── */
 .overview {
   background: var(--off-white);
 }
 
 .overview__grid,
 .about__grid,
-.review__grid,
-.contact__grid {
+.review__grid {
   display: grid;
   grid-template-columns: 0.95fr 1.05fr;
   gap: 68px;
@@ -868,15 +891,18 @@ main section[id] {
 .overview__copy {
   color: var(--muted);
   font-size: 1.05rem;
+  width: 100%;
+  max-width: none;
 }
 
 .section-heading {
-  max-width: 760px;
+  max-width: none;
+  width: 100%;
   margin-bottom: 40px;
 }
 
 .section-heading--wide {
-  max-width: 860px;
+  max-width: none;
 }
 
 .section-heading--full {
@@ -885,13 +911,11 @@ main section[id] {
 
 .section-heading p,
 .about__main p,
-.review__grid > div > p,
-.contact__grid > div > p {
+.review__grid > div > p {
   color: var(--muted);
   font-size: 1.03rem;
 }
 
-/* ── Cards ── */
 .card-grid {
   display: grid;
   gap: 22px;
@@ -916,14 +940,14 @@ main section[id] {
   padding: 30px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: var(--white);
+  background: var(--surface-card);
   box-shadow: 0 8px 24px rgba(20, 28, 24, 0.05);
 }
 
 .principle-card {
   display: flex;
   flex-direction: column;
-  min-height: 0; /* sized by content, not a fixed box */
+  min-height: 0;
   padding: 26px 28px;
 }
 
@@ -962,19 +986,180 @@ main section[id] {
   letter-spacing: 0.06em;
 }
 
-/* ── About ── */
+.card-more {
+  margin-top: auto;
+  padding-top: 1rem;
+  align-self: flex-start;
+  color: var(--green-dark);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--green);
+}
+
+.card-more:hover {
+  color: var(--green-hover);
+}
+
+/* ── Customized Portfolio Section ── */
+.customization {
+  border-top: 1px solid var(--soft-line);
+  background: var(--surface-page);
+}
+
+.customization.section-padding {
+  padding: 64px 0 80px;
+}
+
+.customization__title {
+  margin: 0;
+  width: 100%;
+  font-size: clamp(2rem, 0.5rem + 3.7vw, 6rem);
+  line-height: 1.1;
+}
+
+.customization__sub {
+  margin-top: 0.9rem;
+  color: var(--green-dark);
+  font-size: clamp(1.05rem, 0.85rem + 0.6vw, 1.45rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.customization__lede {
+  margin-top: 1.5rem;
+  width: 100%;
+  color: var(--charcoal);
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 0.85rem + 1.15vw, 2.25rem);
+  font-weight: 500;
+  line-height: 1.32;
+}
+
+.customization__copy {
+  margin-top: 1.5rem;
+  width: 100%;
+  color: var(--muted);
+}
+
+.customization__copy p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  width: 100%;
+}
+
+.customization__link {
+  display: inline-block;
+  margin-top: 1.8rem;
+  color: var(--green-dark);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--green);
+}
+
+.customization__link:hover {
+  color: var(--green-hover);
+}
+
+/* ── Founder Quote Band ── */
+.quote-band {
+  border-top: 1px solid var(--soft-line);
+  border-bottom: 1px solid var(--soft-line);
+  background: var(--mist);
+}
+
+.firm-quote {
+  margin: 0;
+  max-width: none;
+  width: 100%;
+  text-align: left;
+}
+
+.firm-quote__text {
+  color: var(--charcoal);
+  font-family: var(--font-heading);
+  font-size: clamp(1.9rem, 3.9vw - 0.2rem, 6rem);
+  line-height: 1.2;
+  width: 100%;
+}
+
+.firm-quote__by {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.15rem 0.9rem;
+  margin-top: 1.6rem;
+}
+
+.firm-quote__name {
+  color: var(--charcoal);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.firm-quote__role {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ── About Section ── */
 .about {
   border-top: 1px solid var(--soft-line);
   border-bottom: 1px solid var(--soft-line);
-  background:
-    linear-gradient(90deg, var(--white) 0%, var(--white) 55%, var(--mist) 55%, var(--mist) 100%);
+  background: var(--surface-page);
+}
+
+.about.section-padding {
+  padding: 80px 0;
+}
+
+.about__stack {
+  /* Retain standard section-shell margins */
+}
+
+.about__stack .eyebrow {
+  margin-bottom: 1rem;
+}
+
+.about__stack h2 {
+  max-width: none;
+  width: 100%;
+}
+
+.about__copy {
+  margin-top: 2.2rem;
+  width: 100%;
+  color: var(--muted);
+}
+
+.about__copy p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .about__copy {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.6rem;
+  }
+  .about__copy p + p {
+    margin-top: 0;
+  }
 }
 
 .leader-panel {
   padding: 40px;
   border-left: 5px solid var(--green);
   border-radius: 8px;
-  background: var(--white);
+  background: var(--surface-card);
   box-shadow: var(--shadow);
 }
 
@@ -999,9 +1184,9 @@ main section[id] {
   color: var(--muted);
 }
 
-/* ── Strategy ── */
+/* ── Strategy Section ── */
 .strategy {
-  background: var(--white);
+  background: var(--surface-page);
 }
 
 .strategy-nav {
@@ -1009,6 +1194,7 @@ main section[id] {
   flex-wrap: wrap;
   gap: 0.6rem;
   margin-bottom: 30px;
+  justify-content: center;
 }
 
 .strategy-nav a {
@@ -1045,7 +1231,7 @@ main section[id] {
   padding: 36px 40px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: var(--white);
+  background: var(--surface-card);
   box-shadow: 0 8px 24px rgba(20, 28, 24, 0.05);
 }
 
@@ -1057,17 +1243,36 @@ main section[id] {
   margin-bottom: 1.4rem;
 }
 
+.strategy-panel__heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.strategy-panel__name {
+  margin: 0;
+  font-size: 1.55rem;
+  line-height: 1.15;
+  width: 100%;
+}
+
+.strategy-panel__tag {
+  color: var(--muted);
+  opacity: 0.72;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
 .strategy-panel__cta {
   flex-shrink: 0;
-  margin-top: 10px;
   min-height: 34px;
   padding: 0.4rem 1rem;
   font-size: 0.74rem;
-}
-
-.strategy-panel h3 {
-  margin-top: 0.5rem;
-  font-size: 1.4rem;
 }
 
 .strategy-panel__body p + p {
@@ -1089,6 +1294,7 @@ main section[id] {
 .strategy-points {
   color: var(--muted);
   font-size: 0.98rem;
+  width: 100%;
 }
 
 .strategy-risk {
@@ -1171,7 +1377,7 @@ main section[id] {
   padding: 42px;
   border-radius: 8px;
   color: var(--white);
-  background: var(--charcoal);
+  background: var(--panel-dark);
 }
 
 .strategy-callout .eyebrow {
@@ -1202,19 +1408,14 @@ main section[id] {
   color: var(--green);
 }
 
-/* ── GIPS Composite Reports ── */
 .gips-composite {
   background: var(--off-white);
 }
 
-/* Tighter padding below the report grid */
 .gips-composite.section-padding {
   padding-bottom: 64px;
 }
 
-/* ── Uniform intro band under every page hero ──
-   Same space above and below the first text block on all subpages,
-   so the intro sits centered between the black bar and what follows. */
 .page-hero + .section-padding {
   padding-top: 56px;
 }
@@ -1237,7 +1438,7 @@ main section[id] {
   padding: 28px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: var(--white);
+  background: var(--surface-card);
   box-shadow: 0 6px 18px rgba(20, 28, 24, 0.05);
 }
 
@@ -1263,76 +1464,28 @@ main section[id] {
 
 .button--outline {
   color: var(--charcoal);
-  background: var(--white);
+  background: var(--surface-card);
   border-color: var(--line);
 }
 
 .button--outline:hover {
   color: var(--charcoal);
-  background: var(--white);
+  background: var(--surface-card);
   border-color: rgba(0,0,0,0.18);
   box-shadow: 0 4px 18px rgba(0,0,0,0.13);
 }
 
-/* ── Performance / Review ── */
 .review {
-  background: var(--white);
+  background: var(--surface-page);
 }
 
-.review__grid,
-.contact__grid {
-  align-items: center;
-}
-
-.contact__grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 3rem;
-  align-items: stretch; /* all three columns share top and bottom edges */
-}
-
-/* Spacing: eyebrow → h2 → supporting copy */
-.review__grid > div > h2,
-.contact__grid > div > h2 {
-  margin-top: 0.5rem;
-}
-
-.section-heading h2 + p,
-.about__main h2 + p,
-.review__grid > div > h2 + p,
-.contact__grid > div > h2 + p {
-  margin-top: 1.4rem;
-}
-
-.review__grid .button {
-  margin-top: 1.8rem;
-}
-
-.review-list {
+.review__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--line);
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 68px;
+  align-items: start;
 }
 
-.review-list article {
-  min-height: 190px;
-  padding: 30px;
-  background: var(--white);
-}
-
-/* ── Insights ── */
-.insights {
-  background: var(--off-white);
-}
-
-.insight-card {
-  min-height: 280px;
-}
-
-/* ── Contact ── */
 .contact {
   position: relative;
   overflow: hidden;
@@ -1340,16 +1493,17 @@ main section[id] {
   background: #10201a;
 }
 
-/* Content fills more of the pane vertically; columns tucked in from the edges */
 .contact.section-padding {
   padding: 64px 0 50px;
 }
 
 .contact .contact__grid {
-  padding: 0 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5rem;
+  align-items: stretch;
+  padding: 0;
 }
-
-/* background mark removed — mark is now the explicit center column element */
 
 .contact .section-shell {
   position: relative;
@@ -1371,22 +1525,20 @@ main section[id] {
 
 .contact__grid > div > p {
   color: rgba(255, 255, 255, 0.78);
-  max-width: 28rem;
-  text-wrap: balance; /* even, full lines — no widows */
+  width: 100%;
 }
 
-/* Left column: everything spans one shared width, button pinned to the bottom */
 .contact__grid > div:first-child {
   display: flex;
   flex-direction: column;
   max-width: 28rem;
+  justify-self: start;
 }
 
 .contact__grid > div:first-child > p {
   max-width: none;
 }
 
-/* Request button — same frosted-glass style as the hero CTAs */
 .contact__grid > div:first-child .button {
   margin-top: 2.2rem;
   width: 100%;
@@ -1411,21 +1563,19 @@ main section[id] {
   box-shadow: 0 6px 20px rgba(8, 20, 6, 0.18);
 }
 
-/* Blurb hugs the left edge — mirror of the contact actions on the right */
-.contact__grid > div:first-child {
-  justify-self: start;
-}
-
 .contact-actions {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  width: 100%;
+  max-width: 22rem;
+  justify-self: center;
+  align-self: center;
 }
 
 .contact-link {
   display: flex;
   align-items: baseline;
-  justify-content: space-between; /* green label left, number/email right */
+  justify-content: space-between;
   gap: 10px;
   padding: 19px 0;
   border: none;
@@ -1453,50 +1603,34 @@ main section[id] {
   background: transparent;
 }
 
-
-/* ── Contact actions — pushed to right edge, mirroring the blurb on the left.
-   Same 26rem cap as the blurb so both columns are equidistant from the
-   centered logo and from their respective page edges. ── */
-.contact-actions {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 22rem;
-  justify-self: center;
-  align-self: center;
-}
-
-/* Right column: logo and advisory line read as one compact unit. */
 .contact-brand {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  justify-self: end;
+  justify-self: center;
   width: 100%;
-  max-width: 100%;
+  max-width: 280px;
   min-width: 0;
 }
 
 .contact-brand__mark {
   width: 150px;
   height: auto;
-  margin: 0 auto; /* centered over the note */
+  margin: 0 auto;
   opacity: 0.95;
 }
 
 .contact-brand__note {
-  margin-top: 0.65rem;
+  margin-top: 0.8rem;
   color: rgba(255, 255, 255, 0.62);
-  font-size: 0.48rem;
-  letter-spacing: 0;
-  line-height: 1.2;
+  font-size: 0.72rem;
+  line-height: 1.4;
   text-align: center;
-  white-space: nowrap;
-  max-width: none;
+  white-space: normal;
+  max-width: 260px;
 }
 
-/* Stacked tablet/mobile layout: let the line wrap once three columns are tight */
 @media (max-width: 1240px) {
   .contact__grid {
     grid-template-columns: 1fr;
@@ -1514,9 +1648,9 @@ main section[id] {
   }
 
   .contact-brand__note {
-    white-space: nowrap;
-    font-size: 0.5rem;
-    line-height: 1.2;
+    white-space: normal;
+    font-size: 0.7rem;
+    line-height: 1.4;
     text-align: left;
   }
 
@@ -1527,18 +1661,15 @@ main section[id] {
   }
 }
 
-/* Social icons under the Request button in the contact pane */
 .contact-social {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* spread evenly, first/last flush with the lines above */
+  justify-content: space-between;
   margin-top: auto;
   padding-top: 24px;
 }
 
-/* ── Hero buttons — frosted-glass outline (both panels) ─────── */
-.hero__left .button,
-.hero__right .button {
+.hero__inner .button {
   min-height: 50px;
   padding: 0.95rem 1.7rem;
   border-radius: 6px;
@@ -1555,28 +1686,27 @@ main section[id] {
     border-color 240ms ease;
 }
 
-/* trademark sits snug against GIPS despite the button's letter-spacing */
-.hero__left .button sup.reg,
-.hero__right .button sup.reg {
+.hero__inner .button--primary {
+  background: var(--green);
+  border-color: var(--green);
+  box-shadow: 0 8px 22px rgba(22, 62, 8, 0.28);
+}
+
+.hero__inner .button--primary:hover {
+  background: var(--green-hover);
+  border-color: var(--green-hover);
+}
+
+.hero__inner .button sup.reg {
   margin-left: -0.25em;
 }
 
-/* Hover: simply flash a slightly lighter shade — no movement */
-.hero__left .button:hover,
-.hero__right .button:hover {
+.hero__inner .button--secondary:hover {
   background: rgba(255, 255, 255, 0.18);
   border-color: rgba(255, 255, 255, 0.7);
   box-shadow: 0 6px 20px rgba(8, 20, 6, 0.18);
 }
 
-.hero__right-cta {
-  align-self: flex-start;
-  margin-top: 0.75rem;
-}
-
-
-
-/* ── GIPS modal ── */
 .gips-modal {
   display: none;
   position: fixed;
@@ -1600,7 +1730,7 @@ main section[id] {
   z-index: 1;
   width: min(480px, calc(100vw - 48px));
   padding: 40px;
-  background: var(--white);
+  background: var(--surface-card);
   border-radius: 10px;
   box-shadow: 0 24px 64px rgba(10, 20, 14, 0.28);
 }
@@ -1657,7 +1787,7 @@ main section[id] {
   font-size: 0.94rem;
   font-family: var(--font-body);
   color: var(--charcoal);
-  background: var(--white);
+  background: var(--surface-card);
   box-sizing: border-box;
   transition: border-color 160ms;
 }
@@ -1698,7 +1828,6 @@ main section[id] {
   color: var(--muted);
 }
 
-/* message box for the contact form — matches the input styling */
 .gips-modal__field textarea {
   width: 100%;
   min-height: 112px;
@@ -1710,7 +1839,7 @@ main section[id] {
   font-family: var(--font-body);
   line-height: 1.5;
   color: var(--charcoal);
-  background: var(--white);
+  background: var(--surface-card);
   box-sizing: border-box;
   transition: border-color 160ms;
 }
@@ -1720,7 +1849,6 @@ main section[id] {
   box-shadow: 0 0 0 3px rgba(52, 106, 60, 0.12);
 }
 
-/* contact modal — small founder headshot + name above the form */
 .contact-modal__head {
   display: flex;
   align-items: center;
@@ -1749,14 +1877,11 @@ main section[id] {
   color: var(--muted);
 }
 
-/* privacy line spans the full form width (same as the button) and wraps
-   naturally — left-aligned, lines reach the right edge when long */
 #contact-modal .gips-modal__privacy {
   width: 100%;
   text-align: left;
 }
 
-/* ── Hero "talk to the founder" headshot button (bottom-right) ── */
 .hero-contact {
   position: absolute;
   right: 0;
@@ -1822,7 +1947,6 @@ main section[id] {
   box-shadow: 0 12px 34px rgba(6, 12, 8, 0.5);
 }
 
-/* green chat badge so it reads as a contact affordance */
 .hero-contact__badge {
   position: absolute;
   right: -3px;
@@ -1844,7 +1968,6 @@ main section[id] {
   display: block;
 }
 
-/* gentle attention pulse — disabled when the user prefers reduced motion */
 @media (prefers-reduced-motion: no-preference) {
   .hero-contact__photo::after {
     content: "";
@@ -1866,7 +1989,6 @@ main section[id] {
   100% { box-shadow: 0 0 0 0 rgba(106, 184, 43, 0); }
 }
 
-/* Stacked layout: let the headshot flow to the bottom and always show its label */
 @media (max-width: 1040px) {
   .hero-contact {
     position: static;
@@ -1890,7 +2012,6 @@ main section[id] {
   }
 }
 
-/* ── Footer ── */
 .site-footer {
   color: rgba(255, 255, 255, 0.76);
   background: var(--deep);
@@ -1917,7 +2038,6 @@ main section[id] {
   object-fit: contain;
 }
 
-/* ── Footer SVG social icons ── */
 .footer-social-icons {
   display: flex;
   gap: 12px;
@@ -1930,7 +2050,7 @@ main section[id] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 6px; /* comfortable tap target around the floating glyph */
+  padding: 6px;
   background: none;
   border-radius: 0;
   color: rgba(255, 255, 255, 0.6);
@@ -1958,7 +2078,6 @@ main section[id] {
   transform: translateY(-1px);
 }
 
-/* Brand colors appear on hover only */
 .social-btn.linkedin:hover,
 .social-btn.linkedin:focus-visible { color: #0A66C2; }
 .social-btn.x-corp:hover,
@@ -1992,7 +2111,6 @@ main section[id] {
   font-weight: 600;
 }
 
-/* ── Responsive ── */
 @media (max-width: 1040px) {
   h1 {
     font-size: 3.2rem;
@@ -2015,7 +2133,6 @@ main section[id] {
     grid-template-columns: 1fr;
   }
 
-  /* Hero collapses to 1 col at tablet */
   .hero__content {
     flex-direction: column;
     gap: 2rem;
@@ -2028,7 +2145,6 @@ main section[id] {
     padding-top: 1.5rem;
   }
 
-  /* Contact: hide mark column, stack to 1 col */
   .contact__grid {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -2038,7 +2154,6 @@ main section[id] {
     justify-self: start;
   }
 
-  /* Stacked layout: contact actions back to full width on the left */
   .contact-actions {
     max-width: none;
     justify-self: start;
@@ -2049,11 +2164,10 @@ main section[id] {
   }
 
   .about {
-    background: var(--white);
+    background: var(--surface-page);
   }
 }
 
-/* Nav collapses to the hamburger before the link bar can overflow */
 @media (max-width: 1319px) {
 
   :root {
@@ -2085,7 +2199,7 @@ main section[id] {
   }
 
   .nav-links {
-    justify-content: normal; /* full-width rows, not a packed right column */
+    justify-content: normal;
     position: absolute;
     left: 0;
     right: 0;
@@ -2095,7 +2209,7 @@ main section[id] {
     max-height: 0;
     overflow: hidden;
     border-bottom: 1px solid var(--line);
-    background: var(--white);
+    background: var(--surface-card);
     transition: max-height 220ms ease;
   }
 
@@ -2164,9 +2278,8 @@ main section[id] {
   }
 
   .contact-social {
-    max-width: 20rem; /* keep the spread sensible when the column goes full-width */
+    max-width: 20rem;
   }
-
 }
 
 @media (max-width: 620px) {
@@ -2247,7 +2360,14 @@ main section[id] {
   }
 
   .strategy-panel__top {
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .strategy-panel__meta {
+    align-items: flex-start;
+    text-align: left;
+    max-width: none;
   }
 
   .strategy-points {
@@ -2263,7 +2383,6 @@ main section[id] {
   }
 }
 
-/* ── Hero definition (dictionary-style) ── */
 .hero__definition {
   margin-top: 0.75rem;
   color: rgba(255, 255, 255, 0.52);
@@ -2272,7 +2391,6 @@ main section[id] {
   letter-spacing: 0.01em;
 }
 
-/* ── Instagram social icon ── */
 .social-links a.social-link--instagram:hover,
 .social-links a.social-link--instagram:focus-visible {
   background: #E4405F;
@@ -2281,26 +2399,19 @@ main section[id] {
   transform: translateY(-1px);
 }
 
-/* ── Orphan / widow control, sitewide ── */
 h1,
 h2,
-h3 {
-  text-wrap: balance;
-}
-
+h3,
 p,
 li {
-  text-wrap: pretty;   /* fallback: prevents single-word last lines */
-  text-wrap: balance;  /* preferred: evens out all lines, no stub endings */
+  text-wrap: normal;
 }
 
-/* Footer legal text wraps naturally, full line width */
 .site-footer p,
 .site-footer li {
   text-wrap: wrap;
 }
 
-/* ── Registered mark — small, raised, up and to the right ── */
 sup.reg {
   font-size: 0.55em;
   line-height: 0;
@@ -2308,22 +2419,177 @@ sup.reg {
   letter-spacing: 0;
 }
 
-
-/* ── About page — firm tagline ── */
 .about-firm-intro h2 {
-  font-size: 1.75rem;
+  font-size: clamp(1.8rem, 1.1rem + 2.2vw, 4.4rem);
 }
 
-/* ── GIPS report-item description ── */
+.about-prose {
+  margin-top: 1.4rem;
+  color: var(--muted);
+  width: 100%;
+}
+
+.about-prose p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  width: 100%;
+}
+
+.about-prose p + p {
+  margin-top: 1rem;
+}
+
+.about-approach {
+  margin-top: 3rem;
+  width: 100%;
+}
+
+.about-approach h3,
+.about-why h3 {
+  font-size: 1.55rem;
+  margin-bottom: 1rem;
+}
+
+.about-approach > p {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  width: 100%;
+}
+
+.about-points {
+  margin-top: 1.6rem;
+}
+
+.about-points li {
+  color: var(--charcoal);
+  font-weight: 500;
+}
+
+@media (min-width: 760px) {
+  .about-points {
+    grid-template-columns: repeat(3, minmax(160px, 1fr));
+  }
+}
+
+.about-why {
+  margin-top: 3.4rem;
+  padding-top: 2.4rem;
+  border-top: 1px solid var(--soft-line);
+  width: 100%;
+}
+
+.about-why__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 1.4rem;
+}
+
+.about-why__item h4 {
+  margin: 0 0 0.7rem;
+  color: var(--charcoal);
+  font-family: var(--font-heading);
+  font-size: 1.12rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.about-why__item p {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .about-why__grid {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+}
+
 .gips-report-desc {
   color: var(--muted);
   font-size: 0.92rem;
   margin-top: 0.75rem;
 }
 
-/* ── Privacy policy document ── */
+.gips-notes {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--soft-line);
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.gips-notes p + p {
+  margin-top: 0.9rem;
+}
+
+.gips-notes a {
+  color: var(--green-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.built-around {
+  border-top: 1px solid var(--soft-line);
+  background: var(--off-white);
+}
+
+.built-around__copy {
+  color: var(--muted);
+  width: 100%;
+}
+
+.built-around__copy p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  width: 100%;
+}
+
+.built-around__copy p + p {
+  margin-top: 1rem;
+}
+
+@media (min-width: 900px) {
+  .built-around__copy {
+    columns: 2;
+    column-gap: 3rem;
+  }
+  .built-around__copy p {
+    break-inside: avoid;
+  }
+}
+
+.built-around__kicker {
+  margin-top: 2.2rem;
+  padding-top: 1.6rem;
+  border-top: 2px solid var(--green);
+  color: var(--charcoal);
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 0.8rem + 1.25vw, 2.2rem);
+  line-height: 1.36;
+  width: 100%;
+}
+
+.research-prose {
+  margin-top: 1.4rem;
+  margin-bottom: 2.4rem;
+  color: var(--muted);
+  width: 100%;
+}
+
+.research-prose p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  width: 100%;
+}
+
 .privacy-doc {
-  max-width: 760px;
+  max-width: none;
+  width: 100%;
 }
 
 .privacy-divider {
@@ -2339,6 +2605,7 @@ sup.reg {
   margin-bottom: 2.5rem;
   padding-bottom: 2rem;
   border-bottom: 1px solid var(--line);
+  width: 100%;
 }
 
 .privacy-doc h2 {
@@ -2347,12 +2614,14 @@ sup.reg {
   color: var(--charcoal);
   margin-top: 2.2rem;
   margin-bottom: 0.7rem;
+  width: 100%;
 }
 
 .privacy-doc p {
   color: var(--muted);
   font-size: 1rem;
   line-height: 1.75;
+  width: 100%;
 }
 
 .privacy-doc ol {
@@ -2410,7 +2679,6 @@ sup.reg {
   color: var(--muted);
 }
 
-/* ── Page transitions (View Transitions API — progressive enhancement) ── */
 @view-transition {
   navigation: auto;
 }
@@ -2420,7 +2688,6 @@ sup.reg {
   animation-duration: 220ms;
 }
 
-/* ── Scroll-reveal (elements get .reveal via script.js) ── */
 @media (prefers-reduced-motion: no-preference) {
   .reveal {
     opacity: 0;
@@ -2436,7 +2703,6 @@ sup.reg {
   }
 }
 
-/* ── GIPS modal success state ── */
 .gips-modal__success p[data-i18n="gipsModalThanks"] {
   font-size: 1.3rem;
   font-family: var(--font-heading);
@@ -2447,10 +2713,9 @@ sup.reg {
 }
 
 .gips-modal.is-open .gips-modal__box {
-  padding-bottom: 1.5rem; /* trim the dead space under the Close button */
+  padding-bottom: 1.5rem;
 }
 
-/* ── Footer meta links ── */
 .footer-meta a {
   color: var(--green);
   text-decoration: underline;
@@ -2461,7 +2726,6 @@ sup.reg {
   color: var(--green-dark);
 }
 
-/* ── GIPS Email Capture Modal ── */
 .gips-modal {
   display: none;
   position: fixed;
@@ -2476,7 +2740,6 @@ sup.reg {
   display: flex;
 }
 
-/* ── Team / Bio layout (about page) ── */
 .team-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -2489,7 +2752,7 @@ sup.reg {
   grid-template-columns: 200px 1fr;
   gap: 32px;
   align-items: start;
-  background: var(--white);
+  background: var(--surface-card);
   border: 1px solid var(--line);
   border-radius: 10px;
   padding: 36px;
@@ -2567,12 +2830,6 @@ sup.reg {
   line-height: 1.75;
 }
 
-/* ── Strategy-nav centered when it fits ── */
-.strategy-nav {
-  justify-content: center;
-}
-
-/* ── Page hero (non-home pages) — single big title, vertically centered ── */
 .page-hero {
   background: var(--deep);
   padding: 72px 0;
@@ -2580,23 +2837,17 @@ sup.reg {
 
 .page-hero h1 {
   color: var(--white);
-  font-size: 3.4rem;
+  font-size: clamp(2.3rem, 0.6rem + 4.8vw, 6rem);
   margin: 0;
-}
-
-/* ── Privacy / legal documents — full page width, natural line wrapping ── */
-.privacy-doc {
-  max-width: none;
-  margin: 0;
+  width: 100%;
 }
 
 .privacy-doc p,
 .privacy-doc li,
 .privacy-doc h2 {
-  text-wrap: wrap; /* legal text fills each line completely */
+  text-wrap: wrap;
 }
 
-/* ── Hero: 2:1 split — left column dominates, right column condensed ── */
 .hero__left {
   flex: 2;
 }
@@ -2653,48 +2904,21 @@ sup.reg {
   }
 }
 
-/* ── Desktop hero type — fluid sizing (placed last so it wins over the
-      earlier base rules). Everything scales smoothly with viewport width
-      so no line overflows its column or collides with the right panel
-      between 881px and full desktop width. ── */
 @media (min-width: 881px) {
   .hero .eyebrow {
-    font-size: clamp(0.95rem, 0.45rem + 0.95vw, 1.55rem);
+    font-size: clamp(0.9rem, 0.7rem + 0.35vw, 1.12rem);
     line-height: 1.35;
     margin-bottom: 0;
   }
 
-  /* "A Boutique…" wraps gracefully instead of overflowing into the right column */
-  .hero__left .eyebrow {
-    white-space: normal;
-    text-wrap: balance;
-  }
-
-  /* pat·ru·min dictionary line */
   .hero-definition {
-    font-size: clamp(1rem, 0.55rem + 0.95vw, 1.7rem);
+    font-size: clamp(0.95rem, 0.8rem + 0.35vw, 1.2rem);
     line-height: 1.5;
     margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  /* "Disciplined equity portfolio management…" blurb */
-  .hero__left > p:not(.eyebrow) {
-    font-size: clamp(1.2rem, 0.6rem + 1.2vw, 2.05rem);
-    line-height: 1.55;
-  }
-
-  .hero__right-heading {
-    font-size: clamp(1.25rem, 0.7rem + 1vw, 1.76rem);
-    margin-top: 0;
-  }
-
-  .hero__right p {
-    font-size: clamp(0.98rem, 0.78rem + 0.4vw, 1.12rem);
+    margin-bottom: 0.4rem;
   }
 }
 
-/* Very small phones can't fit the disclaimer on one line — let it wrap there */
 @media (max-width: 600px) {
   .contact-brand__note {
     white-space: normal;
@@ -2702,71 +2926,684 @@ sup.reg {
   }
 }
 
-/* ── Split hero (desktop ≥1041px): photo slideshow behind the LEFT column only,
-      right column on a clean white panel with larger, darker type. Below 1041px
-      the hero stays full-bleed photo with white text (unchanged). ── */
 @media (min-width: 1041px) {
-  .hero {
-    background: #fff;
-  }
-
-  /* slideshow occupies just the left half, still bleeding to the screen edge */
-  .hero-media {
-    right: auto;
-    width: 50%;
-  }
-
-  /* even darkening so the white left-column text stays legible over the photo */
   .hero-slide::after {
-    background: linear-gradient(
-      90deg,
-      rgba(16, 24, 25, 0.88) 0%,
-      rgba(16, 24, 25, 0.66) 100%
-    );
+    background:
+      linear-gradient(
+        90deg,
+        rgba(6, 12, 14, 0.9) 0%,
+        rgba(6, 12, 14, 0.62) 45%,
+        rgba(6, 12, 14, 0.32) 100%
+      ),
+      linear-gradient(
+        135deg,
+        rgba(13, 43, 52, 0.62) 0%,
+        rgba(22, 40, 22, 0.55) 55%,
+        rgba(8, 14, 16, 0.72) 100%
+      );
   }
+}
+/* ═══════════════════════════════════════════════════════════════════
+   HERO — landing page: oversized wordmark + firm-overview panel
+   ═══════════════════════════════════════════════════════════════════ */
 
-  /* equal columns so the photo/white seam falls cleanly between them */
-  .hero__left,
-  .hero__right {
-    flex: 1;
+.hero {
+  height: auto;
+  min-height: 680px;
+  max-height: none;
+}
+
+.hero__content {
+  padding-top: 64px;
+  padding-bottom: 72px;
+}
+
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2.4rem;
+  width: 100%;
+}
+
+.hero__left {
+  flex: 1.22;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+}
+
+.hero__right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+@media (min-width: 1041px) {
+  .hero__inner {
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(2.5rem, 4vw, 5rem);
   }
+}
 
-  /* right panel sits on white — drop the light divider, darken the text */
+.hero__headline--big {
+  margin: 0;
+  width: 100%;
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  font-size: clamp(3rem, 0.4rem + 5.9vw, 8.2rem);
+}
+
+.hero__subgreen {
+  margin: 0.5rem 0 0;
+  width: 100%;
+  color: var(--green);
+  font-family: var(--font-heading);
+  font-size: clamp(1.08rem, 0.42rem + 1.32vw, 2.15rem);
+  font-weight: 500;
+  line-height: 1.26;
+  letter-spacing: 0;
+}
+
+.hero__left .hero-definition {
+  margin-top: 1.15rem;
+  margin-bottom: 0;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.hero__left .button-row {
+  margin-top: 1.9rem;
+}
+
+.hero__right-heading {
+  color: var(--white);
+  font-size: clamp(1.5rem, 0.95rem + 1.15vw, 2.55rem);
+  font-weight: 500;
+  line-height: 1.16;
+  margin-top: 0.35rem;
+}
+
+.hero__right-body {
+  margin-top: 1.15rem;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: clamp(1rem, 0.9rem + 0.22vw, 1.14rem);
+  line-height: 1.74;
+}
+
+.hero__right .button-row {
+  margin-top: 1.9rem;
+}
+
+@media (max-width: 1040px) {
   .hero__right {
     border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    padding-left: 0;
+    padding-top: 2rem;
   }
-  .hero__right-heading {
-    color: var(--ink);
-    font-size: clamp(1.65rem, 0.85rem + 1.55vw, 2.5rem);
-    line-height: 1.25;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   CAPABILITIES PAGE
+   ═══════════════════════════════════════════════════════════════════ */
+
+.capabilities-section {
+  background: var(--surface-page);
+}
+
+.capabilities-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 760px) {
+  .capabilities-list {
+    grid-template-columns: repeat(2, 1fr);
   }
-  .hero__right p {
-    color: var(--muted);
-    font-size: clamp(1.1rem, 0.8rem + 0.62vw, 1.36rem);
-    line-height: 1.72;
+}
+
+@media (min-width: 1180px) {
+  .capabilities-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.capability-item {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 32px 28px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-card);
+  box-shadow: 0 8px 24px rgba(20, 28, 24, 0.05);
+}
+
+.capability-item .card-kicker {
+  margin: 0;
+}
+
+.capability-item h3 {
+  margin-top: 0.7rem;
+  color: var(--charcoal);
+  font-size: 1.42rem;
+  line-height: 1.2;
+}
+
+.capability-item > p:not(.card-kicker) {
+  margin-top: 0.95rem;
+  width: 100%;
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
+
+.capability-item .card-more {
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
+.capability-item--callout {
+  border-color: transparent;
+  background: var(--panel-dark);
+  box-shadow: 0 14px 34px rgba(16, 24, 20, 0.18);
+}
+
+.capability-item--callout .card-kicker {
+  color: var(--green);
+}
+
+.capability-item--callout h3 {
+  color: var(--white);
+}
+
+.capability-item--callout > p:not(.card-kicker) {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.capability-item--callout .text-link {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* ── The Patrumin Standard banner ── */
+
+.patrumin-standard-banner {
+  padding: 46px 0 50px;
+  border-top: 3px solid var(--green);
+  border-bottom: 1px solid var(--soft-line);
+  background: var(--mist);
+}
+
+.patrumin-standard-line {
+  width: 100%;
+  margin: 0;
+  color: var(--charcoal);
+  font-family: var(--font-heading);
+  font-size: clamp(1.12rem, 0.62rem + 1.05vw, 2rem);
+  font-style: italic;
+  line-height: 1.42;
+}
+
+.patrumin-standard-line strong {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--charcoal);
+}
+
+@media (max-width: 620px) {
+  .capability-item {
+    padding: 24px;
   }
 
-  /* GIPS button needs a solid fill to read against white */
-  .hero__right .button {
-    background: var(--green);
-    border-color: var(--green);
-    color: var(--white);
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
-    box-shadow: 0 6px 18px rgba(22, 62, 8, 0.18);
+  .patrumin-standard-banner {
+    padding: 34px 0 36px;
   }
-  .hero__right .button:hover {
-    background: var(--green-hover);
-    border-color: var(--green-hover);
-    box-shadow: 0 10px 24px rgba(22, 62, 8, 0.26);
+}
+
+/* ── Hero: specificity overrides so the wordmark + green line fill the column ── */
+
+.hero .hero__headline--big {
+  /* Sized so the wordmark fills the left column on one line at every width. */
+  font-size: clamp(2.6rem, 6.88vw - 5.2px, 10rem);
+  line-height: 1.0;
+  white-space: nowrap;
+}
+
+.hero .hero__left > p.hero__subgreen {
+  margin: 0.75rem 0 0;
+  width: 100%;
+  color: var(--green);
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 1.92vw, 2.1rem);
+  font-weight: 500;
+  line-height: 1.24;
+  letter-spacing: 0;
+}
+
+.hero .hero__left > p.hero-definition,
+.hero .hero__left > .hero-definition {
+  margin-top: 1.35rem;
+  margin-bottom: 0;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: clamp(0.86rem, 0.72rem + 0.3vw, 1.08rem);
+  line-height: 1.55;
+}
+
+@media (max-width: 1040px) {
+  .hero .hero__headline--big {
+    font-size: clamp(2.1rem, 13.4vw - 9px, 7.5rem);
   }
 
-  /* headshot button now sits on white — dark name label, softer ring */
-  .hero-contact__label span {
-    color: var(--ink);
+  .hero .hero__left > p.hero__subgreen {
+    font-size: clamp(1.05rem, 3.1vw, 1.65rem);
   }
-  .hero-contact__photo {
-    border-color: #fff;
-    box-shadow: 0 8px 22px rgba(20, 30, 22, 0.22);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   HEADER BRAND LOCKUP — mark image + live text, so the wordmark can be
+   set larger without growing the header bar.
+   Colours are sampled from the original logo artwork.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.brand:hover {
+  color: inherit;
+}
+
+.brand .brand__mark {
+  width: auto;
+  height: 50px;
+  flex-shrink: 0;
+}
+
+.brand__name {
+  font-family: var(--font-heading);
+  font-size: clamp(1.3rem, 0.72rem + 1.35vw, 2.3rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+}
+
+.brand__name--dark {
+  color: #323232;
+}
+
+.brand__name--green {
+  color: #77c131;
+}
+
+@media (max-width: 1319px) {
+  .brand .brand__mark {
+    height: 46px;
   }
+}
+
+@media (max-width: 620px) {
+  .brand {
+    gap: 0.45rem;
+  }
+
+  .brand .brand__mark {
+    height: 38px;
+  }
+
+  .brand__name {
+    font-size: 1.22rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .brand .brand__mark {
+    height: 34px;
+  }
+
+  .brand__name {
+    font-size: 1.05rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   HERO — no oversized wordmark; the two columns share a top edge and
+   their buttons sit on a common bottom line.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.hero .hero__inner {
+  align-items: stretch;
+}
+
+.hero .hero__left,
+.hero .hero__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0;
+}
+
+.hero .hero__left > p.hero__subgreen {
+  margin-top: 0;
+  /* tuned to hold two full lines (never a three-line orphan) at every desktop width */
+  font-size: clamp(1.15rem, 0.22rem + 2.23vw, 2.5rem);
+  line-height: 1.22;
+}
+
+.hero .hero__left > .hero-definition,
+.hero .hero__left > p.hero-definition {
+  margin-top: 1.9rem;
+}
+
+.hero .hero__left .button-row,
+.hero .hero__right .button-row {
+  margin-top: auto;
+  padding-top: 2.4rem;
+  margin-bottom: 0;
+}
+
+.hero .hero__right .eyebrow {
+  margin-bottom: 0;
+}
+
+.hero .hero__right-heading {
+  margin-top: 0.55rem;
+}
+
+@media (max-width: 1040px) {
+  .hero .hero__left .button-row,
+  .hero .hero__right .button-row {
+    margin-top: 0;
+    padding-top: 1.9rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   CONTACT BAND — breathing room on the left, centred brand on the right
+   ═══════════════════════════════════════════════════════════════════ */
+
+.contact .contact__grid > div:first-child {
+  justify-content: flex-start;
+}
+
+.contact .contact__grid > div:first-child h2 {
+  margin-bottom: 0;
+}
+
+.contact .contact__grid > div:first-child h2 + p {
+  margin-top: 1.5rem;
+}
+
+.contact .contact__grid > div:first-child .button {
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+/* keep the button from crowding short copy */
+.contact .contact__grid > div:first-child > p {
+  margin-bottom: 2.4rem;
+}
+
+.contact .contact-brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+}
+
+.contact .contact-brand__mark {
+  margin: 0 auto;
+}
+
+.contact .contact-brand__note {
+  margin: 0.9rem auto 0;
+  max-width: 280px;
+  text-align: center;
+  white-space: normal;
+}
+
+/* one-column stack only once the three columns genuinely stop fitting */
+@media (max-width: 1040px) {
+  .contact .contact__grid {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
+
+  .contact .contact__grid > div:first-child .button {
+    margin-top: 1.6rem;
+  }
+
+  .contact .contact__grid > div:first-child > p {
+    margin-bottom: 0;
+  }
+
+  .contact .contact-brand {
+    align-items: flex-start;
+    justify-self: start;
+    max-width: 420px;
+    text-align: left;
+  }
+
+  .contact .contact-brand__mark {
+    margin: 0;
+  }
+
+  .contact .contact-brand__note {
+    margin-left: 0;
+    text-align: left;
+  }
+}
+
+/* stacked layout: the left column is full-width, so the green line resizes again */
+@media (max-width: 1040px) {
+  .hero .hero__left > p.hero__subgreen {
+    font-size: clamp(1.05rem, 3.1vw, 1.7rem);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   DARK THEME — targeted fixes for values that are hard-coded upstream
+   ═══════════════════════════════════════════════════════════════════ */
+
+[data-theme="dark"] {
+  /* keep the deep bands (page hero, footer) distinct from the page */
+  --deep: #0c1113;
+}
+
+[data-theme="dark"] .principle-card,
+[data-theme="dark"] .feature-card,
+[data-theme="dark"] .insight-card,
+[data-theme="dark"] .strategy-panel,
+[data-theme="dark"] .gips-report-item,
+[data-theme="dark"] .capability-item,
+[data-theme="dark"] .bio-card,
+[data-theme="dark"] .leader-panel {
+  box-shadow: var(--card-shadow);
+}
+
+[data-theme="dark"] .button--outline:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .site-header {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+[data-theme="dark"] .gips-modal__check {
+  background: rgba(122, 201, 58, 0.16);
+  color: var(--green);
+}
+
+[data-theme="dark"] .gips-modal__box {
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55);
+}
+
+[data-theme="dark"] .nav-aux .language-switch {
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: none;
+}
+
+[data-theme="dark"] .nav-aux .social-links a {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* ── Theme toggle button ── */
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  flex-shrink: 0;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--surface-card) 0%, var(--off-white) 100%);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  color: var(--green-dark);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  transition:
+    border-color 240ms ease,
+    box-shadow 240ms ease,
+    transform 240ms ease,
+    color 240ms ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  border-color: var(--green-dark);
+  box-shadow: 0 3px 14px rgba(93, 165, 34, 0.22);
+  transform: translateY(-1px);
+}
+
+.theme-toggle:active {
+  transform: translateY(0) scale(0.95);
+}
+
+.theme-toggle svg {
+  display: block;
+  width: 19px;
+  height: 19px;
+}
+
+.theme-toggle .theme-toggle__sun {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle {
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: none;
+  color: var(--green);
+}
+
+[data-theme="dark"] .theme-toggle:hover,
+[data-theme="dark"] .theme-toggle:focus-visible {
+  border-color: var(--green);
+  box-shadow: 0 3px 14px rgba(122, 201, 58, 0.24);
+}
+
+[data-theme="dark"] .theme-toggle .theme-toggle__moon {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle .theme-toggle__sun {
+  display: block;
+}
+
+@media (max-width: 620px) {
+  .theme-toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .theme-toggle svg {
+    width: 17px;
+    height: 17px;
+  }
+}
+
+/* ── Header brand text colour follows the theme ── */
+
+.brand__name--dark {
+  color: var(--brand-name);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   LANDING TWEAKS — even logo inset, centred hero etymology line
+   ═══════════════════════════════════════════════════════════════════ */
+
+.main-nav {
+  padding: 0 18px 0 14px;
+}
+
+@media (max-width: 1319px) {
+  .main-nav {
+    padding: 0 18px 0 16px;
+  }
+}
+
+@media (max-width: 620px) {
+  .main-nav {
+    padding: 0 4px 0 6px;
+  }
+}
+
+/* the etymology note floats in the middle of the left column's open space */
+.hero .hero__left > .hero-definition,
+.hero .hero__left > p.hero-definition {
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: clamp(0.9rem, 0.74rem + 0.34vw, 1.15rem);
+  line-height: 1.75;
+}
+
+.hero .hero__left .button-row {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+@media (max-width: 1040px) {
+  .hero .hero__left > .hero-definition,
+  .hero .hero__left > p.hero-definition {
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .hero .hero__left .button-row {
+    padding-top: 1.9rem;
+  }
+}
+
+/* accent panels stay accents in dark mode instead of reading as lighter cards */
+[data-theme="dark"] .capability-item--callout,
+[data-theme="dark"] .strategy-callout {
+  background: #15211a;
+  border: 1px solid rgba(122, 201, 58, 0.26);
 }

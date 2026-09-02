@@ -6,14 +6,31 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Equity Strategies | Patrumin Investors</title>
 <meta content="Patrumin Investors offers research-led U.S. equity strategies including Smallcap, Dividends Plus+, Allcap, SMICROCAP, and custom balanced portfolios." name="description"/>
-<link rel="stylesheet" href="styles.css?v=38">
+<link rel="stylesheet" href="styles.css?v=51">
+<script>
+/* Theme boot — runs before first paint so there is no flash.
+   An explicit choice in localStorage wins; otherwise the OS/browser
+   preference is honoured; otherwise light. */
+(function () {
+  try {
+    var t = localStorage.getItem("patrumin-theme");
+    if (t !== "dark" && t !== "light") {
+      t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {
+    document.documentElement.setAttribute("data-theme", "light");
+  }
+})();
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
 <nav aria-label="Primary navigation" class="main-nav">
 <a aria-label="Patrumin Investors home" class="brand" href="index.html">
-<img alt="Patrumin Investors" src="assets/patrumin-logo-clean.png"/>
+<img class="brand__mark" alt="" src="assets/patrumin-mark-hd.png"/>
+<span class="brand__name"><span class="brand__name--dark">Patrumin</span> <span class="brand__name--green">Investors</span></span>
 </a>
 <button aria-controls="site-menu" aria-expanded="false" class="nav-toggle" type="button">
 <span class="nav-toggle__line"></span>
@@ -34,6 +51,7 @@
 <a data-i18n="navCustomBalanced" href="strategies.html#strategy-custom-balanced">Custom Balanced</a>
 </div>
 </div>
+<a data-i18n="navCapabilities" href="capabilities.html">Capabilities</a>
 <a data-i18n="navGipsComposite" href="gips.html">GIPS<sup class="reg">®</sup> Reports</a>
 <a data-i18n="navPerformance" href="performance.html">Equity Performance</a>
 <a data-i18n="navInsights" href="insights.html">Insights</a>
@@ -41,6 +59,10 @@
 <a data-i18n="navContact" href="#contact">Contact Us</a>
 </div>
 <div aria-label="Utilities" class="nav-aux">
+<button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" title="Switch to dark mode">
+<svg class="theme-toggle__moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+<svg class="theme-toggle__sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.2v2.4M12 19.4v2.4M4.1 4.1l1.7 1.7M18.2 18.2l1.7 1.7M2.2 12h2.4M19.4 12h2.4M4.1 19.9l1.7-1.7M18.2 5.8l1.7-1.7"></path></svg>
+</button>
 <label class="language-switch" for="language-select">
 <svg aria-hidden="true" class="lang-globe" fill="none" height="13" stroke="currentColor" stroke-width="1.5" viewbox="0 0 16 16" width="13"><circle cx="8" cy="8" r="6.5"></circle><ellipse cx="8" cy="8" rx="2.9" ry="6.5"></ellipse><line x1="1.5" x2="14.5" y1="8" y2="8"></line><line x1="2" x2="14" y1="5" y2="5"></line><line x1="2" x2="14" y1="11" y2="11"></line></svg>
 <span aria-hidden="true" class="language-switch__label">English</span>
@@ -74,10 +96,7 @@
 <a href="#strategy-custom-balanced">Custom Balanced</a>
 </div>
 <!-- ① Smallcap -->
-<article class="strategy-panel" id="strategy-smallcap"><div class="strategy-panel__top"><div>
-<p class="card-kicker">Concentrated smaller-company equity</p>
-<h3>Patrumin U.S. Smallcap Equity Strategy</h3>
-</div><a class="button button--outline strategy-panel__cta" href="gips.html">GIPS<sup class="reg">®</sup> Report</a></div>
+<article class="strategy-panel" id="strategy-smallcap"><div class="strategy-panel__top"><div class="strategy-panel__heading"><h3 class="strategy-panel__name">Patrumin U.S. Smallcap Equity Strategy</h3><span class="strategy-panel__tag">Concentrated smaller-company equity</span></div><a class="button button--outline strategy-panel__cta" href="gips.html">GIPS<sup class="reg">®</sup> Report</a></div>
 
 
 <div class="strategy-panel__body">
@@ -88,10 +107,7 @@
 
 </div></article>
 <!-- ② Dividends Plus+ -->
-<article class="strategy-panel" id="strategy-dividends-plus"><div class="strategy-panel__top"><div>
-<p class="card-kicker">Dividend-focused U.S. equity</p>
-<h3>Patrumin U.S. Dividends Plus+ Equity Strategy</h3>
-</div><a class="button button--outline strategy-panel__cta" href="gips.html">GIPS<sup class="reg">®</sup> Report</a></div>
+<article class="strategy-panel" id="strategy-dividends-plus"><div class="strategy-panel__top"><div class="strategy-panel__heading"><h3 class="strategy-panel__name">Patrumin U.S. Dividends Plus+ Equity Strategy</h3><span class="strategy-panel__tag">Dividend-focused U.S. equity</span></div><a class="button button--outline strategy-panel__cta" href="gips.html">GIPS<sup class="reg">®</sup> Report</a></div>
 
 
 <div class="strategy-panel__body">
@@ -101,10 +117,7 @@
 <p>We are especially attracted to companies which have products or services that fundamentally change the spending behavior of consumers or their business customers and pay dividends or are increasing their dividends.</p>
 </div></article>
 <!-- ③ Allcap -->
-<article class="strategy-panel" id="strategy-allcap"><div class="strategy-panel__top"><div>
-<p class="card-kicker">All-capitalization U.S. equity</p>
-<h3>Patrumin U.S. Allcap Equity Strategy</h3>
-</div><a class="button button--outline strategy-panel__cta" href="gips.html">GIPS<sup class="reg">®</sup> Report</a></div>
+<article class="strategy-panel" id="strategy-allcap"><div class="strategy-panel__top"><div class="strategy-panel__heading"><h3 class="strategy-panel__name">Patrumin U.S. Allcap Equity Strategy</h3><span class="strategy-panel__tag">All-capitalization U.S. equity</span></div><a class="button button--outline strategy-panel__cta" href="gips.html">GIPS<sup class="reg">®</sup> Report</a></div>
 
 
 <div class="strategy-panel__body">
@@ -114,10 +127,7 @@
 <p>We are especially attracted to companies which have products or services that fundamentally change the spending behavior of consumers or their business customers.</p>
 </div></article>
 <!-- ④ SMICROCAP -->
-<article class="strategy-panel" id="strategy-smicrocap"><div class="strategy-panel__top"><div>
-<p class="card-kicker">Concentrated micro &amp; small-cap equity</p>
-<h3>Patrumin U.S. SMICROCAP Growth Equity Strategy</h3>
-</div><a class="button button--outline strategy-panel__cta" href="gips.html">GIPS<sup class="reg">®</sup> Report</a></div>
+<article class="strategy-panel" id="strategy-smicrocap"><div class="strategy-panel__top"><div class="strategy-panel__heading"><h3 class="strategy-panel__name">Patrumin U.S. SMICROCAP Growth Equity Strategy</h3><span class="strategy-panel__tag">Concentrated micro &amp; small-cap equity</span></div><a class="button button--outline strategy-panel__cta" href="gips.html">GIPS<sup class="reg">®</sup> Report</a></div>
 
 
 <div class="strategy-panel__body">
@@ -127,10 +137,7 @@
 <p>We are especially attracted to companies which have products or services that fundamentally change the spending behavior of consumers or their business customers.</p>
 </div></article>
 <!-- ⑤ Balanced Equity-Income -->
-<article class="strategy-panel" id="strategy-balanced-equity-income"><div class="strategy-panel__top"><div>
-<p class="card-kicker">Customized balanced &amp; income-oriented</p>
-<h3>Patrumin Custom Balanced Equity-Income Strategy</h3>
-</div><a class="button button--outline strategy-panel__cta" href="mailto:info@patrumin.com?subject=Patrumin%20Strategy%20Materials%20Request">Request Info</a></div>
+<article class="strategy-panel" id="strategy-balanced-equity-income"><div class="strategy-panel__top"><div class="strategy-panel__heading"><h3 class="strategy-panel__name">Patrumin Custom Balanced Equity-Income Strategy</h3><span class="strategy-panel__tag">Customized balanced &amp; income-oriented</span></div><a class="button button--outline strategy-panel__cta" href="mailto:info@patrumin.com?subject=Patrumin%20Strategy%20Materials%20Request">Request Info</a></div>
 
 
 <div class="strategy-panel__body">
@@ -139,10 +146,7 @@
 <p>Asset allocation ranges between equity and fixed income are determined in consultation with each client and their financial advisor. The strategy is particularly suited for high-net-worth individuals, family offices, and institutions seeking stable, tax-efficient income alongside long-term capital appreciation.</p>
 </div></article>
 <!-- ⑥ Custom Balanced -->
-<article class="strategy-panel" id="strategy-custom-balanced"><div class="strategy-panel__top"><div>
-<p class="card-kicker">Fully customized balanced portfolio</p>
-<h3>Patrumin Custom Balanced Strategy</h3>
-</div><a class="button button--outline strategy-panel__cta" href="mailto:info@patrumin.com?subject=Patrumin%20Strategy%20Materials%20Request">Request Info</a></div>
+<article class="strategy-panel" id="strategy-custom-balanced"><div class="strategy-panel__top"><div class="strategy-panel__heading"><h3 class="strategy-panel__name">Patrumin Custom Balanced Strategy</h3><span class="strategy-panel__tag">Fully customized balanced portfolio</span></div><a class="button button--outline strategy-panel__cta" href="mailto:info@patrumin.com?subject=Patrumin%20Strategy%20Materials%20Request">Request Info</a></div>
 
 
 <div class="strategy-panel__body">
@@ -151,6 +155,22 @@
 <p>The strategy is best suited for family offices, trusts, and high-net-worth individuals who require a fully bespoke investment solution with direct account ownership and transparent reporting.</p>
 </div></article>
 <p class="strategy-disclosure">For performance information, disclosures, and strategy materials, contact <a href="mailto:info@patrumin.com">info@patrumin.com</a>. Small capitalization and micro capitalization securities involve greater issuer risk than larger capitalization securities, and the markets for such securities may be more volatile and less liquid. Speculative investment characteristics may increase risk of loss.</p>
+</div>
+</section>
+<section aria-labelledby="built-around-title" class="built-around section-padding" id="built-around-the-client">
+<div class="section-shell" data-i18n-html="builtAroundClient">
+<div class="section-heading section-heading--full">
+<p class="eyebrow">Personalized Portfolio Construction</p>
+<h2 id="built-around-title">Built Around the Client</h2>
+</div>
+<div class="built-around__copy">
+<p>Personalization is becoming an increasingly important part of investment management. At Patrumin, it is already fundamental to how we invest.</p>
+<p>Rather than beginning with a prepackaged model or selecting among outside managers, we begin with the client. We design portfolios around individual objectives, risk tolerance, tax considerations, liquidity needs, investment preferences, and other relevant circumstances.</p>
+<p>This direct approach gives us greater control over portfolio construction, asset allocation, security selection, risk management, and ongoing optimization.</p>
+<p>When appropriate, we may supplement Patrumin-managed strategies with carefully selected third-party solutions. We use them when they offer a specific portfolio advantage&mdash;such as diversification, downside-risk management, or improved portfolio efficiency&mdash;or when regulatory, jurisdictional, custody, or other client-specific constraints require an alternative investment structure.</p>
+<p>Importantly, Patrumin receives no additional compensation or economic benefit for selecting one third-party product over another. We do not receive commissions, revenue sharing, rebates, 12b-1 fees, referral or placement fees, product-provider incentives, soft-dollar benefits, or other compensation tied to the investments we recommend.</p>
+</div>
+<p class="built-around__kicker">We build the portfolio first, then select the most appropriate way to implement it. Our investment decisions are driven by the client and the portfolio&mdash;not by product economics.</p>
 </div>
 </section>
 <section aria-labelledby="contact-title" class="contact section-padding" id="contact">
@@ -237,6 +257,6 @@
 </div>
 </div>
 </div>
-<script src="script.js?v=16"></script>
+<script src="script.js?v=24"></script>
 </body>
 </html>

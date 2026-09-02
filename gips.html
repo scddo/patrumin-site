@@ -6,14 +6,31 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>GIPS® Composite Reports | Patrumin Investors</title>
 <meta content="Access Patrumin Investors GIPS® verified composite performance reports for all core equity strategies." name="description"/>
-<link rel="stylesheet" href="styles.css?v=38">
+<link rel="stylesheet" href="styles.css?v=51">
+<script>
+/* Theme boot — runs before first paint so there is no flash.
+   An explicit choice in localStorage wins; otherwise the OS/browser
+   preference is honoured; otherwise light. */
+(function () {
+  try {
+    var t = localStorage.getItem("patrumin-theme");
+    if (t !== "dark" && t !== "light") {
+      t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {
+    document.documentElement.setAttribute("data-theme", "light");
+  }
+})();
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
 <nav aria-label="Primary navigation" class="main-nav">
 <a aria-label="Patrumin Investors home" class="brand" href="index.html">
-<img alt="Patrumin Investors" src="assets/patrumin-logo-clean.png"/>
+<img class="brand__mark" alt="" src="assets/patrumin-mark-hd.png"/>
+<span class="brand__name"><span class="brand__name--dark">Patrumin</span> <span class="brand__name--green">Investors</span></span>
 </a>
 <button aria-controls="site-menu" aria-expanded="false" class="nav-toggle" type="button">
 <span class="nav-toggle__line"></span>
@@ -34,6 +51,7 @@
 <a data-i18n="navCustomBalanced" href="strategies.html#strategy-custom-balanced">Custom Balanced</a>
 </div>
 </div>
+<a data-i18n="navCapabilities" href="capabilities.html">Capabilities</a>
 <a data-i18n="navGipsComposite" href="gips.html">GIPS<sup class="reg">®</sup> Reports</a>
 <a data-i18n="navPerformance" href="performance.html">Equity Performance</a>
 <a data-i18n="navInsights" href="insights.html">Insights</a>
@@ -41,6 +59,10 @@
 <a data-i18n="navContact" href="#contact">Contact Us</a>
 </div>
 <div aria-label="Utilities" class="nav-aux">
+<button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" title="Switch to dark mode">
+<svg class="theme-toggle__moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+<svg class="theme-toggle__sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.2v2.4M12 19.4v2.4M4.1 4.1l1.7 1.7M18.2 18.2l1.7 1.7M2.2 12h2.4M19.4 12h2.4M4.1 19.9l1.7-1.7M18.2 5.8l1.7-1.7"></path></svg>
+</button>
 <label class="language-switch" for="language-select">
 <svg aria-hidden="true" class="lang-globe" fill="none" height="13" stroke="currentColor" stroke-width="1.5" viewbox="0 0 16 16" width="13"><circle cx="8" cy="8" r="6.5"></circle><ellipse cx="8" cy="8" rx="2.9" ry="6.5"></ellipse><line x1="1.5" x2="14.5" y1="8" y2="8"></line><line x1="2" x2="14" y1="5" y2="5"></line><line x1="2" x2="14" y1="11" y2="11"></line></svg>
 <span aria-hidden="true" class="language-switch__label">English</span>
@@ -65,7 +87,7 @@
 <div class="section-shell">
 <div class="section-heading section-heading--full">
 <h2 class="sr-only" id="gips-composite-title">GIPS<sup class="reg">®</sup> Composite Reports</h2>
-<p data-i18n="gipsIntro">The firm prides itself on long-term investment performance. Patrumin Investors presents performance results for its core U.S. equity strategies in compliance with the Global Investment Performance Standards (GIPS<sup class="reg">®</sup>). Please provide your contact information before accessing each report — distribution is logged as required under GIPS<sup class="reg">®</sup> standards.</p>
+<p data-i18n="gipsIntro">Below are our GIPS<sup class="reg">®</sup> Composite Reports, prepared and presented in compliance with the Global Investment Performance Standards (GIPS<sup class="reg">®</sup>). These reports provide detailed, standardized performance information for each of our investment strategies.</p>
 </div>
 <div class="gips-reports-grid" data-i18n-html="gipsCards">
 <div class="gips-report-item">
@@ -104,6 +126,11 @@
 <button class="button button--primary" onclick="openGipsModal('U.S. SMICROCAP Growth Composite', '#', 'download')">Download</button>
 </div>
 </div>
+</div>
+<div class="gips-notes" data-i18n-html="gipsNotes">
+<p>Patrumin Investors claims compliance with the Global Investment Performance Standards (GIPS<sup class="reg">®</sup>) and has prepared and presented these reports in compliance with the GIPS standards. Patrumin Investors has been independently verified for the period of October 1, 2012, through December 31, 2024. The verification report(s) is/are available upon request.</p>
+<p>To receive a GIPS-compliant presentation for any composite or a list and description of all firm composites, please contact us at <a href="mailto:info@patrumin.com">info@patrumin.com</a>.</p>
+<p>These reports are provided for use by prospective clients and other interested parties evaluating our investment strategies.</p>
 </div>
 </div>
 </section>
@@ -191,4 +218,4 @@
 </div>
 </div>
 </div>
-<script src="script.js?v=16"></script></body></html>
+<script src="script.js?v=24"></script></body></html>
